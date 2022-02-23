@@ -2,6 +2,10 @@
 	color:rgb(0, 0, 0)
 }
 
+.image {
+	width: 15%;
+}
+
 .navbar {
 	height: 90px;
 	width: 100%;

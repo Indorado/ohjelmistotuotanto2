@@ -17,7 +17,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<Link to="/" className="nav-logo">
-				Logo
+				<img className="image" src="https://i.imgur.com/0jRzKI9.png"></img>
 			</Link>
 			<div onClick={handleClick} className="nav-icon">
 				{open ? <FiX /> : <FiMenu />}
