@@ -3,11 +3,11 @@
 }
 
 .image {
-	width: 15%;
+	width: 95%;
 }
 
 .navbar {
-	height: 90px;
+	height: 100px;
 	width: 100%;
 	background: rgb(255, 255, 255);
 	color: rgb(0, 0, 0);
@@ -20,6 +20,7 @@
 }
 
 .nav-logo {
+	width:50px;
 	text-decoration: none;
 	color: rgb(0, 0, 0);
 }
@@ -47,9 +48,9 @@
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1050px) {
 	.navbar {
-		position: relative;
+		position: right;
 		border-bottom: 1px solid rgb(109, 109, 109);
 	}
 
@@ -59,8 +60,8 @@
 		position: absolute;
 		text-align: center;
 		width: 100%;
-		top: 80px;
-		left: -100%;
+		top: 70px;
+		left: -180%;
 		transition: 0.5s all;
 		
 	}
