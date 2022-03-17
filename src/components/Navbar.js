@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import './css/Navbar.css';
+
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<Link to="/" className="nav-logo">
-				<img className="image" src="https://i.imgur.com/0jRzKI9.png"></img>
+				<img className="image" src="https://i.imgur.com/0jRzKI9.png" alt=""></img>
 			</Link>
 			<div onClick={handleClick} className="nav-icon">
 				{open ? <FiX /> : <FiMenu />}
