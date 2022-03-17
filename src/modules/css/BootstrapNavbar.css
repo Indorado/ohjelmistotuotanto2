@@ -1,0 +1,27 @@
+.nav-img {
+    width: 65px;
+}
+
+.user-info {
+    align-items: center;
+    margin-left: 15px;
+    color: grey;
+}
+
+.navbar-whole {
+    height: 90px;
+	align-items: center;
+	padding: 0 2rem;
+	font-size: 1.2rem;
+    background-color: white !important;
+}
+
+/*Kohdistetaan navbar oikeaan reunaan*/
+.navbar-end {
+    justify-content: end;
+}
+
+/*Tämä ei toimi vaikka käyttäisi luokkanimeä oikein navbar linkin kohdalla*/
+.navbar-link {
+	transition: 0.3s all;
+}

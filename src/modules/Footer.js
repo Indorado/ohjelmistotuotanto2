@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
 
             <div className='lower-footer'>
-                <div className='border'>
+                <div>
                     <div><div><p>Tämä on footer. Tämä näkyy kaikilla sivuilla.</p></div>
                     <div><p><AiOutlineCopyright/> Projektiryhmä Q</p></div></div>
                 </div>
