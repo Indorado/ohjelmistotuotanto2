@@ -1,28 +1,34 @@
-.header-text {
-	padding-top: 50px;
-	color: rgb(80,80,80);
-    font-weight: bold;
-}
-
 .item {
 	text-align: center;
 }
 
 .picture {
-	padding-top: 50px;
+	width: 50%;
+	height: auto;
 }
 
 .text {
-	color: red;
+	color: grey;
 }
 
+.hero {
+	margin-top: 20px;
+}
+
+.buttons {
+	display: flex;
+	gap: 5px;
+}
+
+/*Tämä ei toimi*/
 .btn-up { 
-	color: red;
+	color: black;
 }
 
-.header-text1 {
+h1, h2, h3, h4 {
+	padding-top: 10px;
 	color: rgb(80,80,80);
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 /*Kuopion kulkijat info*/
