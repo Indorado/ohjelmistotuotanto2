@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { IoMdCheckmarkCircleOutline } from "react-icons/io"
-
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -32,6 +30,7 @@ const Matkakohde = () => {
             <div>
                 <h2>Selaa matkakohteita</h2>
                 <p className='text'>Selaa kirjautuneiden käyttäjien lisäämiä matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiin!</p>
+                <p className='text'>*Tähän sisältöä*</p>
             </div>
           </Container>
           
