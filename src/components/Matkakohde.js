@@ -21,7 +21,7 @@ const Matkakohde = () => {
                 <p className='text'>Väritä omia matkakertomuksia kuvin ja tarinoin. Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
                 <Buttons/>
               </Col>
-              <Col><Image className="picture" class="img-fluid" src="https://i.imgur.com/iCT6noV.jpg" alt="Kuva"></Image></Col>
+              <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
             </Row>  
           </Container>
 

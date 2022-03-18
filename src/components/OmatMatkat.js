@@ -21,7 +21,7 @@ const OmatMatkat = () => {
                 <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
                 <Buttons/>
               </Col>
-              <Col><Image className="picture" class="img-fluid" src="https://i.imgur.com/iCT6noV.jpg" alt="Kuva"></Image></Col>
+              <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
             </Row>  
           </Container>
 

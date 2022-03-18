@@ -21,7 +21,9 @@ const Koti = () => {
                 <p className='text'>Kuopion kulkijat on kuopiolainen harrasteporukka. Käyttäjämme voivat tallentaa matkakertomuksiaan, esitellä uusia matkakohteita ja tutustua toisten matkakertomuksiin.</p>
                 <Buttons/>
               </Col>
-              <Col><Image className="picture" class="img-fluid" src="https://i.imgur.com/iCT6noV.jpg" alt="Kuva"></Image></Col>
+              <Col>
+                <Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image>
+              </Col>
             </Row>  
           </Container>
 
@@ -69,6 +71,12 @@ const Koti = () => {
         </div>
     )
 }
+
+/*const Picture = () => {
+  return (
+    
+  )
+}*/
 
 const Buttons = () => {
   return (
