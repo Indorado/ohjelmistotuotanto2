@@ -85,3 +85,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+src/modules/css/kokeilu.js
+package.json
+package-lock.json
+.gitignore
+src/modules/css/styles.css
+package-lock.json
+package.json
