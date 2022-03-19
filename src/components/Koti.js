@@ -1,5 +1,3 @@
-
-
 import { IoMdCheckmarkCircleOutline } from "react-icons/io"
 
 import Button from 'react-bootstrap/Button';
@@ -28,6 +26,16 @@ const Koti = () => {
     handleClose();
   };
 
+  const [showLogIn, setShowLogIn] = useState(false);
+
+  const handleClose2 = () => setShowLogIn(false);
+  const handleShow2 = () => setShowLogIn(true);
+
+  const onLoginFormSubmit2 = (e) => {
+    e.preventDefault();
+    handleClose();
+  };
+
   return (
     <div>
       <Container className="hero">
@@ -35,7 +43,7 @@ const Koti = () => {
           <Col>
             <h1 className='header-text'>Kuopion kulkijat</h1>
             <p className='text'>Kuopion kulkijat on kuopiolainen harrasteporukka. Käyttäjämme voivat tallentaa matkakertomuksiaan, esitellä uusia matkakohteita ja tutustua toisten matkakertomuksiin.</p>
-            <Button className='btn-in' variant="secondary">Kirjaudu</Button>
+            <Button  onClick={handleShow2} className='btn-in' variant="secondary">Kirjaudu</Button>
             <Button onClick={handleShow} variant='light' style={{ color: "grey", backgroundColor: 'lightgray', margin: '5px' }}>Rekisteröidy</Button>
 
           </Col>
@@ -86,13 +94,14 @@ const Koti = () => {
       </div>
       <>
 
+    
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Rekisteröidy käyttäjäksi</Modal.Title>
           </Modal.Header>
           <p style={{ marginTop: '20px', marginLeft: '20px' }}>Täytä kentät huolellisesti. Kaikki kentät ovat pakollisia.</p>
           <Modal.Body>
-            <LoginForm onSubmit={onLoginFormSubmit} />
+            <LoginFormSignUp onSubmit={onLoginFormSubmit} />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
@@ -100,7 +109,21 @@ const Koti = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </>
+      
+      <Modal show={showLogIn} onHide={handleClose2}>
+        <Modal.Header closeButton>
+          <Modal.Title>Kirjaudu sisään</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <LoginFormSignIn onSubmit={onLoginFormSubmit2} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose2}>
+            Sulje
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
       <hr></hr>
     </div>
   )
@@ -121,8 +144,81 @@ const Buttons = () => {
   )
 }
 
+// KIRJAUDU:
+const LoginFormSignIn = ({ onSubmit }) => {
+  const [sposti, setSposti] = useState("");
+  const [salasana, setSalasana] = useState("");
 
-const LoginForm = ({ onSubmit }) => {
+  const [salasanaError, setsalasanaError] = useState("");
+  const [spostiError, setSpostiError] = useState("");
+
+  
+  const handleValidation = (event) => {
+    let formIsValid = true;
+
+    if (!sposti.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+      formIsValid = false;
+      setSpostiError("Sähköpostiosoite ei kelpaa.");
+      return false;
+    } else {
+      setSpostiError("");
+      formIsValid = true;
+    }
+
+    if (!salasana.match(/^[a-zA-Z]{8,22}$/)) {
+      formIsValid = false;
+      setsalasanaError(
+        "Vain kirjaimet ovat sallittuja ja salasanan vähimmäispituus on 8 merkkiä ja maksimipituus on 22 merkkiä."
+      );
+      return false;
+    } else {
+      setsalasanaError("");
+      formIsValid = true;
+    }
+
+    return formIsValid;
+  };
+
+  const loginSubmit2 = (e) => {
+    e.preventDefault();
+    handleValidation();
+  };
+
+  return (
+    <Form onSubmit={loginSubmit2}>
+
+           <Form.Group controlId="formBasic" className="formBasic">
+        <Form.Control
+          type="sposti"
+          placeholder="Sähköpostiosoite"
+          value={sposti}
+          onChange={(e) => setSposti(e.target.value)}
+        />
+        <small id="Help" className="text-danger form-text">
+          {spostiError}
+        </small>
+      </Form.Group>
+
+      <Form.Group controlId="formBasic" className="formBasic">
+        <Form.Control
+          type="salasana"
+          placeholder="Salasana"
+          value={salasana}
+          onChange={(e) => setSalasana(e.target.value)}
+        />
+        <small id="passworderror" className="text-danger form-text">
+          {salasanaError}
+        </small>
+      </Form.Group>
+      <Button variant="primary" type="submit" block className="formBasic">
+        Kirjaudu
+      </Button>
+      </Form>
+  );
+};
+
+//REKISTERÖIDY:
+const LoginFormSignUp = ({ onSubmit }) => {
   const [sposti, setSposti] = useState("");
   const [salasana, setSalasana] = useState("");
   const [nimimerkki, setNimimerkki] = useState("");
@@ -136,6 +232,7 @@ const LoginForm = ({ onSubmit }) => {
   const [spostiError, setSpostiError] = useState("");
 
   const handleValidation = (event) => {
+    
     let formIsValid = true;
 
     if (!nimimerkki.match(/^[a-zA-Z]{4,16}$/)) {
