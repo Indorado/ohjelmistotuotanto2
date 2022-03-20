@@ -9,8 +9,12 @@ import Mainos from '../modules/Mainos';
 import './css/OmatMatkat.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 
-
 //Johanna
+/**Omat matkat-sivulla
+o    voi lisätä, selata, päivittää ja poistaa omia matkoja ja niihin liitettyjä tarinoita ja kuvia
+o    voi merkitä matkan yksityiseksi, jolloin kukaan muu ei saa nähdä kyseistä matkaa, eikä siihen kuuluvia tarinoita tai kuvia
+o    navigointi tarinat- ja kuvat-sivuille voi tapahtuma päävalikon tai sivukohtaisen valikon kautta oman harkinnan mukaan
+o    HUOM! Porukan matkat- ja Omat matkat-sivut saisivat olla mahdollisimman yhdenmukaisia */
 
 const OmatMatkat = () => {
   return (
@@ -34,45 +38,63 @@ const OmatMatkat = () => {
               <h2>Selaa omia matkoja</h2>
               <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi!</p>
             </Col>
-
             <Col>
-              {/*</DropDown>*/}
-              <Dropdown>
-                <p className='text'>Voit rajata hakua alla olevasta valikosta valitsemalla kohteen ja painamalla "Rajaa hakutulosta"-nappia.</p>
-                <Dropdown.Toggle variant="secondary" id="dropdown-basic">Valitse matkakohde</Dropdown.Toggle>
-                <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 7 }}>Rajaa hakutulosta</button>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Suomi</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Bulgaria</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Espanja</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <Buttons2 />
             </Col>
           </Row>
           <Row>
             {/*kuvat tähän*/}
+            <Container className="browse-destinations" style={{ maxHeight: 1000 }}>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/0j1r0KT.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Puijon torni</h4>
+                  <p class="text">Kuopio, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+            </Container>
+
           </Row>
         </div>
-      </Container>
+      </Container >
 
-      {/*Mainos*/}
+
       <div>
-        <hr></hr>
-        <Container>
-          <Row>
-            <Col>
-              <h2>Tallenna omia matkakertomuksia</h2>
-              <p className='text'>Määritä matkakertomuksesi yksityisyys ja väritä omia matkakertomuksia
-               kuvin ja tarinoin! Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja
-                etsiä inspiraatioita seuraavalle matkallesi!</p>
-                <Buttons2/>
-            </Col>
-            <Col><img class="img-fluid" src="https://i.imgur.com/US0C0Lc.png" alt=""></img></Col>
-          </Row>
-          
-        </Container>
-
+        <Mainos />
         <hr></hr>
       </div>
 
@@ -85,9 +107,8 @@ const OmatMatkat = () => {
           <Button variant="secondary">Tallenna matkasi!</Button>
         </div>
       </div>
-
       <hr></hr>
-    </div>
+    </div >
   )
 }
 
@@ -95,7 +116,10 @@ const Buttons = () => {
   return (
     <div className="buttons">
       <Button className='btn-in' variant="secondary">Lisää uusi matka</Button>
-      <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Omat tiedot</button>
+      <button type="button" onClick={(e) => {
+        e.preventDefault();
+        window.location.href = 'http://localhost:3000/OmatTiedot';
+      }} class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Omat tiedot</button>
     </div>
   )
 }
@@ -103,11 +127,9 @@ const Buttons = () => {
 const Buttons2 = () => {
   return (
     <div className="btnMainos" >
-      <p className="text">Tästä pääset muokkaamaan, lisäämään ja poistamaan luomiasia matkakohteita.</p>
+      <p className="text">Tästä pääset muokkaamaan, lisäämään ja poistamaan omia matkakohteita.</p>
       <button type="button" class="btn btn-outline-secondary">Muokkaa</button>
-      
       <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 5 }}>Lisää</button>
-     
       <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 5 }}>Poista</button>
     </div>
   )
