@@ -7,7 +7,7 @@ import './App.css';
 import Footer from './modules/Footer';
 import BootstrapNavbar from './modules/BootstrapNavbar';
 
-import Koti from './components/Koti';
+import {Koti} from './components/Koti';
 import OmatMatkat from './components/OmatMatkat';
 import PorukanMatkat from './components/PorukanMatkat';
 import Jasenet from './components/Jasenet';
@@ -41,5 +41,5 @@ function App() {
 	);
 }
 
-export default App;
+export {App}
 

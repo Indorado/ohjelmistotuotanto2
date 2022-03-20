@@ -2,6 +2,11 @@
 	text-align: center;
 }
 
+.formBasic
+{
+margin: 10px;
+border-color: black;
+}
 .text {
 	color: grey;
 }
@@ -25,6 +30,7 @@ h1, h2, h3, h4 {
 	color: rgb(80,80,80);
     font-weight: bolder;
 }
+
 
 /*Kuopion kulkijat info*/
 .info {
