@@ -11,7 +11,7 @@ import './css/Koti.css';
 
 import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
-import './css/Modal.css';
+import './css/Koti.css';
 import "bootstrap/dist/css/bootstrap.css";
 
 
@@ -359,6 +359,16 @@ const LoginFormSignUp = ({ onSubmit }) => {
         <small id="passworderror" className="text-danger form-text">
           {salasanaError}
         </small>
+      </Form.Group>
+
+      <Form.Group controlId="formBasic" className="formBasic">
+        <Form.Control
+          type="salasana"
+          placeholder="Vahvista salasana"
+          value={salasana}
+          onChange={(e) => setSalasana(e.target.value)}
+        />
+       
       </Form.Group>
 
       <Button variant="primary" type="submit" block className="formBasic">
