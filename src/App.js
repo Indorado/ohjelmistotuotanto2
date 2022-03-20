@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import Footer from './modules/Footer';
 import BootstrapNavbar from './modules/BootstrapNavbar';
 
 import {Koti} from './components/Koti';
-import OmatMatkat from './components/OmatMatkat';
+import OmatMatkat from './OmatMatkat';
 import PorukanMatkat from './components/PorukanMatkat';
 import Jasenet from './components/Jasenet';
 import Matkakohde from './components/Matkakohde';
@@ -41,5 +42,4 @@ function App() {
 	);
 }
 
-export {App}
-
+export default App;

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './App';
+import App from './App';
 
-//import App from './modules/css/kokeilu';
+//import App from './kokeilu';
 
 ReactDOM.render(
 	<React.StrictMode>

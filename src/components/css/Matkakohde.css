@@ -1,0 +1,9 @@
+.browse-buttons {
+    display: flex;
+    gap: 2px;
+}
+
+.browse-destinations {
+    display: flex;
+    gap: 5px;
+}

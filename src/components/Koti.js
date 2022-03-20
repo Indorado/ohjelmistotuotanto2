@@ -11,6 +11,7 @@ import './css/Koti.css';
 
 import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
+
 import './css/Koti.css';
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -43,9 +44,8 @@ const Koti = () => {
           <Col>
             <h1 className='header-text'>Kuopion kulkijat</h1>
             <p className='text'>Kuopion kulkijat on kuopiolainen harrasteporukka. Käyttäjämme voivat tallentaa matkakertomuksiaan, esitellä uusia matkakohteita ja tutustua toisten matkakertomuksiin.</p>
-            <Button  onClick={handleShow2} className='btn-in' variant="secondary">Kirjaudu</Button>
-            <Button onClick={handleShow} variant='light' style={{ color: "grey", backgroundColor: 'lightgray', margin: '5px' }}>Rekisteröidy</Button>
-
+            <button onClick={handleShow2} type="button" class="btn btn-secondary">Kirjaudu</button>
+            <button onClick={handleShow} type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Rekisteröidy</button>
           </Col>
           <Col>
             <Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image>
@@ -89,7 +89,7 @@ const Koti = () => {
           <p>Rekisteröidy heti alla olevan painikkeen avulla!</p>
         </div>
         <div>
-          <Button variant="secondary" onClick={handleShow}>Rekisteröidy</Button>
+        <button onClick={handleShow} type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Rekisteröidy</button>
         </div>
       </div>
       <>
@@ -129,20 +129,14 @@ const Koti = () => {
   )
 }
 
-/*const Picture = () => {
-  return (
-    
-  )
-}*/
-
-const Buttons = () => {
+/*const Buttons = () => {
   return (
     <div className="buttons">
       <Button className='btn-in' variant="secondary">Kirjaudu</Button>
       <Button variant='light' style={{ color: "grey", backgroundColor: 'lightgray' }}>Rekisteröidy</Button>
     </div>
   )
-}
+}*/
 
 // KIRJAUDU:
 const LoginFormSignIn = ({ onSubmit }) => {
