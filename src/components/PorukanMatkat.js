@@ -92,12 +92,14 @@ const PorukanMatkat = () => {
               <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
             </div>
             <div>
-              <Button variant="secondary">Tallenna matkasi!</Button>
+              <button class="btn btn-outline-secondary">Tallenna matkasi!</button>
             </div>
           </div>
           
           <hr></hr>
+         
         </div>
+        
     )
 }
 
