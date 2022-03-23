@@ -5,14 +5,14 @@
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-/*ScrollTop nappi*/  
+/*ScrollUp nappi*/  
 .back-to-top {
 	position: fixed;
 	bottom: 30px;
 	right: 25px;
 	height: 60px;
 	width: 40px;
-	font-size: 30px;
+	font-size: 40px;
 	background: rgb(93, 100, 102);
 	color: white;
 	cursor: pointer;
