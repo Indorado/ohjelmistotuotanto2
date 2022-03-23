@@ -47,17 +47,10 @@ const PorukanMatkat = () => {
                   <p class="text">Kuopio, Suomi</p>
                 </div>
               </div>
-
-              <div class="card" style={{ maxWidth: 200, }}>
-                <img class="card-img-top" src="https://i.imgur.com/bO8pN0y.jpeg" alt="" style={{ padding: 2 }}></img>
-                <div class="card-body">
-                  <h4 class="card-title">Roches Crahay</h4>
-                  <p class="text">Aywaille, Belgia</p>
-                </div>
-              </div>
+              
 
               <div class="card" style={{ maxWidth: 200 }}>
-                <img class="card-img-top" src="https://i.imgur.com/4QBZMFI.jpeg" alt="" style={{ padding: 2 }}></img>
+                <img class="card-img-top" src="https://images.pexels.com/photos/910307/pexels-photo-910307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=940" alt="" style={{ padding: 2 }}></img>
                 <div class="card-body">
                   <h4 class="card-title">Renggloch</h4>
                   <p class="text">Luzern, Sveitsi</p>
