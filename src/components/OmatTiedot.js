@@ -21,75 +21,66 @@ const OmatTiedot = () => {
     return (
         <div>
           <Container className="hero">
-            <Row>
-              <Col>
-                <h1 className='header-text'>*Käyttäjän nimi*</h1>
-                <Form.Group>
-                  <Form.Control as="textarea" rows={5} maxLength={3} placeholder="Käyttäjän esittely"></Form.Control>
-                  <p className='counter-text'> / 250</p>
-                </Form.Group>
-                <div>
-                  <button type="button" class="btn btn-secondary">Muuta tietoja</button>
-                  <Link to="/OmatTiedot"><button type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Omat matkat</button></Link>
-                </div>
-                
-              </Col>
-              <Col>
-          </Col>
-              <Col className="picture">
-                <div class="card" >
-                  <img as={Col} class="card-img-top img-fluid" src="https://p0.piqsels.com/preview/965/429/207/avatar-people-person-business.jpg" alt="" style={{ padding: 2 }}></img>
-                  <div>
-                    <button type="button" class="btn btn-outline-secondary" style={{ margin: 5 }}>Vaihda kuva</button>
-                    <button type="button" class="btn btn-outline-secondary" style={{ margin: 5 }}><BsTrash/></button>
-                  </div>
-                </div>
-              </Col>
-            </Row>  
-          </Container>
-
-
-          <hr></hr>
-
-          <Container>
-            <Row>
-                <h2>Omat tiedot</h2>
-            </Row>
             <Form>
-              <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridFirstName">
-                  <Form.Label>Etunimi</Form.Label>
-                  <Form.Control placeholder="*Etunimi*" />
+              <Row >
+                <Form.Group as={Col}>
+                  <h1 className='header-text'>*Käyttäjän nimi*</h1>
+                  <Form.Group>
+                    <Form.Control as="textarea" rows={5} maxLength={3} controlId="formGridPresentation" placeholder="Käyttäjän esittely"></Form.Control>
+                    <p className='counter-text'> / 250</p>
+                  </Form.Group>
+
+                  <Form.Group>
+                    <Row>
+                      <h2>Omat tiedot</h2>
+                    </Row>
+
+                    <Row className="mb-3">
+                      <Form.Group as={Col} controlId="formGridFirstName">
+                        <Form.Label>Etunimi</Form.Label>
+                        <Form.Control placeholder="*Etunimi*" />
+                      </Form.Group>
+
+                      <Form.Group as={Col} controlId="formGridLastName">
+                        <Form.Label>Sukunimi</Form.Label>
+                        <Form.Control placeholder="*Sukunimi*" />
+                      </Form.Group>
+                    </Row>
+
+                    <Row className="mb-3">
+                      <Form.Group as={Col} xs={3} controlId="formGridZip">
+                        <Form.Label>Postinumero</Form.Label>
+                        <Form.Control />
+                      </Form.Group>
+
+                      <Form.Group as={Col} controlId="formGridCity">
+                        <Form.Label>Postitoimipaikka</Form.Label>
+                        <Form.Control />
+                      </Form.Group>
+
+                      <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>Maa</Form.Label>
+                        <Form.Select defaultValue="Valitse">
+                          <option disabled>Valitse</option>
+                          <option>Suomi</option>
+                          <option>Ulkomailla</option>
+                        </Form.Select>
+                      </Form.Group>
+                    </Row>
+                  </Form.Group>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridLastName">
-                  <Form.Label>Sukunimi</Form.Label>
-                  <Form.Control placeholder="*Sukunimi*" />
+                <Form.Group as={Col} xs={3} className="picture">
+                  <div class="card" >
+                    <img as={Col} class="card-img-top img-fluid" src="https://p0.piqsels.com/preview/965/429/207/avatar-people-person-business.jpg" alt="" style={{ padding: 2 }}></img>
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary" style={{ margin: 5 }}>Vaihda kuva</button>
+                      <button type="button" class="btn btn-outline-secondary" style={{ margin: 5 }}><BsTrash/></button>
+                    </div>
+                  </div>
                 </Form.Group>
               </Row>
 
-              <Row className="mb-3">
-              <Form.Group as={Col} xs={3} controlId="formGridZip">
-                  <Form.Label>Postinumero</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridCity">
-                  <Form.Label>Postitoimipaikka</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridState">
-                  <Form.Label>Maa</Form.Label>
-                  <Form.Select defaultValue="Valitse">
-                    <option disabled>Valitse</option>
-                    <option>Suomi</option>
-                    <option>Ulkomailla</option>
-                  </Form.Select>
-                </Form.Group>
-
-                
-              </Row>
               <button type="button" class="btn btn-secondary">Tallenna muutokset</button>
             </Form>
           </Container>
