@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 
 import './css/Koti.css';
-import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap.css";
 
 
 const Koti = () => {

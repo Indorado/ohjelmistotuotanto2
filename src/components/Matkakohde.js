@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
 import {Dropdown} from 'react-bootstrap';
-
+import { BsGeoAlt } from "react-icons/bs";
 
 import Mainos from '../modules/Mainos';
 import './css/Matkakohde.css';
@@ -59,7 +59,7 @@ const Matkakohde = () => {
                     <img class="card-img-top" src="https://imgur.com/0j1r0KT.png" alt="" style={{ padding: 2}}></img>
                     <div class="card-body">
                       <h4 class="card-title">Puijon torni</h4>
-                      <p class="text">Kuopio, Suomi</p>
+                      <p class="text"><BsGeoAlt/> Kuopio, Suomi</p>
                     </div>
                   </div>
 
@@ -67,7 +67,7 @@ const Matkakohde = () => {
                     <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{padding: 2}}></img>
                     <div class="card-body">
                       <h4 class="card-title">Koli</h4>
-                      <p class="text">Lieksa, Suomi</p>
+                      <p class="text"><BsGeoAlt/> Lieksa, Suomi</p>
                     </div>
                   </div>
               </Container>
