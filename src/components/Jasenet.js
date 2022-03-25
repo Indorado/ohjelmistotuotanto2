@@ -18,10 +18,10 @@ const Jasenet = () => {
               <Col>
                 <h1 className='header-text'>Jäsenet</h1>
                 <p className='text'>Selaa harrasteporukkamme käyttäjiä!</p>
-                <Link to="/OmatMatkat"><button type="button" class="btn btn-secondary" style={{margin: 5}}>Omat matkat</button></Link>
+                <Link to="/OmatMatkat"><button type="button" class="btn btn-secondary">Omat matkat</button></Link>
                 <Link to="/OmatTiedot"><button type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Omat tiedot</button></Link>
               </Col>
-              <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
+              <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
             </Row>  
           </Container>
 

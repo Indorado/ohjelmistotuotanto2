@@ -16,7 +16,7 @@ const Matkakohde = () => {
         <div>
           <Container className="hero">
             <Row>
-              <Col>
+              <Col xs={4} md={4}>
                 <h1 className='header-text'>Matkakohteet</h1>
                 <p className='text'>Väritä omia matkakertomuksia kuvin ja tarinoin. Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
                 <div>
@@ -26,7 +26,8 @@ const Matkakohde = () => {
                 </div>
                 
               </Col>
-              <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
+              <Col></Col>
+              <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
             </Row>  
           </Container>
 
@@ -35,23 +36,10 @@ const Matkakohde = () => {
 
           <Container>
             <div>
-              <Row>
-                <Col>
+              <Row className="mb-3">
+                <Col xs={4}>
                   <h2>Selaa matkakohteita</h2>
                   <p className='text'>Selaa kirjautuneiden käyttäjien lisäämiä matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiin!</p>
-                </Col>
-                <Col>
-                  <Dropdown>
-                    <p className='text'>Voit rajata hakua alla olevasta valikosta valitsemalla kohteen ja painamalla "Rajaa hakutulosta"-nappia.</p>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">Valitse matkakohde</Dropdown.Toggle>
-                    <button type="button" class="btn btn-outline-secondary" style={{marginLeft: 2}}>Rajaa hakutulosta</button>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Suomi</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Bulgaria</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Espanja</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
                 </Col>
               </Row>
               <Container className="browse-destinations" style={{maxHeight: 1000}}>
@@ -96,6 +84,21 @@ const Matkakohde = () => {
     )
 }
 
+/*
+<Col>
+                  <Dropdown>
+                    <p className='text'>Voit rajata hakua alla olevasta valikosta valitsemalla kohteen ja painamalla "Rajaa hakutulosta"-nappia.</p>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">Valitse matkakohde</Dropdown.Toggle>
+                    <button type="button" class="btn btn-outline-secondary" style={{marginLeft: 2}}>Rajaa hakutulosta</button>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1">Suomi</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">Bulgaria</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Espanja</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+*/
 /*const Buttons = () => {
   return (
     <div className="buttons">

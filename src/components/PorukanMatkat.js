@@ -19,12 +19,13 @@ const PorukanMatkat = () => {
         <div>
           <Container className="hero">
             <Row>
-              <Col>
+              <Col xs={4} md={4}>
                 <h1 className='header-text'>Porukan matkat</h1>
                 <p className='text'>Väritä omia matkakertomuksia kuvin ja tarinoin. Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
                 <Buttons/>
               </Col>
-              <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
+              <Col></Col>
+              <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
             </Row>  
           </Container>
 
@@ -85,7 +86,7 @@ const PorukanMatkat = () => {
               <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
             </div>
             <div>
-              <button class="btn btn-outline-secondary">Tallenna matkasi!</button>
+              <button class="btn btn-secondary">Tallenna matkasi!</button>
             </div>
           </div>
           

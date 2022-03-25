@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Modal, Form } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-//import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image'
 //import { Card } from "react-bootstrap";
 
 import { BsTrash } from "react-icons/bs";
@@ -21,20 +21,32 @@ const OmatTiedot = () => {
     return (
         <div>
           <Container className="hero">
+        <Row>
+          <Col>
+            <h1 className='header-text'>Omat tiedot</h1>
+            <p className='text'>Muista pitää tietosi ajantasalla!</p>
+            <Link to="/Matkakohde"><button type="button" class="btn btn-secondary">Matkakohteet</button></Link>
+            <Link to="/OmatMatkat"><button type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Omat matkat</button></Link>
+          </Col>
+          <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
+        </Row>
+      </Container>
+
+
+      <hr></hr>
+
+          <Container className="user-info">
             <Form>
               <Row >
                 <Form.Group as={Col}>
-                  <h1 className='header-text'>*Käyttäjän nimi*</h1>
+                  <h2 className='header-text'>*Käyttäjän nimi*</h2>
                   <Form.Group>
                     <Form.Control as="textarea" rows={5} maxLength={3} controlId="formGridPresentation" placeholder="Käyttäjän esittely"></Form.Control>
                     <p className='counter-text'> / 250</p>
                   </Form.Group>
 
                   <Form.Group>
-                    <Row>
-                      <h2>Omat tiedot</h2>
-                    </Row>
-
+                    <Row><h5>Omat tiedot</h5></Row>
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>Etunimi</Form.Label>
@@ -68,9 +80,10 @@ const OmatTiedot = () => {
                       </Form.Group>
                     </Row>
                   </Form.Group>
+                  <button type="button" class="btn btn-secondary">Tallenna muutokset</button>
                 </Form.Group>
 
-                <Form.Group as={Col} xs={3} className="picture">
+                <Form.Group as={Col} xs={4} className="picture">
                   <div class="card" >
                     <img as={Col} class="card-img-top img-fluid" src="https://p0.piqsels.com/preview/965/429/207/avatar-people-person-business.jpg" alt="" style={{ padding: 2 }}></img>
                     <div>
@@ -80,8 +93,6 @@ const OmatTiedot = () => {
                   </div>
                 </Form.Group>
               </Row>
-
-              <button type="button" class="btn btn-secondary">Tallenna muutokset</button>
             </Form>
           </Container>
 

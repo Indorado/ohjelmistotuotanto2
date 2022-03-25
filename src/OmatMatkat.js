@@ -25,12 +25,13 @@ const OmatMatkat = () => {
     <div>
       <Container className="hero">
         <Row>
-          <Col>
+          <Col xs={4} md={4}>
             <h1 className='header-text'>Omat matkat</h1>
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
             <Buttons />
           </Col>
-          <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
+          <Col></Col>
+          <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
         </Row>
       </Container>
 
