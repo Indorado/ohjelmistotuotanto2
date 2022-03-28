@@ -12,7 +12,7 @@ import './css/Matkakohde.css';
 
 import SingleFileUploadComponent from '../components/single-file-upload.component';
 
-const Matkakohde = () => {
+const Matkakohde = (props) => {
     return (
         <div>
           <Container className="hero">
@@ -54,8 +54,6 @@ const Matkakohde = () => {
                   </Card>
                 </OverlayTrigger>
               </CardGroup>
-              
-
             </div>
           </Container>
 
@@ -84,22 +82,58 @@ const Buttons = () => {
   )
 }
 
+const NewCard = (props) => {
+  const {data} = props;
+  const info = data.map((a, index) => {
+    return (
+      <div key={index}>
+        <CardImg className="destination-img" variant="top" src="https://imgur.com/0j1r0KT.png"></CardImg>
+        <Card.Body>
+          <h4 className="destination">{a.destination}</h4>
+          <p className="location"><BsGeoAlt/> {a.location}, {a.country}</p>
+          <p className="description">{a.desc}</p>
+        </Card.Body>
+      </div>
+            
+    )
+  })
+
+  return (
+    <CardGroup className="browse-destinations" style={{maxHeight: 1000}} >
+      <OverlayTrigger placement="right" overlay={<Tooltip id="button-tooltip-2">*Tähän pitäisi avautua isompi kuva*</Tooltip>}>
+        <Card className="destination-card" style={{ cursor: "pointer", maxWidth: 200 }}></Card>
+        <div>{info}</div>
+      </OverlayTrigger>
+    </CardGroup>
+  )
+}
+
 const AddDestination = () => {
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
   const showAddDestination = () => setShowAdd(!showAdd);
 
+  const [ data, setData ] = useState([]); 
   const [ destination, setDestination ] = useState([]);
+  const [ location, setLocation ] = useState([]);
+  const [ country, setCountry ] = useState([]);
+  const [ desc, setDesc ] = useState([]);
 
+ 
 
-  const onAddDestination = (e) => {
-    e.preventDefault();
-    handleCloseAdd();
-
-    let namej = [document.getElementById('formGridDestination').value];
-    // Tässä lisätään jotenkin matkakohde?
+  const onAddDestination = () => {
+    setData((data) => [...data], {destination: destination, location: location, country: country, desc: desc});
   };
 
+  //const list = data.map((a, index) => <li key={index}>{a.destination}</li>)
+  //console.log(list);
+  //console.log(destination);
+
+  const handleSubmit = (e) => {
+    handleCloseAdd();
+    e.preventDefault();
+    e.target.reset();
+  }
   return (
     <div>
       <button type="button" className="btn btn-outline-secondary" onClick={showAddDestination}>Lisää matkakohde</button>
@@ -110,37 +144,37 @@ const AddDestination = () => {
           <Modal.Title><h4>Lisää matkakohde</h4></Modal.Title>
         </Modal.Header>
         <ModalBody>
-          <Form>
+          <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formGridDestination">
               <Form.Label>Kohdenimi</Form.Label>
-              <Form.Control id="destination" placeholder="Puijon torni" />
+              <Form.Control placeholder="Puijon torni" value={destination}/>
             </Form.Group>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridLocation">
                 <Form.Label>Paikkakunta</Form.Label>
-                <Form.Control id="locationA" placeholder="Paikkakunta" />
+                <Form.Control placeholder="Paikkakunta"/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridLocation2">
                 <Form.Label>Maa</Form.Label>
-                <Form.Control id="locationCountry" placeholder="Maa" />
+                <Form.Control placeholder="Maa"/>
               </Form.Group>
             </Row>
 
             <Form.Group className="mb-3" controlId="formGridDescription">
               <Form.Label>Kuvaus</Form.Label>
-              <Form.Control id="description" as="textarea" rows={5} placeholder="Kuvausteksti"/>
+              <Form.Control as="textarea" rows={5} placeholder="Kuvausteksti"/>
             </Form.Group>
 
-            <Form.Group id="dest-img">
+            <Form.Group >
               <Form.Label>Lisää kuva</Form.Label>
-              <SingleFileUploadComponent />
+              <p>Toiminnallisuus hukassa.</p>
             </Form.Group>
           </Form>
         </ModalBody>
           
         <Modal.Footer>
-          <button type="button" className="btn btn-outline-secondary" onClick={onAddDestination}>Tallenna matkakohde</button>
+          <button type="button" className="btn btn-outline-secondary" onClick={() => onAddDestination()}>Tallenna matkakohde</button>
         </Modal.Footer>
       </Modal>
       </>
