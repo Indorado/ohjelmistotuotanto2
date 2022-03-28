@@ -12,13 +12,16 @@ import './components/css/OmatMatkat.css';
 //C:\temp\oh2\Ohjt2-K22-GroupQ-1\node_modules\bootstrap\dist\css\bootstrap.min.css
 
 //node_modules\bootstrap\dist\css\bootstrap.min.css
-//import './node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import SingleFileUploadComponent from './components/single-file-upload.component';
 
 
-
-
 //Johanna
+/**Omat matkat-sivulla
+o    voi lisätä, selata, päivittää ja poistaa omia matkoja ja niihin liitettyjä tarinoita ja kuvia
+o    voi merkitä matkan yksityiseksi, jolloin kukaan muu ei saa nähdä kyseistä matkaa, eikä siihen kuuluvia tarinoita tai kuvia
+o    navigointi tarinat- ja kuvat-sivuille voi tapahtuma päävalikon tai sivukohtaisen valikon kautta oman harkinnan mukaan
+o    HUOM! Porukan matkat- ja Omat matkat-sivut saisivat olla mahdollisimman yhdenmukaisia */
 
 const OmatMatkat = () => {
   return (
@@ -27,26 +30,31 @@ const OmatMatkat = () => {
         <Row>
           <Col>
             <h1 className='header-text'>Omat matkat</h1>
-            <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
+            <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!
+              Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
             <Buttons />
           </Col>
           <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
         </Row>
       </Container>
-
-
       <hr></hr>
-
-
       <Container>
         <div>
-          <h2>Selaa omia matkoja</h2>
-          <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi!</p>
           <Row>
             <Col>
-              {/*</DropDownList>*/}
+              <h2>Selaa omia matkoja</h2>
+              <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi!</p>
+            </Col>
+            <Col>
               <Buttons2 />
-              <div className="container">
+            </Col>
+      
+            <hr></hr>
+            
+    
+
+
+            <div className="container" style={{margin: '20px', width: '40%'}}>
         <div className="row">
           <div className="col-md-6">
             <div className="card">
@@ -60,18 +68,60 @@ const OmatMatkat = () => {
           </div>
                   </div>
       </div>
-            </Col>
-          </Row>
-          <Row>
+      <hr></hr>
             {/*kuvat tähän*/}
-          </Row>
+            <Container className="browse-destinations" style={{ maxHeight: 1000 }}>
 
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/0j1r0KT.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Puijon torni</h4>
+                  <p class="text">Kuopio, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+              <div class="card" style={{ maxWidth: 200 }}>
+                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div class="card-body">
+                  <h4 class="card-title">Koli</h4>
+                  <p class="text">Lieksa, Suomi</p>
+                </div>
+              </div>
+
+            </Container>
+
+          </Row>
         </div>
-      </Container>
+      </Container >
 
 
       <div>
         <Mainos />
+        <hr></hr>
       </div>
 
       <div className='sign-up'>
@@ -83,32 +133,36 @@ const OmatMatkat = () => {
           <Button variant="secondary">Tallenna matkasi!</Button>
         </div>
       </div>
-
       <hr></hr>
-    </div>
+    </div >
   )
 }
 
 const Buttons = () => {
   return (
     <div className="buttons">
-      <Button className='btn-in' variant="secondary" >Tallenna matkasi</Button>
-      <Button variant='light' style={{ color: "grey", backgroundColor: 'lightgray' }}>Omat tiedot</Button>
+      <Button className='btn-in' variant="secondary">Lisää uusi matka</Button>
+      <button type="button" onClick={(e) => {
+        e.preventDefault();
+        window.location.href = 'http://localhost:3000/OmatTiedot';
+      }} class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Omat tiedot</button>
     </div>
   )
 }
 
 const Buttons2 = () => {
   return (
-    <div className="buttonsOmatMatkat" style={{ float: 'right' }}>
-      <Button class="testi" variant="secondary" >Rajaa hakutulosta</Button>
-      <br></br>
-      <Button variant='light' style={{ color: "grey", backgroundColor: 'lightgray', marginTop: '7px', marginBottom: '7px' }}>Muokkaa matkaa</Button>
-      <br></br>
-      <Button className="btn-in" variant='secondary'>Lisää matka</Button>
-      <br></br>
-      <Button variant='light' style={{ color: "grey", backgroundColor: 'lightgray', marginTop: '7px' }}>Poista matka</Button>
+    <div className="btnMainos" >
+      <p className="text">Tästä pääset muokkaamaan, lisäämään ja poistamaan omia matkakohteita.</p>
+      <button type="button" class="btn btn-outline-secondary">Muokkaa</button>
+      <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 5 }}>Lisää</button>
+      <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 5 }}>Poista</button>
     </div>
   )
 }
 export default OmatMatkat;
+
+
+
+     
+       

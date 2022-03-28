@@ -9,6 +9,9 @@ import Mainos from '../modules/Mainos';
 import './css/OmatMatkat.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 
+import './node_modules/bootstrap/dist/css/bootstrap.min.css';
+import SingleFileUploadComponent from './components/single-file-upload.component';
+
 //Johanna
 /**Omat matkat-sivulla
 o    voi lisätä, selata, päivittää ja poistaa omia matkoja ja niihin liitettyjä tarinoita ja kuvia
