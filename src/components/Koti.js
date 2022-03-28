@@ -56,7 +56,7 @@ const Koti = () => {
       
       <div className='sign-up'>
         <div>
-          <p>Etkö ole vielä rekisteröitynyt Kuopion Kulkijoiden sovellukseen?<br></br>Rekisteröidy heti alla olevan painikkeen avulla!</p>
+          <p className='text'>Etkö ole vielä rekisteröitynyt Kuopion Kulkijoiden sovellukseen?<br></br>Rekisteröidy heti alla olevan painikkeen avulla!</p>
         </div>
         <div>
         <button onClick={handleShow} type="button" className="btn btn-secondary" style={{margin: 5}}>Rekisteröidy</button>

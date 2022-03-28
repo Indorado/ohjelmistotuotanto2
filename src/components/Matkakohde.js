@@ -44,7 +44,7 @@ const Matkakohde = (props) => {
 
               
               <CardGroup className="browse-destinations" style={{maxHeight: 1000}}>
-              <OverlayTrigger placement="right" overlay={<Tooltip id="button-tooltip-2">*Tähän pitäisi avautua isompi kuva*</Tooltip>}>
+              <OverlayTrigger placement="right" overlay={<Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>}>
                   <Card className="destination-card" style={{ cursor: "pointer", maxWidth: 200 }}>
                     <CardImg className="destination-img" variant="top" src="https://imgur.com/0j1r0KT.png"></CardImg>
                     <Card.Body>
@@ -100,7 +100,7 @@ const NewCard = (props) => {
 
   return (
     <CardGroup className="browse-destinations" style={{maxHeight: 1000}} >
-      <OverlayTrigger placement="right" overlay={<Tooltip id="button-tooltip-2">*Tähän pitäisi avautua isompi kuva*</Tooltip>}>
+      <OverlayTrigger placement="right" overlay={<Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>}>
         <Card className="destination-card" style={{ cursor: "pointer", maxWidth: 200 }}></Card>
         <div>{info}</div>
       </OverlayTrigger>

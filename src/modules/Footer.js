@@ -52,7 +52,8 @@ const Footer = () => {
                     <Modal.Title><h4>Ota yhteyttä</h4></Modal.Title>
                 </Modal.Header>
                 <div style={{ marginTop: 15, marginLeft: 10 }}>
-                    <p >Hätätilanteessa ota keksi.</p>
+                    <p>Hätätilanteessa ota keksi.</p>
+                    <p>Tähän voisi tulla esimerkiksi tietosuojaseloste tms.</p>
                     <p><BsEnvelope/> tahantoimiva@osoite.fi</p>
                 </div>
                 <Modal.Footer>
