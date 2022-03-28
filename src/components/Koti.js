@@ -1,18 +1,14 @@
-import { IoMdCheckmarkCircleOutline } from "react-icons/io"
-
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
-
-import Mainos from '../modules/Mainos';
-import './css/Koti.css';
 
 import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 
 import './css/Koti.css';
+import SignedUser from '../modules/SignedUser';
+import Mainos from '../modules/Mainos';
 //import "bootstrap/dist/css/bootstrap.css";
 
 
@@ -53,34 +49,11 @@ const Koti = () => {
       </Container>
 
       <hr></hr>
-
-      <Container className='promo'>
-        <Col className='item'>
-          <h2>Kirjautuneena käyttäjänä</h2>
-          <p className='text'>Kirjautuneena käyttäjänä koet enemmän Kuopion Kulkijoiden web-sovelluksessa!</p>
-        </Col>
-        <Col>
-          <Row className='text'>
-            <Col>
-              <h4><IoMdCheckmarkCircleOutline /> Matkakohteet</h4>
-              <p >Voit lisätä, poistaa, päivittää ja selata matkakohteita.</p>
-            </Col>
-            <Col>
-              <h4><IoMdCheckmarkCircleOutline /> Porukan matkat</h4>
-              <p>Voit selata porukan matkoja ja niihin liitettyjä kuvia ja tarinoita!</p>
-            </Col>
-            <Col>
-              <h4><IoMdCheckmarkCircleOutline /> Omat matkat</h4>
-              <p>Voit kertoa omasta matkastasi ja lisätä matkaan tarinoita ja kuvia!</p>
-            </Col>
-          </Row>
-        </Col>
-      </Container>
-
       <div>
-        <Mainos />
+        <Mainos/>
       </div>
-
+      <hr></hr>
+      
       <div className='sign-up'>
         <div>
           <p>Etkö ole vielä rekisteröitynyt Kuopion Kulkijoiden sovellukseen?</p>

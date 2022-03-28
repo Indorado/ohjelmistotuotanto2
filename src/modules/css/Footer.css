@@ -8,7 +8,7 @@
 .footer-bar {
     justify-content: center;
     display: grid;
-	grid-template-columns: repeat(3, 100px);
+	grid-template-columns: repeat(3, 150px);
 	list-style: none;
 }
 
@@ -29,6 +29,7 @@
 /*Sivun alin osa*/
 .lower-footer {
     margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 /*Tämä osa on turha. Paikoillaan vain jos joku 

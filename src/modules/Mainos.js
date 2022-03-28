@@ -7,7 +7,6 @@ import './css/Mainos.css';
 const Mainos = () => {
     return (
         <div>
-            <hr></hr>
             <Container>
                 <Row className="mb-3">
                     <Col xs={5} md={5}>
@@ -18,8 +17,6 @@ const Mainos = () => {
                     <Col xs={4}><img class="img-fluid" src="https://i.imgur.com/US0C0Lc.png" alt=""></img></Col>
                 </Row>
             </Container>
-
-            <hr></hr>
         </div>
     )
 }

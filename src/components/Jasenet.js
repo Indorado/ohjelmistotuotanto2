@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
 
-import Mainos from '../modules/Mainos';
+import SignedUser from '../modules/SignedUser';
 import './css/Jasenet.css';
 
 const Jasenet = () => {
@@ -24,7 +22,6 @@ const Jasenet = () => {
               <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
             </Row>  
           </Container>
-
 
           <hr></hr>
 
@@ -52,25 +49,12 @@ const Jasenet = () => {
               </div>
             </div>
           </Container>
-          
-          
 
           <div>
-            <Mainos />
+            <SignedUser/>
           </div>
-
-          <div className='sign-up'>
-            <div>
-              <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>
-              <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
-            </div>
-            <div>
-              <Button variant="secondary">Tallenna matkasi!</Button>
-            </div>
-          </div>
-          
-          <hr></hr>
         </div>
+        
     )
 }
 

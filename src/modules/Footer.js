@@ -1,72 +1,67 @@
 import './css/Footer.css';
-import { Link } from 'react-router-dom';
-import { Modal, Form } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import React, { useState } from "react";
+import { OverlayTrigger, Popover, PopoverBody } from 'react-bootstrap';
 
 import { AiOutlineCopyright } from "react-icons/ai";
+import { BsEnvelope } from "react-icons/bs";
 /*Modalit ei toimi oikein*/
 const Footer = () => {
-    const [show, setShow] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
+    const [showContact, setShowContact] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const showHelp = () => setShow(!show);
-    const showInfo = () => setShow(!show);
-    const showContact = () => setShow(!show);
+    const handleCloseInfo = () => setShowInfo(false);
+    const handleCloseContact = () => setShowContact(false);
+
+    const showInfoModal = () => setShowInfo(!showInfo);
+    const showContactModal = () => setShowContact(!showContact);
 
     return (
         <div className="footer">
             <div className='footer-bar'>
-                <p className='help' onClick={showHelp}>Apua</p>
-                <div className='about' onClick={showInfo}>Tietoa</div>
-                <div className="contact" onClick={showContact} style={{paddingLeft: 12}}>Ota yhteyttä</div>
-            </div>
-
-            <div className='lower-footer'>
-                <div>
-                    <p><AiOutlineCopyright/> Projektiryhmä Q</p>
+                <div className="help" style={{paddingLeft: 12}}>
+                    <OverlayTrigger placement='top' overlay={
+                        <Popover id="popover-basic">
+                            <PopoverBody>Apua ei ole saatavilla.</PopoverBody>
+                        </Popover>
+                    }>
+                    <button type="button" class="btn btn-light" style={{ color: 'rgb(80,80,80)' }}>Apua</button>
+                    </OverlayTrigger>
                 </div>
+                    <div className='about' > <button type="button" class="btn btn-light" onClick={showInfoModal} style={{ color: 'rgb(80,80,80)' }}>Tietoa</button></div>
+                <div className='contact'><button type="button" class="btn btn-light" onClick={showContactModal} style={{ color: 'rgb(80,80,80)' }}>Ota yhteyttä</button></div>
             </div>
+                
+            <div className='lower-footer'><p><AiOutlineCopyright/> Projektiryhmä Q</p></div>
 
             <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showInfo} onHide={handleCloseInfo}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Apua</Modal.Title>
+                    <Modal.Title><h4>Tietoa</h4></Modal.Title>
                 </Modal.Header>
-                <p style={{ marginTop: '20px', marginLeft: '20px' }}>Tähän tietoa.</p>
+                <p style={{ marginTop: 15, marginLeft: 10 }}>Tämä web-sovellus on tehty Ohjelmistotuotanto II -kurssia varten.</p>
                 <Modal.Footer>
-                    <button type="button" variant="btn btn-secondary" onClick={handleClose}>Sulje</button>
+                    <button type="button" class="btn btn-outline-secondary" onClick={handleCloseInfo}>Sulje</button>
                 </Modal.Footer>
             </Modal>
             </>
 
             <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showContact} onHide={handleCloseContact}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Tietoa</Modal.Title>
+                    <Modal.Title><h4>Ota yhteyttä</h4></Modal.Title>
                 </Modal.Header>
-                <p style={{ marginTop: '20px', marginLeft: '20px' }}>Tämä web-sovellus on tehty Ohjelmistotuotanto II -kurssia varten.</p>
+                <div style={{ marginTop: 15, marginLeft: 10 }}>
+                    <p >Hätätilanteessa ota keksi.</p>
+                    <p><BsEnvelope/> tahantoimiva@osoite.fi</p>
+                </div>
                 <Modal.Footer>
-                    <button type="button" variant="btn btn-secondary" onClick={handleClose}>Sulje</button>
+                    <button type="button" class="btn btn-outline-secondary" onClick={handleCloseContact}>Sulje</button>
                 </Modal.Footer>
             </Modal>
             </>
-
-            <>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Ota yhteyttä</Modal.Title>
-                </Modal.Header>
-                <p style={{ marginTop: '20px', marginLeft: '20px' }}>Vikatilanteessa ota keksi.</p>
-                <Modal.Footer>
-                    <button type="button" variant="btn btn-secondary" onClick={handleClose}>Sulje</button>
-                </Modal.Footer>
-            </Modal>
-            </>
-
         </div>
     )
 }
-
-
 
 export default Footer;

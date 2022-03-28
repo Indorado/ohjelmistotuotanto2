@@ -112,11 +112,12 @@ const OmatMatkat = () => {
         </div>
       </Container>
 
-
+      <hr></hr>
       <div>
         <Mainos />
       </div>
 
+      <hr></hr>
       <div className='sign-up'>
         <div>
           <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>

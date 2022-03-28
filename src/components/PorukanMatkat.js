@@ -4,10 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
 
-import Mainos from '../modules/Mainos';
 import './css/PorukanMatkat.css';
+import SignedUser from '../modules/SignedUser';
 
 //Johanna
 /* Porukan matkat-sivulla
@@ -76,22 +75,9 @@ const PorukanMatkat = () => {
 
             </Container>
 
-          <div>
-            <Mainos />
-          </div>
-
-          <div className='sign-up'>
             <div>
-              <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>
-              <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
+              <SignedUser/>
             </div>
-            <div>
-              <button class="btn btn-secondary">Tallenna matkasi!</button>
-            </div>
-          </div>
-          
-          <hr></hr>
-         
         </div>
         
     )

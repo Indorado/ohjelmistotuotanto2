@@ -1,17 +1,15 @@
 import React from 'react';
-import useState from 'react';
 
-import { useRef } from 'react'
 import Container from 'react-bootstrap/Container'
 import { Link } from 'react-router-dom';
-import { Modal, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
 //import { Card } from "react-bootstrap";
 
 import { BsTrash } from "react-icons/bs";
-import Mainos from '../modules/Mainos';
+
+import SignedUser from '../modules/SignedUser';
 import './css/OmatTiedot.css';
 
 // Max merkkimäärä toimii, mutta laskuri puuttuu
@@ -97,20 +95,8 @@ const OmatTiedot = () => {
           </Container>
 
           <div>
-            <Mainos />
+            <SignedUser/>
           </div>
-
-          <div className='sign-up'>
-            <div>
-              <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>
-              <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
-            </div>
-            <div>
-              <button type="button" class="btn btn-secondary">Tallenna matkasi</button>
-            </div>
-          </div>
-          
-          <hr></hr>
         </div>
     )
 }

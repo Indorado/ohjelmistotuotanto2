@@ -1,14 +1,13 @@
-import React from 'react';
-
+import { React, useState} from "react";
+import { Modal, Form, Card, CardImg, CardGroup, OverlayTrigger, Popover, PopoverBody, Tooltip } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
-import {Dropdown} from 'react-bootstrap';
-import { BsGeoAlt } from "react-icons/bs";
+import { BsGeoAlt,  } from "react-icons/bs";
+// BsGeo, BsGlobe
 
-import Mainos from '../modules/Mainos';
+import SignedUser from '../modules/SignedUser';
 import './css/Matkakohde.css';
 
 const Matkakohde = () => {
@@ -22,15 +21,12 @@ const Matkakohde = () => {
                 <div>
                   <button type="button" class="btn btn-secondary">Tallenna matkasi</button>
                   <Link to="/OmatTiedot"><button type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Omat matkat</button></Link>
-                  
                 </div>
-                
               </Col>
               <Col></Col>
               <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
             </Row>  
           </Container>
-
 
           <hr></hr>
 
@@ -40,72 +36,100 @@ const Matkakohde = () => {
                 <Col xs={4}>
                   <h2>Selaa matkakohteita</h2>
                   <p className='text'>Selaa kirjautuneiden käyttäjien lisäämiä matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiin!</p>
+                  <Buttons/>
                 </Col>
               </Row>
-              <Container className="browse-destinations" style={{maxHeight: 1000}}>
-                  <div class="card" style={{maxWidth: 200}}>
-                    <img class="card-img-top" src="https://imgur.com/0j1r0KT.png" alt="" style={{ padding: 2}}></img>
-                    <div class="card-body">
-                      <h4 class="card-title">Puijon torni</h4>
-                      <p class="text"><BsGeoAlt/> Kuopio, Suomi</p>
-                    </div>
-                  </div>
 
-                  <div class="card" style={{maxWidth: 200}}>
-                    <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{padding: 2}}></img>
-                    <div class="card-body">
-                      <h4 class="card-title">Koli</h4>
-                      <p class="text"><BsGeoAlt/> Lieksa, Suomi</p>
-                    </div>
-                  </div>
-              </Container>
+              
+              <CardGroup className="browse-destinations" style={{maxHeight: 1000}}>
+              <OverlayTrigger placement="right" overlay={<Tooltip id="button-tooltip-2">*Tähän pitäisi avautua isompi kuva*</Tooltip>}>
+                  <Card class="destination-card" style={{ cursor: "pointer", maxWidth: 200 }}>
+                    <CardImg class="destination-img" variant="top" src="https://imgur.com/0j1r0KT.png"></CardImg>
+                    <Card.Body>
+                      <h4 class="destination">Puijon torni</h4>
+                      <p class="location"><BsGeoAlt/> Kuopio, Suomi</p>
+                    </Card.Body>
+                  </Card>
+                </OverlayTrigger>
+              </CardGroup>
+              
+
             </div>
           </Container>
-          
 
           <div>
-            <Mainos />
+            <SignedUser/>
           </div>
-
-          <div className='sign-up'>
-            <div>
-              <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>
-              <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
-            </div>
-            <div>
-              <button type="button" class="btn btn-secondary" >Tallenna matkasi!</button>
-            </div>
-          </div>
-          
-          <hr></hr>
         </div>
-
-        
     )
 }
 
-/*
-<Col>
-                  <Dropdown>
-                    <p className='text'>Voit rajata hakua alla olevasta valikosta valitsemalla kohteen ja painamalla "Rajaa hakutulosta"-nappia.</p>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">Valitse matkakohde</Dropdown.Toggle>
-                    <button type="button" class="btn btn-outline-secondary" style={{marginLeft: 2}}>Rajaa hakutulosta</button>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Suomi</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Bulgaria</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Espanja</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </Col>
-*/
-/*const Buttons = () => {
+/*const cardClick = () => {
   return (
-    <div className="buttons">
-      <Button className='btn-in' variant="secondary">Tallenna matkasi</Button>
-      <Button variant='light' style={{ color: "grey", backgroundColor: 'lightgray'}}>Omat matkat</Button>
+    <div>
+      
     </div>
   )
 }*/
+
+const Buttons = () => {
+  const [showAdd, setShowAdd] = useState(false);
+  const handleCloseAdd = () => setShowAdd(false);
+  const showAddDestination = () => setShowAdd(!showAdd);
+
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseEdit = () => setShowEdit(false);
+  const showEditDestination = () => setShowEdit(!showEdit);
+
+  const [showDelete, setShowDelete] = useState(false);
+  const handleCloseDelete = () => setShowDelete(false);
+  const showDeleteDestination = () => setShowDelete(!showDelete);
+
+  return (
+    <div  className="destination-btn">
+      <button type="button" class="btn btn-outline-secondary" onClick={showAddDestination}>Lisää</button>
+      <button type="button" class="btn btn-outline-secondary" onClick={showEditDestination}>Muokkaa</button>
+      <button type="button" class="btn btn-outline-secondary" onClick={showDeleteDestination}>Poista</button>
+
+      <>
+      <Modal show={showAdd} onHide={handleCloseAdd}>
+        <Modal.Header closeButton>
+          <Modal.Title><h4>Lisää matkakohde</h4></Modal.Title>
+        </Modal.Header>
+        <p style={{ marginTop: 15, marginLeft: 10 }}>Tähän toiminnallisuutta</p>
+        <Modal.Footer>
+          <button type="button" class="btn btn-outline-secondary" onClick={handleCloseAdd}>Lisää matkakohde</button>
+        </Modal.Footer>
+      </Modal>
+      </>
+
+      <>
+      <Modal show={showEdit} onHide={handleCloseEdit}>
+        <Modal.Header closeButton>
+          <Modal.Title><h4>Muokkaa matkakohdetta</h4></Modal.Title>
+        </Modal.Header>
+        <p style={{ marginTop: 15, marginLeft: 10 }}>Tähän toiminnallisuutta</p>
+        <Modal.Footer>
+          <button type="button" class="btn btn-outline-secondary" onClick={handleCloseEdit}>Tallenna muutokset</button>
+        </Modal.Footer>
+      </Modal>
+      </>
+
+      <>
+      <Modal show={showDelete} onHide={handleCloseDelete}>
+        <Modal.Header closeButton>
+          <Modal.Title><h4>Poista matkakohde</h4></Modal.Title>
+        </Modal.Header>
+        <p style={{ marginTop: 15, marginLeft: 10 }}>Tähän toiminnallisuutta.</p>
+        <Modal.Footer>
+          <button type="button" class="btn btn-outline-secondary" onClick={handleCloseDelete}>Poista matkakohde</button>
+        </Modal.Footer>
+      </Modal>
+      </>
+
+    </div>
+  )
+}
+
 
 export default Matkakohde;

@@ -1,9 +1,28 @@
-.browse-buttons {
+/*Matkakohdekortit*/
+.browse-destinations {
     display: flex;
-    gap: 2px;
+    justify-content: start;
+    gap: 5px;
 }
 
-.browse-destinations {
+.destination-card 
+/*Paikan nimi*/
+.destination {
+    margin-left: 5px;
+}
+
+/*Paikan sijainti*/
+.location {
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
+.destination-img {
+    padding: 3px;
+}
+
+.destination-btn {
     display: flex;
     gap: 5px;
 }
