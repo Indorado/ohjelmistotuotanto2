@@ -4,10 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
 
-import Mainos from '../modules/Mainos';
 import './css/PorukanMatkat.css';
+import SignedUser from '../modules/SignedUser';
 
 //Johanna
 /* Porukan matkat-sivulla
@@ -19,12 +18,13 @@ const PorukanMatkat = () => {
         <div>
           <Container className="hero">
             <Row>
-              <Col>
+              <Col xs={4} md={4}>
                 <h1 className='header-text'>Porukan matkat</h1>
                 <p className='text'>Väritä omia matkakertomuksia kuvin ja tarinoin. Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
                 <Buttons/>
               </Col>
-              <Col><Image class="img-fluid" src="https://imgur.com/r5cDrZd.png"></Image></Col>
+              <Col></Col>
+              <Col xs={4}><img className="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
             </Row>  
           </Container>
 
@@ -40,64 +40,46 @@ const PorukanMatkat = () => {
           </Container>
           <Container className="browse-destinations" style={{ maxHeight: 1000 }}>
 
-              <div class="card" style={{ maxWidth: 200 }}>
-                <img class="card-img-top" src="https://imgur.com/0j1r0KT.png" alt="" style={{ padding: 2 }}></img>
-                <div class="card-body">
-                  <h4 class="card-title">Puijon torni</h4>
-                  <p class="text">Kuopio, Suomi</p>
+              <div className="card" style={{ maxWidth: 200 }}>
+                <img className="card-img-top" src="https://imgur.com/0j1r0KT.png" alt="" style={{ padding: 2 }}></img>
+                <div className="card-body">
+                  <h4 className="card-title">Puijon torni</h4>
+                  <p className="text">Kuopio, Suomi</p>
+                </div>
+              </div>
+              
+
+              <div className="card" style={{ maxWidth: 200 }}>
+                <img className="card-img-top" src="https://images.pexels.com/photos/910307/pexels-photo-910307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=940" alt="" style={{ padding: 2 }}></img>
+                <div className="card-body">
+                  <h4 className="card-title">Renggloch</h4>
+                  <p className="text">Luzern, Sveitsi</p>
                 </div>
               </div>
 
-              <div class="card" style={{ maxWidth: 200, }}>
-                <img class="card-img-top" src="https://i.imgur.com/bO8pN0y.jpeg" alt="" style={{ padding: 2 }}></img>
-                <div class="card-body">
-                  <h4 class="card-title">Roches Crahay</h4>
-                  <p class="text">Aywaille, Belgia</p>
+              <div className="card" style={{ maxWidth: 200 }}>
+                <img className="card-img-top" src="https://i.imgur.com/Pg0YL8S.jpeg" alt="" style={{ padding: 2 }}></img>
+                <div className="card-body">
+                  <h4 className="card-title">Yosemite</h4>
+                  <p className="text">California, USA</p>
                 </div>
               </div>
 
-              <div class="card" style={{ maxWidth: 200 }}>
-                <img class="card-img-top" src="https://i.imgur.com/4QBZMFI.jpeg" alt="" style={{ padding: 2 }}></img>
-                <div class="card-body">
-                  <h4 class="card-title">Renggloch</h4>
-                  <p class="text">Luzern, Sveitsi</p>
-                </div>
-              </div>
-
-              <div class="card" style={{ maxWidth: 200 }}>
-                <img class="card-img-top" src="https://i.imgur.com/Pg0YL8S.jpeg" alt="" style={{ padding: 2 }}></img>
-                <div class="card-body">
-                  <h4 class="card-title">Yosemite</h4>
-                  <p class="text">California, USA</p>
-                </div>
-              </div>
-
-              <div class="card" style={{ maxWidth: 200 }}>
-                <img class="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
-                <div class="card-body">
-                  <h4 class="card-title">Koli</h4>
-                  <p class="text">Lieksa, Suomi</p>
+              <div className="card" style={{ maxWidth: 200 }}>
+                <img className="card-img-top" src="https://imgur.com/ARX301s.png" alt="" style={{ padding: 2 }}></img>
+                <div className="card-body">
+                  <h4 className="card-title">Koli</h4>
+                  <p className="text">Lieksa, Suomi</p>
                 </div>
               </div>
 
             </Container>
 
-          <div>
-            <Mainos />
-          </div>
-
-          <div className='sign-up'>
             <div>
-              <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>
-              <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
+              <SignedUser/>
             </div>
-            <div>
-              <Button variant="secondary">Tallenna matkasi!</Button>
-            </div>
-          </div>
-          
-          <hr></hr>
         </div>
+        
     )
 }
 
@@ -108,7 +90,7 @@ const Buttons = () => {
       <button type="button" onClick={(e) =>{
         e.preventDefault();
         window.location.href='http://localhost:3000/Matkakohde';
-      }} class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Siirry selaamaan</button>
+      }} className="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Siirry selaamaan</button>
     </div>
   )
 }

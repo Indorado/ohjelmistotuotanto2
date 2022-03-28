@@ -36,9 +36,3 @@ h1, h2, h3, h4 {
 .info {
 	color: rgb(80,80,80);
 }
-
-/*Etkö ole vielä rekisteröitynyt?*/
-.sign-up {
-	text-align: center;
-	color: grey;
-}

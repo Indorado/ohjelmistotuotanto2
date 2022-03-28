@@ -5,3 +5,22 @@
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+/*ScrollUp nappi*/  
+.back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 25px;
+	height: 60px;
+	width: 40px;
+	font-size: 40px;
+	background: rgb(93, 100, 102);
+	color: white;
+	cursor: pointer;
+	border-radius: 50px;
+	border: none;
+	box-shadow: 0 5px 10px #ccc;
+}
+  
+.back-to-top:hover {
+	background: rgb(97, 164, 180);
+}
