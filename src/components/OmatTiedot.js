@@ -106,7 +106,7 @@ const Counter = () => {
     return (
       <div>
         <Form.Group>
-          <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
+          <Form.Control as="textarea" rows={7} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
           <p className='counter-text'> {characterCount}/ 250</p>
         </Form.Group>
       </div>
@@ -115,7 +115,7 @@ const Counter = () => {
     return (
     <div>
       <Form.Group>
-        <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
+        <Form.Control as="textarea" rows={7} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
         <p className='counter-text-alert'> {characterCount}/ 250 Merkkimäärä täynnä!</p>
       </Form.Group>
     </div>
