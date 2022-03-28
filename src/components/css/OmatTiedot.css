@@ -4,6 +4,12 @@
     color: rgb(80, 80, 80);
 }
 
+.counter-text-alert {
+    font-style: italic;
+    font-size: small;
+    color: red;
+}
+
 h5 {
 	color: rgb(80,80,80);
     font-weight: bolder;

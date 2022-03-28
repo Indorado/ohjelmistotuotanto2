@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Container from 'react-bootstrap/Container'
 import { Link } from 'react-router-dom';
-import { Form } from "react-bootstrap";
+import { Form, Toast } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 //import { Card } from "react-bootstrap";
@@ -39,8 +39,7 @@ const OmatTiedot = () => {
                 <Form.Group as={Col}>
                   <h2 className='header-text'>*Käyttäjän nimi*</h2>
                   <Form.Group>
-                    <Form.Control as="textarea" rows={5} maxLength={3} controlId="formGridPresentation" placeholder="Käyttäjän esittely"></Form.Control>
-                    <p className='counter-text'> / 250</p>
+                    <Counter/> 
                   </Form.Group>
 
                   <Form.Group>
@@ -101,16 +100,28 @@ const OmatTiedot = () => {
     )
 }
 
-/*
 const Counter = () => {
   const [ characterCount, setCharacterCount ] = useState(0);
-  return (
+  if (characterCount < 250) {
+    return (
+      <div>
+        <Form.Group>
+          <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
+          <p className='counter-text'> {characterCount}/ 250</p>
+        </Form.Group>
+      </div>
+    )
+  } else {
+    return (
     <div>
-        <textarea rows={3} maxLength={250} placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></textarea>
-        <p>Max length: {characterCount} / 250</p>
+      <Form.Group>
+        <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
+        <p className='counter-text-alert'> {characterCount}/ 250 Merkkimäärä täynnä!</p>
+      </Form.Group>
     </div>
   )
-}*/
+  }
+}
   /*<Form className="user-information">
                 <Form.Group className="username">
                   <Form.Control placeholder="*käyttäjänimi*" disabled></Form.Control>
