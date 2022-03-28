@@ -14,7 +14,7 @@ const Test = () => {
         <Navbar bg="white" className="navbar-whole">
             <Container>
                 <Nav>
-                    <Image className="nav-img" class="img-fluid" src="https://i.imgur.com/0jRzKI9.png"></Image>
+                    <Image className="nav-img img-fluid" src="https://i.imgur.com/0jRzKI9.png"></Image>
                     <Nav className='user-info'>Hei, *insert käyttäjänimi*!</Nav>
                 </Nav>
             

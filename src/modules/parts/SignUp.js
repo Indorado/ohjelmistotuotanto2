@@ -9,7 +9,7 @@ const SignUp = () => {
                 <p>Etkö ole vielä rekisteröitynyt Kuopion Kulkijoiden sovellukseen?<br></br>Rekisteröidy heti alla olevan painikkeen avulla!</p>
             </div>
             <div>
-            <button type="button" class="btn btn-secondary" style={{margin: 5}}>Rekisteröidy</button>
+            <button type="button" className="btn btn-secondary" style={{margin: 5}}>Rekisteröidy</button>
             </div>
             </div>
         </div>

@@ -25,11 +25,11 @@ const Footer = () => {
                             <PopoverBody>Apua ei ole saatavilla.</PopoverBody>
                         </Popover>
                     }>
-                    <button type="button" class="btn btn-light" style={{ color: 'rgb(80,80,80)' }}>Apua</button>
+                    <button type="button" className="btn btn-light" style={{ color: 'rgb(80,80,80)' }}>Apua</button>
                     </OverlayTrigger>
                 </div>
-                    <div className='about' > <button type="button" class="btn btn-light" onClick={showInfoModal} style={{ color: 'rgb(80,80,80)' }}>Tietoa</button></div>
-                <div className='contact'><button type="button" class="btn btn-light" onClick={showContactModal} style={{ color: 'rgb(80,80,80)' }}>Ota yhteyttä</button></div>
+                    <div className='about' > <button type="button" className="btn btn-light" onClick={showInfoModal} style={{ color: 'rgb(80,80,80)' }}>Tietoa</button></div>
+                <div className='contact'><button type="button" className="btn btn-light" onClick={showContactModal} style={{ color: 'rgb(80,80,80)' }}>Ota yhteyttä</button></div>
             </div>
                 
             <div className='lower-footer'><p><AiOutlineCopyright/> Projektiryhmä Q</p></div>
@@ -41,7 +41,7 @@ const Footer = () => {
                 </Modal.Header>
                 <p style={{ marginTop: 15, marginLeft: 10 }}>Tämä web-sovellus on tehty Ohjelmistotuotanto II -kurssia varten.</p>
                 <Modal.Footer>
-                    <button type="button" class="btn btn-outline-secondary" onClick={handleCloseInfo}>Sulje</button>
+                    <button type="button" className="btn btn-outline-secondary" onClick={handleCloseInfo}>Sulje</button>
                 </Modal.Footer>
             </Modal>
             </>
@@ -56,7 +56,7 @@ const Footer = () => {
                     <p><BsEnvelope/> tahantoimiva@osoite.fi</p>
                 </div>
                 <Modal.Footer>
-                    <button type="button" class="btn btn-outline-secondary" onClick={handleCloseContact}>Sulje</button>
+                    <button type="button" className="btn btn-outline-secondary" onClick={handleCloseContact}>Sulje</button>
                 </Modal.Footer>
             </Modal>
             </>

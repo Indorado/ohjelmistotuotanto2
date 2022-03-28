@@ -23,6 +23,9 @@
 }
 
 .destination-btn {
-    display: flex;
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 3;
+    justify-content: start;
     gap: 5px;
 }

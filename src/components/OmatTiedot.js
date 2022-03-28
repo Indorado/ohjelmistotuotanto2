@@ -23,10 +23,10 @@ const OmatTiedot = () => {
           <Col>
             <h1 className='header-text'>Omat tiedot</h1>
             <p className='text'>Muista pitää tietosi ajantasalla!</p>
-            <Link to="/Matkakohde"><button type="button" class="btn btn-secondary">Matkakohteet</button></Link>
-            <Link to="/OmatMatkat"><button type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Omat matkat</button></Link>
+            <Link to="/Matkakohde"><button type="button" className="btn btn-secondary">Matkakohteet</button></Link>
+            <Link to="/OmatMatkat"><button type="button" className="btn btn-outline-secondary" style={{margin: 5}}>Omat matkat</button></Link>
           </Col>
-          <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
+          <Col xs={4}><img className="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
         </Row>
       </Container>
 
@@ -78,15 +78,15 @@ const OmatTiedot = () => {
                       </Form.Group>
                     </Row>
                   </Form.Group>
-                  <button type="button" class="btn btn-secondary">Tallenna muutokset</button>
+                  <button type="button" className="btn btn-secondary">Tallenna muutokset</button>
                 </Form.Group>
 
                 <Form.Group as={Col} xs={4} className="picture">
-                  <div class="card" >
-                    <img as={Col} class="card-img-top img-fluid" src="https://p0.piqsels.com/preview/965/429/207/avatar-people-person-business.jpg" alt="" style={{ padding: 2 }}></img>
+                  <div className="card" >
+                    <img as={Col} className="card-img-top img-fluid" src="https://p0.piqsels.com/preview/965/429/207/avatar-people-person-business.jpg" alt="" style={{ padding: 2 }}></img>
                     <div>
-                      <button type="button" class="btn btn-outline-secondary" style={{ margin: 5 }}>Vaihda kuva</button>
-                      <button type="button" class="btn btn-outline-secondary" style={{ margin: 5 }}><BsTrash/></button>
+                      <button type="button" className="btn btn-outline-secondary" style={{ margin: 5 }}>Vaihda kuva</button>
+                      <button type="button" className="btn btn-outline-secondary" style={{ margin: 5 }}><BsTrash/></button>
                     </div>
                   </div>
                 </Form.Group>

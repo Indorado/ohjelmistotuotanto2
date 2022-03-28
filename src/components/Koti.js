@@ -40,11 +40,11 @@ const Koti = () => {
           <Col xs={4} md={4}>
             <h1 className='header-text'>Kuopion kulkijat</h1>
             <p className='text'>Kuopion kulkijat on kuopiolainen harrasteporukka. Käyttäjämme voivat tallentaa matkakertomuksiaan, esitellä uusia matkakohteita ja tutustua toisten matkakertomuksiin.</p>
-            <button onClick={handleShow2} type="button" class="btn btn-secondary">Kirjaudu</button>
-            <button onClick={handleShow} type="button" class="btn btn-outline-secondary" style={{margin: 5}}>Rekisteröidy</button>
+            <button onClick={handleShow2} type="button" className="btn btn-secondary">Kirjaudu</button>
+            <button onClick={handleShow} type="button" className="btn btn-outline-secondary" style={{margin: 5}}>Rekisteröidy</button>
           </Col>
           <Col></Col>
-          <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
+          <Col xs={4}><img className="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
         </Row>
       </Container>
 
@@ -60,7 +60,7 @@ const Koti = () => {
           <p>Rekisteröidy heti alla olevan painikkeen avulla!</p>
         </div>
         <div>
-        <button onClick={handleShow} type="button" class="btn btn-secondary" style={{margin: 5}}>Rekisteröidy</button>
+        <button onClick={handleShow} type="button" className="btn btn-secondary" style={{margin: 5}}>Rekisteröidy</button>
         </div>
       </div>
       <>

@@ -8,7 +8,7 @@ const AdSaveTrip = () => {
               <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?<br></br>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
             </div>
             <div>
-              <button type="button" class="btn btn-secondary" >Tallenna matkasi!</button>
+              <button type="button" className="btn btn-secondary" >Tallenna matkasi!</button>
             </div>
           </div>
         </div>
