@@ -6,11 +6,8 @@ import {
   CardImg,
   CardGroup,
   OverlayTrigger,
-  Popover,
-  PopoverBody,
   Tooltip,
   ModalBody,
-  FloatingLabel,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -18,17 +15,19 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { BsGeoAlt } from "react-icons/bs";
 import Create from "../components/create";
-// BsGeo, BsGlobe
 
 import SignedUser from "../modules/SignedUser";
 import "./css/Matkakohde.css";
 
-import SingleFileUploadComponent from "../components/single-file-upload.component";
+//import SingleFileUploadComponent from "../components/single-file-upload.component";
+// BsGeo, BsGlobe
+//  Popover, PopoverBody, FloatingLabel
 
 const Matkakohde = (props) => {
+
   return (
     <div>
-      <Container className="hero">
+      <Container>
         <Row>
           <Col xs={4} md={4}>
             <h1 className="header-text">Matkakohteet</h1>
@@ -77,35 +76,7 @@ const Matkakohde = (props) => {
               <Buttons />
             </Col>
           </Row>
-
-          <CardGroup
-            className="browse-destinations"
-            style={{ maxHeight: 1000 }}
-          >
-            <OverlayTrigger
-              placement="right"
-              overlay={
-                <Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>
-              }
-            >
-              <Card
-                className="destination-card"
-                style={{ cursor: "pointer", maxWidth: 200 }}
-              >
-                <CardImg
-                  className="destination-img"
-                  variant="top"
-                  src="https://imgur.com/0j1r0KT.png"
-                ></CardImg>
-                <Card.Body>
-                  <h4 className="destination">Puijon torni</h4>
-                  <p className="location">
-                    <BsGeoAlt /> Kuopio, Suomi
-                  </p>
-                </Card.Body>
-              </Card>
-            </OverlayTrigger>
-          </CardGroup>
+          <Cards/>
         </div>
       </Container>
 
@@ -124,6 +95,95 @@ const Matkakohde = (props) => {
   )
 }*/
 
+const Cards = () => {
+  const [showCard, setShowCard] = useState(false);
+  const handleCloseCard = () => setShowCard(false);
+  const showDestinationCard = () => setShowCard(!showCard);
+
+  const showAlert = () => {
+    alert("Tähän kuva!");
+  }
+  return (
+    <div>
+    <CardGroup
+            className="browse-destinations"
+            style={{ maxHeight: 1000 }}
+          >
+            <OverlayTrigger
+              placement="right"
+              overlay={
+                <Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>
+              }
+            >
+              <Card
+                className="destination-card"
+                style={{ cursor: "pointer", maxWidth: 200 }}
+                onClick={showDestinationCard}
+              >
+                <CardImg
+                  className="destination-img"
+                  variant="top"
+                  src="https://imgur.com/0j1r0KT.png"
+                ></CardImg>
+                <Card.Body>
+                  <h4 className="destination">Puijon torni</h4>
+                  <p className="location">
+                    <BsGeoAlt /> Kuopio, Suomi
+                  </p>
+                </Card.Body>
+              </Card>
+            </OverlayTrigger>
+
+            <OverlayTrigger
+              placement="right"
+              overlay={
+                <Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>
+              }
+            >
+              <Card
+                className="destination-card"
+                style={{ cursor: "pointer", maxWidth: 200 }}
+              >
+                <CardImg
+                  className="destination-img"
+                  variant="top"
+                  src="https://imgur.com/ARX301s.png"
+                ></CardImg>
+                <Card.Body>
+                  <h4 className="destination">Koli</h4>
+                  <p className="location">
+                    <BsGeoAlt /> Lieksa, Suomi
+                  </p>
+                </Card.Body>
+              </Card>
+            </OverlayTrigger>
+          </CardGroup>
+     <>
+     <Modal show={showCard} onHide={handleCloseCard}>
+       <Modal.Header closeButton>
+         <Modal.Title>
+           <h4>Puijon torni</h4>
+         </Modal.Title>
+       </Modal.Header>
+       <ModalBody>
+         <img style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png"></img>
+         <p>Tässä näkyy matkakohteen kuvaus</p>
+       </ModalBody>
+       <Modal.Footer>
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={handleCloseCard}
+            >
+              Poistu
+            </button>
+          </Modal.Footer>
+     </Modal>
+     </>
+     </div>
+  )
+}
+
 const Buttons = () => {
   return (
     <div className="destination-btn">
@@ -134,6 +194,7 @@ const Buttons = () => {
   );
 };
 
+// Tämä yrittää luoda uuden kortin, kun painetaan lisää matkakohde ja modaalista nappia
 const NewCard = (props) => {
   const { data } = props;
   const info = data.map((a, index) => {
@@ -169,10 +230,12 @@ const NewCard = (props) => {
         ></Card>
         <div>{info}</div>
       </OverlayTrigger>
+      
     </CardGroup>
   );
 };
 
+// MATKAKOHTEEN LISÄYS
 const AddDestination = () => {
   
   const [showAdd, setShowAdd] = useState(false);
@@ -215,6 +278,8 @@ const AddDestination = () => {
   );
 };
 
+
+// Merkkilaskuri, ei toimi
 const Counter = () => {
   const [characterCount, setCharacterCount] = useState(0);
   if (characterCount < 250) {
@@ -257,6 +322,7 @@ const Counter = () => {
   }
 };
 
+// MATKAKOHTEEN MUOKKAUS
 const EditDestination = () => {
   const [showEdit, setShowEdit] = useState(false);
   const handleCloseEdit = () => setShowEdit(false);
@@ -296,6 +362,7 @@ const EditDestination = () => {
   );
 };
 
+// MATKAKOTEEN POISTO
 const DeleteDestination = () => {
   const [showDelete, setShowDelete] = useState(false);
   const handleCloseDelete = () => setShowDelete(false);
