@@ -112,7 +112,7 @@ const Cards = () => {
             <OverlayTrigger
               placement="right"
               overlay={
-                <Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>
+                <Tooltip id="button-tooltip-2">Klikkaa korttia</Tooltip>
               }
             >
               <Card
@@ -167,7 +167,8 @@ const Cards = () => {
        </Modal.Header>
        <ModalBody>
          <img style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png"></img>
-         <p>Tässä näkyy matkakohteen kuvaus</p>
+         <p></p>
+         <p>Puijon torni on Kuopion Puijolla sijaitseva 75 metriä korkea näkötorni, jonka on suunnitellut arkkitehti Seppo Ruotsalainen. </p>
        </ModalBody>
        <Modal.Footer>
             <button
