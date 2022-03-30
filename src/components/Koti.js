@@ -7,7 +7,8 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 
 import './css/Koti.css';
-import SignedUser from '../modules/SignedUser';
+import AdSign from '../modules/parts/AdSignedUser';
+import SignUp from '../modules/parts/AdSignUp';
 import Mainos from '../modules/Mainos';
 //import "bootstrap/dist/css/bootstrap.css";
 
@@ -54,14 +55,9 @@ const Koti = () => {
       </div>
       <hr></hr>
       
-      <div className='sign-up'>
-        <div>
-          <p className='text'>Etkö ole vielä rekisteröitynyt Kuopion Kulkijoiden sovellukseen?<br></br>Rekisteröidy heti alla olevan painikkeen avulla!</p>
-        </div>
-        <div>
-        <button onClick={handleShow} type="button" className="btn btn-secondary" style={{margin: 5}}>Rekisteröidy</button>
-        </div>
-      </div>
+      <SignUp/>
+      <hr></hr>
+      <AdSign/>
       <>
 
     

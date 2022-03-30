@@ -3,9 +3,11 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
+import './css/AdSignedUser.css';
+
 const AdSign = () => {
     return (
-        <div>
+        <div className="as-signed-user">
             <Col className='item'>
                 <h2>Kirjautuneena käyttäjänä</h2>
                 <p className='text'>Kirjautuneena käyttäjänä koet enemmän Kuopion Kulkijoiden web-sovelluksessa!</p>
