@@ -100,64 +100,56 @@ const Cards = () => {
   const handleCloseCard = () => setShowCard(false);
   const showDestinationCard = () => setShowCard(!showCard);
 
-  const showAlert = () => {
-    alert("Tähän kuva!");
-  }
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseEdit= () => setShowEdit(false);
+  const showDestinationEdit = () => setShowEdit(!showEdit);
+
+  const [showDelete, setShowDelete] = useState(false);
+  const handleCloseDelete = () => setShowDelete(false);
+  const showDestinationDelete = () => setShowDelete(!showDelete);
+
   return (
     <div>
-    <CardGroup
-            className="browse-destinations"
-            style={{ maxHeight: 1000 }}
-          >
-            <OverlayTrigger
-              placement="right"
-              overlay={
-                <Tooltip id="button-tooltip-2">Klikkaa korttia</Tooltip>
-              }
-            >
-              <Card
-                className="destination-card"
-                style={{ cursor: "pointer", maxWidth: 200 }}
-                onClick={showDestinationCard}
-              >
-                <CardImg
-                  className="destination-img"
-                  variant="top"
-                  src="https://imgur.com/0j1r0KT.png"
-                ></CardImg>
-                <Card.Body>
-                  <h4 className="destination">Puijon torni</h4>
-                  <p className="location">
-                    <BsGeoAlt /> Kuopio, Suomi
-                  </p>
-                </Card.Body>
-              </Card>
-            </OverlayTrigger>
+      <CardGroup
+        className="browse-destinations"
+        style={{ maxHeight: 1000 }}
+      >
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
+        >
+          <CardImg
+            className="destination-img"
+            variant="top"
+            src="https://imgur.com/0j1r0KT.png"
+           ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Puijon torni</h4>
+            <p className="location">
+              <BsGeoAlt /> Kuopio, Suomi
+            </p>
+           </Card.Body>
+        </Card>
 
-            <OverlayTrigger
-              placement="right"
-              overlay={
-                <Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>
-              }
-            >
-              <Card
-                className="destination-card"
-                style={{ cursor: "pointer", maxWidth: 200 }}
-              >
-                <CardImg
-                  className="destination-img"
-                  variant="top"
-                  src="https://imgur.com/ARX301s.png"
-                ></CardImg>
-                <Card.Body>
-                  <h4 className="destination">Koli</h4>
-                  <p className="location">
-                    <BsGeoAlt /> Lieksa, Suomi
-                  </p>
-                </Card.Body>
-              </Card>
-            </OverlayTrigger>
-          </CardGroup>
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          >
+           <CardImg
+            className="destination-img"
+            variant="top"
+            src="https://imgur.com/ARX301s.png"
+          ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Koli</h4>
+            <p className="location">
+              <BsGeoAlt /> Lieksa, Suomi
+            </p>
+          </Card.Body>
+        </Card>
+      </CardGroup>
+
      <>
      <Modal show={showCard} onHide={handleCloseCard}>
        <Modal.Header closeButton>
@@ -166,23 +158,28 @@ const Cards = () => {
          </Modal.Title>
        </Modal.Header>
        <ModalBody>
-         <img style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png"></img>
-         <p></p>
-         <p>Puijon torni on Kuopion Puijolla sijaitseva 75 metriä korkea näkötorni, jonka on suunnitellut arkkitehti Seppo Ruotsalainen. </p>
-         <button
+          <img style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png"></img>
+          <p></p>
+          <p>Puijon torni on Kuopion Puijolla sijaitseva 75 metriä korkea näkötorni, jonka on suunnitellut arkkitehti Seppo Ruotsalainen. </p>
+          <p>
+            <BsGeoAlt /> Kuopio, Suomi
+          </p>
+         <div className="card-btns">
+          <button
               type="button"
-              className="btn btn-outline-secondary"
-              onClick={handleCloseCard}
+              className="btn btn-secondary"
+              onClick={showDestinationEdit}
             >
               Muokkaa matkakohdetta
             </button>
             <button
               type="button"
               className="btn btn-outline-secondary"
-              onClick={handleCloseCard}
+              onClick={showDestinationDelete}
             >
               Poista matkakohde
             </button>
+         </div>
        </ModalBody>
        <Modal.Footer>
             <button
@@ -195,7 +192,74 @@ const Cards = () => {
           </Modal.Footer>
      </Modal>
      </>
-     </div>
+
+      <>
+      <Modal show={showEdit} onHide={handleCloseEdit}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <h4>Muokkaa matkakohdetta</h4>
+          </Modal.Title>
+        </Modal.Header>
+        <ModalBody>
+          <Form>
+            <Form.Group>
+              <p>Kuvan muokkaus</p>
+              <Form.Control as="textarea" rows={7} maxLength={250} placeholder="Matkakohteen kuvaus" style={{ marginBottom: 5}}></Form.Control>
+            </Form.Group>
+          </Form>
+          <Row>
+            <div className="card-btns">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={handleCloseCard}
+              >
+                Tallenna muutokset
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={handleCloseCard}
+              >
+                Poistu
+              </button>
+            </div>
+          </Row>
+        </ModalBody>
+      </Modal>
+      </>
+
+      <>
+      <Modal show={showDelete} onHide={handleCloseDelete}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <h4>Poistetaanko matkakohde?</h4>
+          </Modal.Title>
+        </Modal.Header>
+        <ModalBody>
+          <p>Oletko varma, että haluat poistaa matkakohteen?</p>
+          <Row>
+            <div className="card-btns">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={handleCloseDelete}
+              >
+                Poista matkakohde
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={handleCloseDelete}
+              >
+                Poistu
+              </button>
+            </div>
+          </Row>
+        </ModalBody>
+      </Modal>
+      </>
+    </div>
   )
 }
 
