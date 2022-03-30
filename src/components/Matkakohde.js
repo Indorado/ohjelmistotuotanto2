@@ -169,6 +169,20 @@ const Cards = () => {
          <img style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png"></img>
          <p></p>
          <p>Puijon torni on Kuopion Puijolla sijaitseva 75 metriä korkea näkötorni, jonka on suunnitellut arkkitehti Seppo Ruotsalainen. </p>
+         <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={handleCloseCard}
+            >
+              Muokkaa matkakohdetta
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={handleCloseCard}
+            >
+              Poista matkakohde
+            </button>
        </ModalBody>
        <Modal.Footer>
             <button
