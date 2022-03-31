@@ -55,9 +55,10 @@ const Koti = () => {
       </div>
       <hr></hr>
       
-      <SignUp/>
-      <hr></hr>
       <AdSign/>
+      <hr></hr>
+      <SignUp/>
+      
       <>
 
     

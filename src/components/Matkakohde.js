@@ -7,7 +7,7 @@ import {
   CardGroup,
   OverlayTrigger,
   Tooltip,
-  ModalBody,
+  ModalBody, Image
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -61,7 +61,6 @@ const Matkakohde = (props) => {
           </Col>
         </Row>
       </Container>
-
       <hr></hr>
 
       <Container>
@@ -87,14 +86,6 @@ const Matkakohde = (props) => {
   );
 };
 
-/*const cardClick = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}*/
-
 const Cards = () => {
   const [showCard, setShowCard] = useState(false);
   const handleCloseCard = () => setShowCard(false);
@@ -110,10 +101,28 @@ const Cards = () => {
 
   return (
     <div>
-      <CardGroup
+      <div
         className="browse-destinations"
         style={{ maxHeight: 1000 }}
       >
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
+          >
+           <CardImg
+            className="destination-img"
+            variant="top"
+            src="https://imgur.com/ARX301s.png"
+          ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Kohdenimi</h4>
+            <p className="location">
+              <BsGeoAlt /> Paikkakunta, Maa
+            </p>
+          </Card.Body>
+        </Card>
+
         <Card
           className="destination-card"
           style={{ cursor: "pointer", maxWidth: 200 }}
@@ -135,6 +144,7 @@ const Cards = () => {
         <Card
           className="destination-card"
           style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
           >
            <CardImg
             className="destination-img"
@@ -148,7 +158,7 @@ const Cards = () => {
             </p>
           </Card.Body>
         </Card>
-      </CardGroup>
+      </div>
 
      <>
      <Modal show={showCard} onHide={handleCloseCard}>
@@ -158,11 +168,11 @@ const Cards = () => {
          </Modal.Title>
        </Modal.Header>
        <ModalBody>
-          <img style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png"></img>
+          <Image style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png" ></Image>
           <p></p>
-          <p>Puijon torni on Kuopion Puijolla sijaitseva 75 metriä korkea näkötorni, jonka on suunnitellut arkkitehti Seppo Ruotsalainen. </p>
-          <p>
-            <BsGeoAlt /> Kuopio, Suomi
+          <p>Matkakohteen kuvaus</p>
+          <p className="location">
+            <BsGeoAlt /> Paikkakunta, Maa
           </p>
          <div className="card-btns">
           <button
@@ -212,16 +222,16 @@ const Cards = () => {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={handleCloseCard}
+                onClick={handleCloseEdit}
               >
                 Tallenna muutokset
               </button>
               <button
                 type="button"
                 className="btn btn-outline-secondary"
-                onClick={handleCloseCard}
+                onClick={handleCloseEdit}
               >
-                Poistu
+                Peruuta
               </button>
             </div>
           </Row>
@@ -252,7 +262,7 @@ const Cards = () => {
                 className="btn btn-outline-secondary"
                 onClick={handleCloseDelete}
               >
-                Poistu
+                Peruuta
               </button>
             </div>
           </Row>

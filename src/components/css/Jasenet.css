@@ -1,4 +1,39 @@
 .browse-users {
     display: flex;
+    justify-content: start;
+    gap: 10px;
+}
+
+/*Paikan sijainti*/
+.location {
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
+.user-img {
+    padding: 3px;
+}
+
+.user-card-big {
+    display: flex;
+    justify-content: start;
     gap: 5px;
+}
+
+.user-card-info {
+    justify-content: start;
+    color: rgb(80, 80, 80);
+}
+
+.user-card-location {
+    margin-top: -12px;
+    color: grey;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+
+.user-pres {
+    margin-top: 10px;
 }
