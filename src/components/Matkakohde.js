@@ -37,9 +37,11 @@ const Matkakohde = (props) => {
               seuraavalle matkallesi!
             </p>
             <div>
-              <button type="button" className="btn btn-secondary">
-                Tallenna matkasi
-              </button>
+                <Link to="/PorukanMatkat">
+                  <button type="button" className="btn btn-secondary">
+                    Selaa käyttäjien matkoja
+                  </button>
+              </Link>
               <Link to="/OmatTiedot">
                 <button
                   type="button"
