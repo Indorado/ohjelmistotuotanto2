@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 
+import {
+  Modal,
+  Card,
+  CardImg,
+  ModalBody, Image
+} from "react-bootstrap";
 import Container from 'react-bootstrap/Container'
 import { Link } from 'react-router-dom';
-import { Form, Toast } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 //import { Card } from "react-bootstrap";
@@ -14,8 +20,6 @@ import './css/OmatTiedot.css';
 
 // Max merkkimäärä toimii, mutta laskuri puuttuu
 const OmatTiedot = () => {
-
-
     return (
         <div>
           <Container className="hero">
@@ -32,8 +36,55 @@ const OmatTiedot = () => {
 
 
       <hr></hr>
+      <Information/>
 
-          <Container className="user-info">
+          <div>
+            <SignedUser/>
+          </div>
+        </div>
+    )
+}
+
+const Counter = () => {
+  const [ characterCount, setCharacterCount ] = useState(0);
+  if (characterCount < 250) {
+    return (
+      <div>
+        <Form.Group>
+          <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
+          <p className='counter-text'> {characterCount}/ 250</p>
+        </Form.Group>
+      </div>
+    )
+  } else {
+    return (
+    <div>
+      <Form.Group>
+        <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
+        <p className='counter-text-alert'> {characterCount}/ 250 Merkkimäärä täynnä!</p>
+      </Form.Group>
+    </div>
+  )
+  }
+}
+
+const Information = () => {
+  const [showSave, setShowSave] = useState(false);
+  const handleCloseSave = () => setShowSave(false);
+  const showSaveChanges = () => setShowSave(!showSave);
+
+  const [showDelete, setShowDelete] = useState(false);
+  const handleCloseDelete = () => setShowDelete(false);
+  const showDeletePicture = () => setShowDelete(!showDelete);
+
+  const [showChange, setShowChange] = useState(false);
+  const handleCloseChange = () => setShowChange(false);
+  const showChangePicture = () => setShowChange(!showChange);
+
+  return (
+    <div>
+      <>
+                <Container className="user-info">
             <Form>
               <Row >
                 <Form.Group as={Col}>
@@ -77,15 +128,15 @@ const OmatTiedot = () => {
                       </Form.Group>
                     </Row>
                   </Form.Group>
-                  <button type="button" className="btn btn-secondary">Tallenna muutokset</button>
+                  <button type="button" className="btn btn-secondary" onClick={showSaveChanges}>Tallenna muutokset</button>
                 </Form.Group>
 
                 <Form.Group as={Col} xs={4} className="picture">
                   <div className="card" >
                     <img as={Col} className="card-img-top img-fluid" src="https://p0.piqsels.com/preview/965/429/207/avatar-people-person-business.jpg" alt="" style={{ padding: 2 }}></img>
                     <div>
-                      <button type="button" className="btn btn-outline-secondary" style={{ margin: 5 }}>Vaihda kuva</button>
-                      <button type="button" className="btn btn-outline-secondary" style={{ margin: 5 }}><BsTrash/></button>
+                      <button type="button" className="btn btn-outline-secondary" style={{ margin: 5 }} onClick={showChangePicture}>Vaihda kuva</button>
+                      <button type="button" className="btn btn-outline-secondary" style={{ margin: 5 }} onClick={showDeletePicture}><BsTrash/></button>
                     </div>
                   </div>
                 </Form.Group>
@@ -93,54 +144,78 @@ const OmatTiedot = () => {
             </Form>
           </Container>
 
-          <div>
-            <SignedUser/>
-          </div>
-        </div>
-    )
-}
+          <Modal show={showSave} onHide={handleCloseSave}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                <h4>Omat tiedot</h4>
+              </Modal.Title>
+            </Modal.Header>
+            <ModalBody>
+              <p className="text">Tallennetaanko muutokset?</p>
+              <button type="button" className="btn btn-secondary">Tallenna muutokset</button>
+              <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseSave}>Peruuta</button>
+              
+            </ModalBody>
+            <Modal.Footer>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={handleCloseSave}
+              >
+                Poistu
+              </button>
+            </Modal.Footer>
+          </Modal>
 
-const Counter = () => {
-  const [ characterCount, setCharacterCount ] = useState(0);
-  if (characterCount < 250) {
-    return (
-      <div>
-        <Form.Group>
-          <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
-          <p className='counter-text'> {characterCount}/ 250</p>
-        </Form.Group>
-      </div>
-    )
-  } else {
-    return (
-    <div>
-      <Form.Group>
-        <Form.Control as="textarea" rows={5} maxLength={250} controlId="formGridPresentation" placeholder="Käyttäjän esittely" onChange={(e) => setCharacterCount(e.target.value.length)}></Form.Control>
-        <p className='counter-text-alert'> {characterCount}/ 250 Merkkimäärä täynnä!</p>
-      </Form.Group>
+          <Modal show={showChange} onHide={handleCloseChange}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                <h4>Omat tiedot</h4>
+              </Modal.Title>
+            </Modal.Header>
+            <ModalBody>
+              <p>*TÄHÄN KUVAN VALITSEMINEN*</p>
+              <p className="text">Tallenetaanko muutokset?</p>
+              <button type="button" className="btn btn-secondary">Tallenna muutokset</button>
+              <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseChange}>Peruuta</button>
+              
+            </ModalBody>
+            <Modal.Footer>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={handleCloseChange}
+              >
+                Poistu
+              </button>
+            </Modal.Footer>
+          </Modal>
+
+          <Modal show={showDelete} onHide={handleCloseDelete}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                <h4>Omat tiedot</h4>
+              </Modal.Title>
+            </Modal.Header>
+            <ModalBody>
+              <p className="text">Poistetaanko kuva?</p>
+              <button type="button" className="btn btn-secondary">Kyllä</button>
+              <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseDelete}>Peruuta</button>
+              
+            </ModalBody>
+            <Modal.Footer>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={handleCloseDelete}
+              >
+                Poistu
+              </button>
+            </Modal.Footer>
+          </Modal>
+        </>
     </div>
   )
-  }
 }
-  /*<Form className="user-information">
-                <Form.Group className="username">
-                  <Form.Control placeholder="*käyttäjänimi*" disabled></Form.Control>
-                </Form.Group>
-                <Form.Group className="firstname">
-                  <Form.Control placeholder="Erkki" disabled></Form.Control>
-                </Form.Group>
-                <Form.Group className="postalcode">
-                  <Form.Control placeholder="70100" disabled></Form.Control>
-                </Form.Group> 
-                <Form.Group className="lastname">
-                  <Form.Control placeholder="Esimerkki" disabled></Form.Control>
-                </Form.Group> 
-                <Form.Group className="postalarea">
-                  <Form.Control placeholder="Kuopio" disabled></Form.Control>
-                </Form.Group>
-           </Form>
-            <button as={Col} className="delete" type="button" class="btn btn-secondary" style={{ marginTop: 5 }}>Tallenna muutokset</button>
-           
-          </Container>*/
 
 export default OmatTiedot;

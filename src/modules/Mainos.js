@@ -9,7 +9,7 @@ const Mainos = () => {
         <div>
             <Container>
                 <Row className="mb-3">
-                    <Col xs={5} md={5}>
+                    <Col xs={3} md={5}>
                         <h2>Tallenna omia matkakertomuksia</h2>
                         <p className='text'>Määritä matkakertomuksesi yksityisyys ja väritä omia matkakertomuksia kuvin ja tarinoin! Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
                     </Col>
