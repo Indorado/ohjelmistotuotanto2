@@ -16,10 +16,6 @@ import './components/css/OmatMatkat.css';
 import SingleFileUploadComponent from './components/single-file-upload.component';
 
 
-
-
-//Johanna
-
 const OmatMatkat = () => {
   return (
     <div>
@@ -35,10 +31,8 @@ const OmatMatkat = () => {
         </Row>
       </Container>
 
-
       <hr></hr>
-
-
+      
       <Container>
         <div>
           <h2>Selaa omia matkoja</h2>
