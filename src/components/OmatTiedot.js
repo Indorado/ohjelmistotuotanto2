@@ -18,6 +18,11 @@ import { BsTrash } from "react-icons/bs";
 import SignedUser from '../modules/SignedUser';
 import './css/OmatTiedot.css';
 
+import SingleFileUploadComponent from './single-file-upload.component';
+
+
+
+
 // Max merkkimäärä toimii, mutta laskuri puuttuu
 const OmatTiedot = () => {
     return (
@@ -174,7 +179,21 @@ const Information = () => {
               </Modal.Title>
             </Modal.Header>
             <ModalBody>
-              <p>*TÄHÄN KUVAN VALITSEMINEN*</p>
+
+              <div className="container">
+                <div className="row">
+                  
+                    <div className="card">
+                      <div className="card-header">
+                        Lataa matkakuva
+                      </div>
+                      <div className="card-body">
+                        <SingleFileUploadComponent />
+                      </div>
+                   
+                  </div>
+                </div>
+              </div>
               <p className="text">Tallenetaanko muutokset?</p>
               <button type="button" className="btn btn-secondary">Tallenna muutokset</button>
               <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseChange}>Peruuta</button>
