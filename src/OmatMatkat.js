@@ -41,6 +41,8 @@ const OmatMatkat = () => {
             <Col>
 
               <Buttons2 />
+             
+                         
               <div className="container">
                 <div className="row">
                   <div className="col-md-6">
