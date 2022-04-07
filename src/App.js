@@ -10,7 +10,7 @@ import Footer from './modules/Footer';
 import BootstrapNavbar from './modules/BootstrapNavbar';
 
 import { Koti } from './components/Koti';
-import OmatMatkat from './OmatMatkat';
+import OmatMatkat from './components/OmatMatkat';
 import PorukanMatkat from './components/PorukanMatkat';
 import Jasenet from './components/Jasenet';
 import Matkakohde from './components/Matkakohde';
@@ -20,7 +20,7 @@ import Create from "./components/create";
 // Tähän on lisätty Bootstrap
 /*<Navbar />*/
 function App() {
-	// The back-to-top button is hidden at the beginning
+	//Rullaa ylös nappi on piilotettu kunnes tarpeeksi alhaalla sivu
 	const [showButton, setShowButton] = useState(false);
 
 	useEffect(() => {
@@ -33,11 +33,11 @@ function App() {
 		});
 	}, []);
 
-	// This function will scroll the window to the top 
+	//Rullaa ylös
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			behavior: 'smooth' // for smoothly scrolling
+			behavior: 'smooth'
 		});
 	};
 
