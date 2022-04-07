@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -17,10 +16,6 @@ import {
 import { BsGeoAlt } from "react-icons/bs";
 //import Create from "../components/create"; TIETOKANTAAN LIITTYVÄ IMPORT
 
-
-//import SingleFileUploadComponent from './single-file-upload.component';
-
-
 const OmatMatkat = () => {
   return (
     <div>
@@ -30,8 +25,8 @@ const OmatMatkat = () => {
             <h1 className='header-text'>Omat matkat</h1>
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
             
-            { /*<Buttons />EHEHRHKADHJÖASDFGHÖASDFGH*/}
-            <AddNewTrip/>
+            { /*<Buttons />*/}
+            <LuoUusiMatka/>
 
           </Col>
           <Col></Col>
@@ -71,15 +66,32 @@ const OmatMatkat = () => {
     </div>
   )
 }
-const AddNewTrip = () => { //Lisää uusi matkakohde napin klikkaus
+
+
+//Lisää uusi matkakohde -napin klikkaus + modaali
+const LuoUusiMatka = () => { 
+
+  //Lisää
   const [showAdd, setShowAdd] = useState(false);
   const handleCloseAdd = () => setShowAdd(false);
   const showAddDestination = () => setShowAdd(!showAdd);
 
+  //Muokkaa
+  const [showEdit, setShowEdit] = useState(false);
+  const handleCloseEdit= () => setShowEdit(false);
+  const showDestinationEdit = () => setShowEdit(!showEdit);
+
+  //Poista
+  const [showDelete, setShowDelete] = useState(false);
+  const handleCloseDelete = () => setShowDelete(false);
+  const showDestinationDelete = () => setShowDelete(!showDelete);
+
   return (
     <div>
-      <Button className='AddTrip' variant="secondary" onClick={showAddDestination}>Lisää uusi matka</Button>
-      <>
+      <Button className='AddTrip' variant="secondary" 
+      onClick={showAddDestination}>Lisää uusi matka</Button>
+
+      <> {/*Modaali Aukaise */}
         <Modal show={showAdd} onHide={handleCloseAdd}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -91,12 +103,20 @@ const AddNewTrip = () => { //Lisää uusi matkakohde napin klikkaus
           </ModalBody>
         </Modal>
       </>
-      <button type="button" onClick={(e) => {
+    {/*Modaaliin Muokkaa nappi*/}   
+
+    {/*Modaali Poista nappi */}   
+
+    {/*Textboksi matkakertomukselle*/}
+
+     {/*kuvien lisäykset matkakertomukseen*/}   
+
+
+      
+      <button type="button" onClick={(e) => { //Omat tiedot sivulle vievä nappi
         e.preventDefault();
         window.location.href = 'http://localhost:3000/OmatTiedot';
       }} class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Omat tiedot</button>
-
-
 
     </div>
   )
