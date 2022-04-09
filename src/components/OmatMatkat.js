@@ -11,7 +11,8 @@ import {
   Form,
   Card,
   CardImg,
-  ModalBody
+  ModalBody,
+  FormCheck
 } from "react-bootstrap";
 import { BsGeoAlt } from "react-icons/bs";
 //import Create from "../components/create"; TIETOKANTAAN LIITTYVÄ IMPORT
@@ -24,9 +25,9 @@ const OmatMatkat = () => {
           <Col xs={4} md={4}>
             <h1 className='header-text'>Omat matkat</h1>
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
-            
+
             { /*<Buttons />*/}
-            <LuoUusiMatka/>
+            <LuoUusiMatka />
 
           </Col>
           <Col></Col>
@@ -69,7 +70,7 @@ const OmatMatkat = () => {
 
 
 //Lisää uusi matkakohde -napin klikkaus + modaali
-const LuoUusiMatka = () => { 
+const LuoUusiMatka = () => {
 
   //Lisää
   const [showAdd, setShowAdd] = useState(false);
@@ -78,7 +79,7 @@ const LuoUusiMatka = () => {
 
   //Muokkaa
   const [showEdit, setShowEdit] = useState(false);
-  const handleCloseEdit= () => setShowEdit(false);
+  const handleCloseEdit = () => setShowEdit(false);
   const showDestinationEdit = () => setShowEdit(!showEdit);
 
   //Poista
@@ -88,8 +89,8 @@ const LuoUusiMatka = () => {
 
   return (
     <div>
-      <Button className='AddTrip' variant="secondary" 
-      onClick={showAddDestination}>Lisää uusi matka</Button>
+      <Button className='AddTrip' variant="secondary"
+        onClick={showAddDestination}>Lisää uusi matka</Button>
 
       <> {/*Modaali Aukaise */}
         <Modal show={showAdd} onHide={handleCloseAdd}>
@@ -99,21 +100,117 @@ const LuoUusiMatka = () => {
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
-            {/*<Create/> Liittyy tietokantaan lisäykseen*/}
+            <Form.Group>
+              <p>Lisää matkan tiedot sekä matkakertomus.</p>              
+              <Form.Control as="textarea" rows={7}
+                maxLength={250} placeholder="Matkakertomus"
+                style={{ marginBottom: 5 }}>                
+                </Form.Control>
+
+                <p>Haluatko pitää matkasi julkisena vai yksityisenä?</p>
+                <FormCheck id="flexCheckDefault" label="Julkinen"/>
+                <FormCheck id="flexCheckDefault" label="Yksityinen"/>
+            </Form.Group>
+          </ModalBody>          
+
+          <ModalBody>
+            <div className="card-btns">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={showDestinationEdit}
+              >
+                Muokkaa matkakohdetta
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={showDestinationDelete}
+              >
+                Poista matkakohde
+              </button>
+            </div>
+          </ModalBody>
+
+        </Modal>
+      </>
+
+      <>
+        {/*Matkan muokkaus napin takana ->
+         aukaisee erillisen modaalin*/}
+        <Modal show={showEdit} onHide={handleCloseEdit}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h4>Muokkaa</h4>
+            </Modal.Title>
+          </Modal.Header>
+          <ModalBody>
+            <Form>
+              <Form.Group>
+                {/*KUVIEN LISÄYKSEN KOODI TÄHÄN*/}
+                <p>Kuvan muokkaus</p>
+                <Form.Control as="textarea" rows={7}
+                  maxLength={250} placeholder="Matkakohteen kuvaus"
+                  style={{ marginBottom: 5 }}></Form.Control>
+              </Form.Group>
+            </Form>
+            <Row>
+              <div className="card-btns">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleCloseEdit}
+                >
+                  Tallenna muutokset
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={handleCloseEdit}
+                >
+                  Peruuta
+                </button>
+              </div>
+            </Row>
           </ModalBody>
         </Modal>
       </>
-    {/*Modaaliin Muokkaa nappi*/}   
 
-    {/*Modaali Poista nappi */}   
+      <>
+        {/*Matkan POISTO napin takana 
+        -> aukaisee erillisen modaalin*/}
+        <Modal show={showDelete} onHide={handleCloseDelete}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h4>Poistetaanko matkakohde?</h4>
+            </Modal.Title>
+          </Modal.Header>
+          <ModalBody>
+            <p>Oletko varma, että haluat poistaa matkakohteen?</p>
+            <Row>
+              <div className="card-btns">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleCloseDelete}
+                >
+                  Poista
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={handleCloseDelete}
+                >
+                  Peruuta
+                </button>
+              </div>
+            </Row>
+          </ModalBody>
 
-    {/*Textboksi matkakertomukselle*/}
-
-     {/*kuvien lisäykset matkakertomukseen*/}   
-
-
-      
-      <button type="button" onClick={(e) => { //Omat tiedot sivulle vievä nappi
+        </Modal>
+      </>
+      {/*Omat tiedot -sivulle vievä nappi*/}
+      <button type="button" onClick={(e) => {        
         e.preventDefault();
         window.location.href = 'http://localhost:3000/OmatTiedot';
       }} class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Omat tiedot</button>
@@ -124,17 +221,10 @@ const LuoUusiMatka = () => {
 }
 
 const Cards = () => {
+  //tässä näytä vain käyttäjän omat matkakohteet
   const [showCard, setShowCard] = useState(false);
   const handleCloseCard = () => setShowCard(false);
   const showDestinationCard = () => setShowCard(!showCard);
-
-  const [showEdit, setShowEdit] = useState(false);
-  const handleCloseEdit = () => setShowEdit(false);
-  const showDestinationEdit = () => setShowEdit(!showEdit);
-
-  const [showDelete, setShowDelete] = useState(false);
-  const handleCloseDelete = () => setShowDelete(false);
-  const showDestinationDelete = () => setShowDelete(!showDelete);
 
   return (
     <div>
@@ -211,22 +301,7 @@ const Cards = () => {
               <p className="location">
                 <BsGeoAlt /> Paikkakunta, Maa
               </p>
-              <div className="card-btns">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={showDestinationEdit}
-                >
-                  Muokkaa matkakohdetta
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-secondary"
-                  onClick={showDestinationDelete}
-                >
-                  Poista matkakohde
-                </button>
-              </div>
+
             </ModalBody>
             <Modal.Footer>
               <button
@@ -239,98 +314,7 @@ const Cards = () => {
             </Modal.Footer>
           </Modal>
         </>
-
-        <>
-        {/*Matkan muokkaus*/}
-          <Modal show={showEdit} onHide={handleCloseEdit}>
-            <Modal.Header closeButton>
-              <Modal.Title>
-                <h4>Muokkaa matkakohdetta</h4>
-              </Modal.Title>
-            </Modal.Header>
-            <ModalBody>
-              <Form>
-                <Form.Group>
-                  <p>Kuvan muokkaus</p>
-                  <Form.Control as="textarea" rows={7} maxLength={250} placeholder="Matkakohteen kuvaus" style={{ marginBottom: 5 }}></Form.Control>
-                </Form.Group>
-              </Form>
-              <Row>
-                <div className="card-btns">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={handleCloseEdit}
-                  >
-                    Tallenna muutokset
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary"
-                    onClick={handleCloseEdit}
-                  >
-                    Peruuta
-                  </button>
-                </div>
-              </Row>
-            </ModalBody>
-          </Modal>
-        </>
-
-        <>
-        {/*Matkan poisto*/}
-          <Modal show={showDelete} onHide={handleCloseDelete}>
-            <Modal.Header closeButton>
-              <Modal.Title>
-                <h4>Poistetaanko matkakohde?</h4>
-              </Modal.Title>
-            </Modal.Header>
-            <ModalBody>
-              <p>Oletko varma, että haluat poistaa matkakohteen?</p>
-              <Row>
-                <div className="card-btns">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={handleCloseDelete}
-                  >
-                    Poista matkakohde
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary"
-                    onClick={handleCloseDelete}
-                  >
-                    Peruuta
-                  </button>
-                </div>
-              </Row>
-            </ModalBody>
-          </Modal>
-        </>
       </div>
-    </div>
-  )
-}
-
-/*const Buttons = () => {
-
-  return (
-    <div className="buttons">
-      <Button className='AddTrip' variant="secondary">Lisää uusi matka</Button>
-      <button type="button" onClick={(e) => {
-        e.preventDefault();
-        window.location.href = 'http://localhost:3000/OmatTiedot';
-      }} class="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Omat tiedot</button>
-    </div>
-  )
-}*/
-
-const Buttons2 = () => { //nämä modaalin sisälle
-  return (
-    <div className="btnMainos" >
-      <button type="button" class="btn btn-outline-secondary">Muokkaa</button>
-      <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 5 }}>Poista</button>
     </div>
   )
 }

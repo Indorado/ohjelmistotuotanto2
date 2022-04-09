@@ -20,12 +20,6 @@ border-color: black;
 	gap: 5px;
 }
 
-/*Tämä ei toimi*/
-.btn-up { 
-	color: black;
-}
-
-
 h1, h2, h3, h4 {
 	padding-top: 10px;
 	color: rgb(80,80,80);

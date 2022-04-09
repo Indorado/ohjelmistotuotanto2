@@ -153,7 +153,8 @@ const Cards = () => {
 const Buttons = () => {
   return (
     <div className="buttons">
-      <Button className='btn-in' variant="secondary">Tallenna matkasi</Button>
+      <Button className='btn-in' variant="secondary">BÖÖ</Button>
+
       <button type="button" onClick={(e) => {
         e.preventDefault();
         window.location.href = 'http://localhost:3000/Matkakohde';
