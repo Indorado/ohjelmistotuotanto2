@@ -15,6 +15,7 @@ import {
   FormCheck
 } from "react-bootstrap";
 import { BsGeoAlt } from "react-icons/bs";
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 //import Create from "../components/create"; TIETOKANTAAN LIITTYVÄ IMPORT
 
 const OmatMatkat = () => {
@@ -25,8 +26,6 @@ const OmatMatkat = () => {
           <Col xs={4} md={4}>
             <h1 className='header-text'>Omat matkat</h1>
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
-
-            { /*<Buttons />*/}
             <LuoUusiMatka />
 
           </Col>
@@ -46,23 +45,12 @@ const OmatMatkat = () => {
           </Row>
         </div>
       </Container>
-
       <hr></hr>
       <div>
         <Mainos />
       </div>
-
-      <hr></hr>
-      <div className='sign-up'>
-        <div>
-          <p>Olitko matkoilla? Haluatko jakaa matkakertomuksesi muille käyttäjille tai vaikka vain itsellesi?</p>
-          <p>Alla olevasta napista pääset nopeasti tallentamaan unohtumattoman matkakertomuksesi!</p>
-        </div>
-        <div>
-          <Button variant="secondary">Tallenna matkasi!</Button>
-        </div>
-      </div>
-
+      <hr></hr>      
+      <AdSaveTrip/>
       <hr></hr>
     </div>
   )

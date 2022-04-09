@@ -11,6 +11,7 @@ import './css/Koti.css';
 import AdSign from '../modules/parts/AdSignedUser';
 import SignUp from '../modules/parts/AdSignUp';
 import Mainos from '../modules/Mainos';
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 //import "bootstrap/dist/css/bootstrap.css";
 
 
@@ -58,7 +59,7 @@ const Koti = () => {
       
       <AdSign/>
       <hr></hr>
-      <SignUp/>
+      <AdSaveTrip/>
       
       <>
 
