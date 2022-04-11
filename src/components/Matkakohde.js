@@ -1,20 +1,14 @@
 import { React, useState } from "react";
 import {
   Modal,
-  Form,
-  Card,
-  CardImg,
-  CardGroup,
-  OverlayTrigger,
-  Tooltip,
-  ModalBody, Image
+  ModalBody
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { BsGeoAlt } from "react-icons/bs";
 import Create from "../components/create";
+import RecordList from "../components/recordList";
 
 import SignedUser from "../modules/SignedUser";
 import "./css/Matkakohde.css";
@@ -77,7 +71,8 @@ const Matkakohde = (props) => {
               <Buttons />
             </Col>
           </Row>
-          <Cards/>
+          <RecordList/>
+          
         </div>
       </Container>
 
@@ -88,192 +83,6 @@ const Matkakohde = (props) => {
   );
 };
 
-const Cards = () => {
-  const [showCard, setShowCard] = useState(false);
-  const handleCloseCard = () => setShowCard(false);
-  const showDestinationCard = () => setShowCard(!showCard);
-
-  const [showEdit, setShowEdit] = useState(false);
-  const handleCloseEdit= () => setShowEdit(false);
-  const showDestinationEdit = () => setShowEdit(!showEdit);
-
-  const [showDelete, setShowDelete] = useState(false);
-  const handleCloseDelete = () => setShowDelete(false);
-  const showDestinationDelete = () => setShowDelete(!showDelete);
-
-  return (
-    <div>
-      <div
-        className="browse-destinations"
-        style={{ maxHeight: 1000 }}
-      >
-        <Card
-          className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
-          onClick={showDestinationCard}
-          >
-           <CardImg
-            className="destination-img"
-            variant="top"
-            src="https://imgur.com/ARX301s.png"
-          ></CardImg>
-          <Card.Body>
-            <h4 className="destination">Kohdenimi</h4>
-            <p className="location">
-              <BsGeoAlt /> Paikkakunta, Maa
-            </p>
-          </Card.Body>
-        </Card>
-
-        <Card
-          className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
-          onClick={showDestinationCard}
-        >
-          <CardImg
-            className="destination-img"
-            variant="top"
-            src="https://imgur.com/0j1r0KT.png"
-           ></CardImg>
-          <Card.Body>
-            <h4 className="destination">Puijon torni</h4>
-            <p className="location">
-              <BsGeoAlt /> Kuopio, Suomi
-            </p>
-           </Card.Body>
-        </Card>
-
-        <Card
-          className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
-          onClick={showDestinationCard}
-          >
-           <CardImg
-            className="destination-img"
-            variant="top"
-            src="https://imgur.com/ARX301s.png"
-          ></CardImg>
-          <Card.Body>
-            <h4 className="destination">Koli</h4>
-            <p className="location">
-              <BsGeoAlt /> Lieksa, Suomi
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-     <>
-     <Modal show={showCard} onHide={handleCloseCard}>
-       <Modal.Header closeButton>
-         <Modal.Title>
-           <h4>Puijon torni</h4>
-         </Modal.Title>
-       </Modal.Header>
-       <ModalBody>
-          <Image style={{maxWidth: 465}} src="https://imgur.com/0j1r0KT.png" ></Image>
-          <p></p>
-          <p>Matkakohteen kuvaus</p>
-          <p className="location">
-            <BsGeoAlt /> Paikkakunta, Maa
-          </p>
-         <div className="card-btns">
-          <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={showDestinationEdit}
-            >
-              Muokkaa matkakohdetta
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={showDestinationDelete}
-            >
-              Poista matkakohde
-            </button>
-         </div>
-       </ModalBody>
-       <Modal.Footer>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={handleCloseCard}
-            >
-              Poistu
-            </button>
-          </Modal.Footer>
-     </Modal>
-     </>
-
-      <>
-      <Modal show={showEdit} onHide={handleCloseEdit}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <h4>Muokkaa matkakohdetta</h4>
-          </Modal.Title>
-        </Modal.Header>
-        <ModalBody>
-          <Form>
-            <Form.Group>
-              <p>Kuvan muokkaus</p>
-              <Form.Control as="textarea" rows={7} maxLength={250} placeholder="Matkakohteen kuvaus" style={{ marginBottom: 5}}></Form.Control>
-            </Form.Group>
-          </Form>
-          <Row>
-            <div className="card-btns">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={handleCloseEdit}
-              >
-                Tallenna muutokset
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={handleCloseEdit}
-              >
-                Peruuta
-              </button>
-            </div>
-          </Row>
-        </ModalBody>
-      </Modal>
-      </>
-
-      <>
-      <Modal show={showDelete} onHide={handleCloseDelete}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <h4>Poistetaanko matkakohde?</h4>
-          </Modal.Title>
-        </Modal.Header>
-        <ModalBody>
-          <p>Oletko varma, että haluat poistaa matkakohteen?</p>
-          <Row>
-            <div className="card-btns">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={handleCloseDelete}
-              >
-                Poista matkakohde
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={handleCloseDelete}
-              >
-                Peruuta
-              </button>
-            </div>
-          </Row>
-        </ModalBody>
-      </Modal>
-      </>
-    </div>
-  )
-}
 
 const Buttons = () => {
   return (
@@ -285,46 +94,7 @@ const Buttons = () => {
   );
 };
 
-// Tämä yrittää luoda uuden kortin, kun painetaan lisää matkakohde ja modaalista nappia
-const NewCard = (props) => {
-  const { data } = props;
-  const info = data.map((a, index) => {
-    return (
-      <div key={index}>
-        <CardImg
-          className="destination-img"
-          variant="top"
-          src="https://imgur.com/0j1r0KT.png"
-        ></CardImg>
-        <Card.Body>
-          <h4 className="destination">{a.destination}</h4>
-          <p className="location">
-            <BsGeoAlt /> {a.location}, {a.country}
-          </p>
-          <p className="description">{a.desc}</p>
-        </Card.Body>
-      </div>
-    );
-  });
 
-  return (
-    <CardGroup className="browse-destinations" style={{ maxHeight: 1000 }}>
-      <OverlayTrigger
-        placement="right"
-        overlay={
-          <Tooltip id="button-tooltip-2">Toiminnallisuus hukassa</Tooltip>
-        }
-      >
-        <Card
-          className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
-        ></Card>
-        <div>{info}</div>
-      </OverlayTrigger>
-      
-    </CardGroup>
-  );
-};
 
 // MATKAKOHTEEN LISÄYS
 const AddDestination = () => {
@@ -336,12 +106,6 @@ const AddDestination = () => {
   //const list = data.map((a, index) => <li key={index}>{a.destination}</li>)
   //console.log(list);
   //console.log(destination);
-
-  const handleSubmit = (e) => {
-    handleCloseAdd();
-    e.preventDefault();
-    e.target.reset();
-  };
 
   return (
     <div>
@@ -371,126 +135,46 @@ const AddDestination = () => {
 
 
 // Merkkilaskuri, ei toimi
-const Counter = () => {
-  const [characterCount, setCharacterCount] = useState(0);
-  if (characterCount < 250) {
-    return (
-      <div>
-        <Form.Group>
-          <Form.Label>Kuvaus</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={7}
-            maxLength={250}
-            controlId="formGridPresentation"
-            placeholder="Matkakohteen kuvaus"
-            onChange={(e) => setCharacterCount(e.target.value.length)}
-          ></Form.Control>
-          <p className="counter-text"> {characterCount}/ 250</p>
-        </Form.Group>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <Form.Group>
-          <Form.Label>Kuvaus</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={7}
-            maxLength={250}
-            controlId="formGridPresentation"
-            placeholder="Matkakohteen kuvaus"
-            onChange={(e) => setCharacterCount(e.target.value.length)}
-          ></Form.Control>
-          <p className="counter-text-alert">
-            {" "}
-            {characterCount}/ 250 Merkkimäärä täynnä!
-          </p>
-        </Form.Group>
-      </div>
-    );
-  }
-};
-
-// MATKAKOHTEEN MUOKKAUS
-const EditDestination = () => {
-  const [showEdit, setShowEdit] = useState(false);
-  const handleCloseEdit = () => setShowEdit(false);
-  const showEditDestination = () => setShowEdit(!showEdit);
-
-  return (
-    <div>
-      <button
-        type="button"
-        className="btn btn-outline-secondary"
-        onClick={showEditDestination}
-      >
-        Muokkaa
-      </button>
-      <>
-        <Modal show={showEdit} onHide={handleCloseEdit}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              <h4>Muokkaa matkakohdetta</h4>
-            </Modal.Title>
-          </Modal.Header>
-          <p style={{ marginTop: 15, marginLeft: 10 }}>
-            Tähän toiminnallisuutta
-          </p>
-          <Modal.Footer>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={handleCloseEdit}
-            >
-              Tallenna muutokset
-            </button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    </div>
-  );
-};
-
-// MATKAKOTEEN POISTO
-const DeleteDestination = () => {
-  const [showDelete, setShowDelete] = useState(false);
-  const handleCloseDelete = () => setShowDelete(false);
-  const showDeleteDestination = () => setShowDelete(!showDelete);
-
-  return (
-    <div>
-      <button
-        type="button"
-        className="btn btn-outline-secondary"
-        onClick={showDeleteDestination}
-      >
-        Poista
-      </button>
-      <>
-        <Modal show={showDelete} onHide={handleCloseDelete}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              <h4>Poista matkakohde</h4>
-            </Modal.Title>
-          </Modal.Header>
-          <p style={{ marginTop: 15, marginLeft: 10 }}>
-            Tähän toiminnallisuutta.
-          </p>
-          <Modal.Footer>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={handleCloseDelete}
-            >
-              Poista matkakohde
-            </button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    </div>
-  );
-};
+// const Counter = () => {
+//   const [characterCount, setCharacterCount] = useState(0);
+//   if (characterCount < 250) {
+//     return (
+//       <div>
+//         <Form.Group>
+//           <Form.Label>Kuvaus</Form.Label>
+//           <Form.Control
+//             as="textarea"
+//             rows={7}
+//             maxLength={250}
+//             controlId="formGridPresentation"
+//             placeholder="Matkakohteen kuvaus"
+//             onChange={(e) => setCharacterCount(e.target.value.length)}
+//           ></Form.Control>
+//           <p className="counter-text"> {characterCount}/ 250</p>
+//         </Form.Group>
+//       </div>
+//     );
+//   } else {
+//     return (
+//       <div>
+//         <Form.Group>
+//           <Form.Label>Kuvaus</Form.Label>
+//           <Form.Control
+//             as="textarea"
+//             rows={7}
+//             maxLength={250}
+//             controlId="formGridPresentation"
+//             placeholder="Matkakohteen kuvaus"
+//             onChange={(e) => setCharacterCount(e.target.value.length)}
+//           ></Form.Control>
+//           <p className="counter-text-alert">
+//             {" "}
+//             {characterCount}/ 250 Merkkimäärä täynnä!
+//           </p>
+//         </Form.Group>
+//       </div>
+//     );
+//   }
+// };
 
 export default Matkakohde;

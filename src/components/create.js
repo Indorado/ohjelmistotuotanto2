@@ -1,7 +1,5 @@
 import { React, useState } from "react";
-import {
-  Form,
-} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import "./css/Matkakohde.css";
@@ -48,7 +46,7 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} enctype="multipart/form-data" action="/upload/photo">
         <Form.Group className="mb-3" controlId="formGridDestination">
           <Form.Label>Kohdenimi</Form.Label>
           <Form.Control
@@ -94,15 +92,15 @@ export default function Create() {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Lisää kuva</Form.Label>
-          <p>Toiminnallisuus hukassa.</p>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Default file input example</Form.Label>
+          <Form.Control type="file" />
         </Form.Group>
 
         <Form.Group>
           <input
             type="submit"
-            value="Create person"
+            value="Lisää matka"
             className="btn btn-primary"
           />
         </Form.Group>

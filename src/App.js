@@ -16,6 +16,8 @@ import Jasenet from './components/Jasenet';
 import Matkakohde from './components/Matkakohde';
 import OmatTiedot from './components/OmatTiedot';
 import Create from "./components/create";
+import RecordList from "./components/recordList";
+import Edit from "./components/edit";
 
 // Tähän on lisätty Bootstrap
 /*<Navbar />*/
@@ -59,6 +61,8 @@ function App() {
 					<Route path="/PorukanMatkat" element={<PorukanMatkat />} />
 					<Route path="/OmatTiedot" element={<OmatTiedot />} />
 					<Route path="/create" element={<Create />} />
+					<Route path="/recordList" element={<RecordList />} />
+					<Route path="/edit/:id" element={<Edit />} />
 				</Routes>
 			</Router>
 			<Footer />
