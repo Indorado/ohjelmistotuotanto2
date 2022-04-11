@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
+import {
+  Form,
+} from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import "./css/Matkakohde.css";
 import { useNavigate } from "react-router";
 
 export default function Create() {
   const [form, setForm] = useState({
-    name: "",
-    position: "",
-    level: "",
+    kohde: "",
+    paikka: "",
+    maa: "",
+    kuvaus: "",
   });
   const navigate = useNavigate();
 
@@ -34,53 +41,72 @@ export default function Create() {
       return;
     });
 
-    setForm({ name: "", position: "", level: "" });
+    setForm({ kohde: "", paikka: "", maa: "", kuvaus: "" });
     navigate("/");
   }
 
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <h3>Create New Record</h3>
-      <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Kohde</label>
-          <input
-            type="text"
-            className="form-control"
+      <Form onSubmit={onSubmit}>
+        <Form.Group className="mb-3" controlId="formGridDestination">
+          <Form.Label>Kohdenimi</Form.Label>
+          <Form.Control
+            placeholder="Puijon torni"
             id="kohde"
             value={form.kohde}
             onChange={(e) => updateForm({ kohde: e.target.value })}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">Paikka</label>
-          <input
-            type="text"
-            className="form-control"
-            id="paikka"
-            value={form.paikka}
-            onChange={(e) => updateForm({ paikka: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">Maa</label>
-          <input
-            type="text"
-            className="form-control"
-            id="maa"
-            value={form.maa}
-            onChange={(e) => updateForm({ maa: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
+        </Form.Group>
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridLocation">
+            <Form.Label>Paikkakunta</Form.Label>
+            <Form.Control
+              placeholder="Paikkakunta"
+              id="paikka"
+              value={form.paikka}
+              onChange={(e) => updateForm({ paikka: e.target.value })}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridLocation2">
+            <Form.Label>Maa</Form.Label>
+            <Form.Control
+              placeholder="Maa"
+              id="maa"
+              value={form.maa}
+              onChange={(e) => updateForm({ maa: e.target.value })}
+            />
+          </Form.Group>
+        </Row>
+
+        <Form.Group className="mb-3" controlId="formGridDescription">
+          <Form.Label>Kuvaus</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={7}
+            maxLength={250}
+            controlId="formGridPresentation"
+            placeholder="Matkakohteen kuvaus"
+            id="kuvaus"
+            value={form.kuvaus}
+            onChange={(e) => updateForm({ kuvaus: e.target.value })}
+          ></Form.Control>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Lisää kuva</Form.Label>
+          <p>Toiminnallisuus hukassa.</p>
+        </Form.Group>
+
+        <Form.Group>
           <input
             type="submit"
             value="Create person"
             className="btn btn-primary"
           />
-        </div>
-      </form>
+        </Form.Group>
+      </Form>
     </div>
   );
 }

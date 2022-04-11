@@ -40,6 +40,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
     kohde: req.body.kohde,
       paikka: req.body.paikka,
       maa: req.body.maa,
+      kuvaus: req.body.kuvaus,
   };
   db_connect.collection("tarinat").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -56,6 +57,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
       kohde: req.body.kohde,
       paikka: req.body.paikka,
       maa: req.body.maa,
+      kuvaus: req.body.kuvaus,
     },
   };
   db_connect
