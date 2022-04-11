@@ -46,7 +46,7 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <Form onSubmit={onSubmit} enctype="multipart/form-data" action="/upload/photo">
+      <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formGridDestination">
           <Form.Label>Kohdenimi</Form.Label>
           <Form.Control
@@ -90,11 +90,6 @@ export default function Create() {
             value={form.kuvaus}
             onChange={(e) => updateForm({ kuvaus: e.target.value })}
           ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId="formFile" className="mb-3">
-          <Form.Label>Default file input example</Form.Label>
-          <Form.Control type="file" />
         </Form.Group>
 
         <Form.Group>
