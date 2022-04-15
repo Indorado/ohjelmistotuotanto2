@@ -161,15 +161,7 @@ const Information = () => {
               <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseSave}>Peruuta</button>
               
             </ModalBody>
-            <Modal.Footer>
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={handleCloseSave}
-              >
-                Poistu
-              </button>
-            </Modal.Footer>
+          
           </Modal>
 
           <Modal show={showChange} onHide={handleCloseChange}>
@@ -199,15 +191,7 @@ const Information = () => {
               <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseChange}>Peruuta</button>
               
             </ModalBody>
-            <Modal.Footer>
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={handleCloseChange}
-              >
-                Poistu
-              </button>
-            </Modal.Footer>
+            
           </Modal>
 
           <Modal show={showDelete} onHide={handleCloseDelete}>
@@ -222,15 +206,7 @@ const Information = () => {
               <button type="button" className="btn btn-outline-secondary" style={{marginLeft: 5}} onClick={handleCloseDelete}>Peruuta</button>
               
             </ModalBody>
-            <Modal.Footer>
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={handleCloseDelete}
-              >
-                Poistu
-              </button>
-            </Modal.Footer>
+           
           </Modal>
         </>
     </div>

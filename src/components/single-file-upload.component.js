@@ -28,7 +28,7 @@ export default class SingleFileUploadComponent extends Component {
     render() {
         let preview;
         if (this.state.file) {
-            preview = <img style={{height: 'auto', width: '100%', marginBottom: '20px'}} src={this.state.file} alt='' />;
+            preview = <img style={{maxHeight: '150px', Maxwidth: '100%', marginBottom: '20px'}} src={this.state.file} alt='' />;
         }
         return (
             <form>
