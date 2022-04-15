@@ -34,7 +34,7 @@ const OmatMatkat = () => {
                     Selaa käyttäjien matkoja
                   </button>
               </Link>
-              <Link to="/Matkakohteet">
+              <Link to="/Matkakohde">
                 <button
                   type="button"
                   className="btn btn-outline-secondary"
