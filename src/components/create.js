@@ -95,7 +95,7 @@ export default function Create() {
         <Form.Group>
           <input
             type="submit"
-            value="Lisää matka"
+            value="Lisää matkakohde"
             className="btn btn-primary"
           />
         </Form.Group>

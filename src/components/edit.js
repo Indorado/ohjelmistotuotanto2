@@ -71,8 +71,8 @@ export default function Edit() {
  
  // This following section will display the form that takes input from the user to update the data.
  return (
-   <div>
-     <h3>Muokkaa kohdetta</h3>
+   <div style={{margin: '40px' }}>
+     <h3>Muokkaa matkakohdetta</h3>
      <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formGridDestination">
           <Form.Label>Kohdenimi</Form.Label>

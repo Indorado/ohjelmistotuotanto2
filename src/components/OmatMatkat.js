@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
 import Mainos from '../modules/Mainos';
 import './css/OmatMatkat.css';
+import CreateOmatmatkat from "../components/createOmatmatkat";
 import {
   Modal,
   Form,
@@ -75,29 +76,56 @@ const LuoUusiMatka = () => {
   const handleCloseDelete = () => setShowDelete(false);
   const showDestinationDelete = () => setShowDelete(!showDelete);
 
+
+  return (
+    <div>
+      <button
+        type="button"
+        className="btn btn-outline-secondary"
+        onClick={showAddDestination}
+      >
+        Lisää uusi matka
+      </button>
+
+      <>
+        <Modal show={showAdd} onHide={handleCloseAdd}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h4>Lisää uusi matka</h4>
+            </Modal.Title>
+          </Modal.Header>
+          <ModalBody>
+            <CreateOmatmatkat/>
+          </ModalBody>
+        </Modal>
+      </>
+    </div>
+  );
+};/*
   return (
     <div>
       <Button className='AddTrip' variant="secondary"
         onClick={showAddDestination}>Lisää uusi matka</Button>
 
-      <> {/*Modaali Aukaise */}
+      <> {/*Modaali Aukaise }*//*
         <Modal show={showAdd} onHide={handleCloseAdd}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <h4>Lisää matkakohde</h4>
+              <h4>Lisää uusi matka</h4>
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
             <Form.Group>
               <p>Lisää matkan tiedot sekä matkakertomus.</p>              
               <Form.Control as="textarea" rows={7}
-                maxLength={250} placeholder="Matkakertomus"
+                maxLength={300} placeholder="Matkakertomus"
                 style={{ marginBottom: 5 }}>                
                 </Form.Control>
 
                 <p>Haluatko pitää matkasi julkisena vai yksityisenä?</p>
                 <FormCheck id="flexCheckDefault" label="Julkinen"/>
                 <FormCheck id="flexCheckDefault" label="Yksityinen"/>
+                
             </Form.Group>
           </ModalBody>          
 
@@ -125,7 +153,7 @@ const LuoUusiMatka = () => {
 
       <>
         {/*Matkan muokkaus napin takana ->
-         aukaisee erillisen modaalin*/}
+         aukaisee erillisen modaalin}
         <Modal show={showEdit} onHide={handleCloseEdit}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -135,7 +163,7 @@ const LuoUusiMatka = () => {
           <ModalBody>
             <Form>
               <Form.Group>
-                {/*KUVIEN LISÄYKSEN KOODI TÄHÄN*/}
+                {/*KUVIEN LISÄYKSEN KOODI TÄHÄN}
                 <p>Kuvan muokkaus</p>
                 <Form.Control as="textarea" rows={7}
                   maxLength={250} placeholder="Matkakohteen kuvaus"
@@ -166,7 +194,7 @@ const LuoUusiMatka = () => {
 
       <>
         {/*Matkan POISTO napin takana 
-        -> aukaisee erillisen modaalin*/}
+        -> aukaisee erillisen modaalin}
         <Modal show={showDelete} onHide={handleCloseDelete}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -197,7 +225,7 @@ const LuoUusiMatka = () => {
 
         </Modal>
       </>
-      {/*Omat tiedot -sivulle vievä nappi*/}
+      {/*Omat tiedot -sivulle vievä nappi}
       <button type="button" onClick={(e) => {        
         e.preventDefault();
         window.location.href = 'http://localhost:3000/OmatTiedot';
@@ -206,7 +234,7 @@ const LuoUusiMatka = () => {
     </div>
   )
 
-}
+}*/
 
 const Cards = () => {
   //tässä näytä vain käyttäjän omat matkakohteet
