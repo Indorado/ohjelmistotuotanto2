@@ -39,9 +39,9 @@ const Record = (props) => {
             <p className="location">
               <BsGeoAlt /> {props.record.paikka}, {props.record.maa}
             </p>
-            <p className="location">
+            {/* <p className="location">
               <BsGeoAlt /> {props.record.kuvaus}
-            </p>
+            </p> */}
           </Card.Body>
         </Card>
       </div>
@@ -50,7 +50,7 @@ const Record = (props) => {
         <Modal show={showCard} onHide={handleCloseCard}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <h4>Puijon torni</h4>
+              <h4>{props.record.kohde}</h4>
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
