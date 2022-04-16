@@ -45,8 +45,7 @@ const PorukanMatkat = () => {
   )
 }
 
-{/*Modaali matkakortit*/ }
-
+{/*Matkakortit*/ }
 const Cards = () => {
   const [showCard, setShowCard] = useState(false);
   const handleCloseCard = () => setShowCard(false);
@@ -76,6 +75,62 @@ const Cards = () => {
           </Card.Body>
         </Card>
 
+    
+
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
+        >
+          <CardImg
+            className="matkakohdeKuva"
+            variant="top"            
+            src="https://i.imgur.com/HLe65jQ.jpeg"
+          ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Koli</h4>
+            <p className="location">
+              <BsGeoAlt /> Lieksa, Suomi
+            </p>
+          </Card.Body>
+        </Card>
+
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
+        >
+          <CardImg
+            className="matkakohdeKuva"
+            variant="top"
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Puijo_tower.jpg"
+          ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Puijon torni</h4>
+            <p className="location">
+              <BsGeoAlt /> Kuopio, Suomi
+            </p>
+          </Card.Body>
+        </Card>
+
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
+        >
+          <CardImg
+            className="matkakohdeKuva"
+            variant="top"            
+            src="https://i.imgur.com/PxKqIxD.jpeg"
+          ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Kungsleden</h4>
+            <p className="location">
+              <BsGeoAlt /> Abisko, Ruotsi
+            </p>
+          </Card.Body>
+        </Card>
+        
         <Card
           className="destination-card"
           style={{ cursor: "pointer", maxWidth: 200 }}
@@ -94,41 +149,32 @@ const Cards = () => {
           </Card.Body>
         </Card>
 
-        <Card
-          className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
-          onClick={showDestinationCard}
-        >
-          <CardImg
-            className="matkakohdeKuva"
-            variant="top"
-            src="https://imgur.com/0j1r0KT.png"
-          ></CardImg>
-          <Card.Body>
-            <h4 className="destination">Puijon torni</h4>
-            <p className="location">
-              <BsGeoAlt /> Kuopio, Suomi
-            </p>
-          </Card.Body>
-        </Card>
+       
       </div>
-      <>
+      <>      
 
       {/*Modal aukeaa kun korttia klikataan*/}
      <Modal show={showCard} onHide={handleCloseCard}>
        <Modal.Header closeButton>
          <Modal.Title>
-           <h4>Renggloch</h4>
+           <h4>Puijon torni</h4>
          </Modal.Title>
        </Modal.Header>
        <ModalBody>
-          <Image style={{maxWidth: 465}} src="https://i.imgur.com/G8F812v.jpeg" ></Image>
+          <Image style={{maxWidth: 465}} src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Puijo_tower.jpg" ></Image>
           <p></p>
 
-          <p>Matkakohteen kuvaus</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisci elit,
+             sed eiusmod tempor incidunt ut labore et dolore magna 
+             aliqua. Ut enim ad minim veniam, quis nostrud 
+             exercitation ullamco laboris nisi ut aliquid ex ea 
+             commodi consequat. Quis aute iure reprehenderit in 
+             voluptate velit esse cillum dolore eu fugiat nulla 
+             pariatur. Excepteur sint obcaecat cupiditat non 
+             proident, sunt in culpa eserunt mollit anim id est laborum.</p>
 
           <p className="location">
-            <BsGeoAlt /> Luzern, Sveitsi
+            <BsGeoAlt /> Kuopio, Suomi
           </p>
          <div className="card-btns">
           
@@ -153,12 +199,12 @@ const Cards = () => {
 const Buttons = () => {
   return (
     <div className="buttons">
-      <Button className='btn-in' variant="secondary">BÖÖ</Button>
+      
 
       <button type="button" onClick={(e) => {
         e.preventDefault();
         window.location.href = 'http://localhost:3000/Matkakohde';
-      }} className="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Siirry selaamaan</button>
+      }} className="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Siirry selaamaan matkakohteita</button>
     </div>
   )
 }

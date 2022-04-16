@@ -31,22 +31,18 @@ const OmatMatkat = () => {
            
                 <Link to="/PorukanMatkat">
                   <button type="button" className="btn btn-secondary">
-                    Selaa käyttäjien matkoja
+                    Selaakäyttäjien matkoja
                   </button>
               </Link>
+           
               <Link to="/Matkakohde">
                 <button
                   type="button"
-                  className="btn btn-outline-secondary"
-                  style={{ marginTop: 5 }}
+                  className="btn btn-outline-secondary"                 
                 >
                   Matkakohteet
                 </button>
-              </Link>
-            
-           
-            
-
+              </Link>       
           </Col>
           <Col></Col>
           <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
