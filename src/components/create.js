@@ -43,8 +43,10 @@ export default function Create() {
     window.location.reload();
   }
 
-  // Merkkilaskuri
+  // Character counter
   const [characterCount, setCharacterCount] = useState(0);
+
+  // VALIDATION PUUTTUU
 
   // This following section will display the form that takes the input from the user.
   return (
@@ -53,7 +55,8 @@ export default function Create() {
         <Form.Group className="mb-3" controlId="formGridDestination">
           <Form.Label>Kohdenimi</Form.Label>
           <Form.Control
-            placeholder="Puijon torni"
+            placeholder="Kohdenimi"
+            maxLength={30}
             id="kohde"
             value={form.kohde}
             onChange={(e) => updateForm({ kohde: e.target.value })}
@@ -64,6 +67,7 @@ export default function Create() {
             <Form.Label>Paikkakunta</Form.Label>
             <Form.Control
               placeholder="Paikkakunta"
+              maxLength={30}
               id="paikka"
               value={form.paikka}
               onChange={(e) => updateForm({ paikka: e.target.value })}
@@ -74,6 +78,7 @@ export default function Create() {
             <Form.Label>Maa</Form.Label>
             <Form.Control
               placeholder="Maa"
+              maxLength={30}
               id="maa"
               value={form.maa}
               onChange={(e) => updateForm({ maa: e.target.value })}
@@ -96,6 +101,7 @@ export default function Create() {
           <p className="counter-text">{characterCount} / 250</p>
         </Form.Group>
 
+        <p className="alert-text">Täytä kaikki kentät!</p>
         <Form.Group>
           <input
             type="submit"

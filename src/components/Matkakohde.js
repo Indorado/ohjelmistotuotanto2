@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Create from "../components/create";
+import Pagination from 'react-bootstrap/Pagination'
 import RecordList from "../components/recordList";
 
 import SignedUser from "../modules/SignedUser";
@@ -18,7 +19,6 @@ import "./css/Matkakohde.css";
 //  Popover, PopoverBody, FloatingLabel
 
 const Matkakohde = (props) => {
-
   return (
     <div>
       <Container>
@@ -72,7 +72,6 @@ const Matkakohde = (props) => {
             </Col>
           </Row>
           <RecordList/>
-          
         </div>
       </Container>
 

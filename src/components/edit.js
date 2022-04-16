@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import { Modal, Form, Card, CardImg, ModalBody, Image } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
  
 export default function Edit() {
  const [form, setForm] = useState({
@@ -128,6 +129,15 @@ export default function Edit() {
             value="Tallenna muutokset"
             className="btn btn-secondary"
           />
+          <Link to="/Matkakohde">
+            <button
+              value = "Tallenna muutokset"
+              className = "btn btn-outline-secondary"
+              style = {{ marginLeft: 5 }}
+            >
+              Poistu
+            </button>
+          </Link>
         </Form.Group>
       </Form>
    </div>

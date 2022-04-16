@@ -5,6 +5,7 @@ import "./css/Matkakohde.css";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 
+
 const Record = (props) => {
   const [showCard, setShowCard] = useState(false);
   const handleCloseCard = () => setShowCard(false);
@@ -26,7 +27,7 @@ const Record = (props) => {
       >
         <Card
           className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 211, height: 311 }}
+          style={{ cursor: "pointer", maxWidth: 319, height: 439 }}
           onClick={showDestinationCard}
         >
           <CardImg
@@ -37,7 +38,7 @@ const Record = (props) => {
           <Card.Body>
             <h4 className="destination">{props.record.kohde}</h4>
             <p className="location">
-              <BsGeoAlt /> {props.record.paikka}, {props.record.maa}
+              {props.record.paikka}, {props.record.maa}
             </p>
             {/* <p className="location">
               <BsGeoAlt /> {props.record.kuvaus}
@@ -45,7 +46,7 @@ const Record = (props) => {
           </Card.Body>
         </Card>
       </div>
-
+     
       <>
         <Modal show={showCard} onHide={handleCloseCard}>
           <Modal.Header closeButton>
