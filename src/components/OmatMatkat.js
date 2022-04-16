@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
 import Mainos from '../modules/Mainos';
+import { Link } from "react-router-dom";
 import './css/OmatMatkat.css';
 import CreateOmatmatkat from "../components/createOmatmatkat";
 import {
@@ -27,8 +28,21 @@ const OmatMatkat = () => {
           <Col xs={4} md={4}>
             <h1 className='header-text'>Omat matkat</h1>
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
-            <LuoUusiMatka />
-
+           
+                <Link to="/PorukanMatkat">
+                  <button type="button" className="btn btn-secondary">
+                    Selaakäyttäjien matkoja
+                  </button>
+              </Link>
+           
+              <Link to="/Matkakohde">
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"                 
+                >
+                  Matkakohteet
+                </button>
+              </Link>       
           </Col>
           <Col></Col>
           <Col xs={4}><img class="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
@@ -38,9 +52,12 @@ const OmatMatkat = () => {
       <hr></hr>
 
       <Container>
+        
         <div>
           <h2>Selaa omia matkoja</h2>
           <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi!</p>
+          <LuoUusiMatka />
+          <br></br>
           <Row>
             <Cards />
           </Row>
@@ -83,14 +100,13 @@ const LuoUusiMatka = () => {
         type="button"
         className="btn btn-outline-secondary"
         onClick={showAddDestination}
-      >
-        Lisää uusi matka
+      >Lisää uusi matka
       </button>
 
       <>
-        <Modal show={showAdd} onHide={handleCloseAdd}>
+        <Modal show={showAdd} onHide={handleCloseAdd} >
           <Modal.Header closeButton>
-            <Modal.Title>
+            <Modal.Title >
               <h4>Lisää uusi matka</h4>
             </Modal.Title>
           </Modal.Header>

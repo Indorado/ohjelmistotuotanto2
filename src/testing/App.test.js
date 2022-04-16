@@ -1,5 +1,14 @@
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import {
+    ButtonAsLink
+  } from './button.composition'
+import {button} from './Jasenet';
+
 describe("Yksikkötestaus", () => {
     test('Yksikkötestaus, käyttäjänimen paikka', async () => {
+
+        //jotta testejä voi ajaa asenna ensin npm install --save-dev @testing-library/react
 
         // const username = screen.getByText("Koti");
         // const username = screen.getByRole('link', { name: 'Koti'});
