@@ -43,6 +43,9 @@ export default function Create() {
     window.location.reload();
   }
 
+  // Merkkilaskuri
+  const [characterCount, setCharacterCount] = useState(0);
+
   // This following section will display the form that takes the input from the user.
   return (
     <div>
@@ -88,15 +91,16 @@ export default function Create() {
             placeholder="Matkakohteen kuvaus"
             id="kuvaus"
             value={form.kuvaus}
-            onChange={(e) => updateForm({ kuvaus: e.target.value })}
+            onChange={(e) => updateForm({ kuvaus: e.target.value }, setCharacterCount(e.target.value.length) )}
           ></Form.Control>
+          <p className="counter-text">{characterCount} / 250</p>
         </Form.Group>
 
         <Form.Group>
           <input
             type="submit"
             value="Lisää matkakohde"
-            className="btn btn-primary"
+            className="btn btn-secondary"
           />
         </Form.Group>
       </Form>

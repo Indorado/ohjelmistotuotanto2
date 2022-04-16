@@ -66,9 +66,11 @@ export default function Edit() {
      },
    });
  
-   navigate("/");
+   navigate("/Matkakohde");
  }
- 
+   // Merkkilaskuri
+   const [characterCount, setCharacterCount] = useState(0);
+
  // This following section will display the form that takes input from the user to update the data.
  return (
    <div style={{margin: '40px' }}>
@@ -115,15 +117,16 @@ export default function Edit() {
             placeholder="Matkakohteen kuvaus"
             id="kuvaus"
             value={form.kuvaus}
-            onChange={(e) => updateForm({ kuvaus: e.target.value })}
+            onChange={(e) => updateForm({ kuvaus: e.target.value }, setCharacterCount(e.target.value.length))}
           ></Form.Control>
+          <p className="counter-text">{characterCount} / 250</p>
         </Form.Group>
 
         <Form.Group>
           <input
             type="submit"
             value="Tallenna muutokset"
-            className="btn btn-primary"
+            className="btn btn-secondary"
           />
         </Form.Group>
       </Form>

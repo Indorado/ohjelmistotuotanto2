@@ -22,15 +22,15 @@ const Record = (props) => {
     <div style={{ display: "inline-block" }}>
       <div
         className="browse-destinations"
-        style={{ maxHeight: 1000, marginRight: "25px" }}
+        style={{ marginBottom: 5, marginInline: 2.5 }}
       >
         <Card
           className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
+          style={{ cursor: "pointer", maxWidth: 211, height: 311 }}
           onClick={showDestinationCard}
         >
           <CardImg
-            className="destination-img"
+            className="img-fluid destination-img"
             variant="top"
             src="https://imgur.com/ARX301s.png"
           ></CardImg>
@@ -56,7 +56,7 @@ const Record = (props) => {
           <ModalBody>
             <Image
               style={{ maxWidth: 465 }}
-              src="https://imgur.com/0j1r0KT.png"
+              src="https://i.imgur.com/M94aUj9.png"
             ></Image>
             <p></p>
             <p>{props.record.kuvaus}</p>
@@ -64,7 +64,7 @@ const Record = (props) => {
               <BsGeoAlt /> {props.record.paikka}, {props.record.maa}
             </p>
             <div className="card-btns">
-            <Link className="btn btn-outline-secondary" to={`/edit/${props.record._id}`}>Muokkaa</Link>
+            <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa</Link>
               <button
                 type="button"
                 className="btn btn-outline-secondary"
