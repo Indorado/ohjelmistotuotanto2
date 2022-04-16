@@ -62,7 +62,7 @@ const Record = (props) => {
             <p></p>
             <p>{props.record.kuvaus}</p>
             <p className="location">
-              <BsGeoAlt /> {props.record.paikka}, {props.record.maa}
+              {props.record.paikka}, {props.record.maa}
             </p>
             <div className="card-btns">
             <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa</Link>
