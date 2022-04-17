@@ -101,10 +101,6 @@ const AddDestination = () => {
   const handleCloseAdd = () => setShowAdd(false);
   const showAddDestination = () => setShowAdd(!showAdd);
 
-  //const list = data.map((a, index) => <li key={index}>{a.destination}</li>)
-  //console.log(list);
-  //console.log(destination);
-
   return (
     <div>
       <button
@@ -133,49 +129,5 @@ const AddDestination = () => {
     </div>
   );
 };
-
-
-// Merkkilaskuri, ei toimi
-// const Counter = () => {
-//   const [characterCount, setCharacterCount] = useState(0);
-//   if (characterCount < 250) {
-//     return (
-//       <div>
-//         <Form.Group>
-//           <Form.Label>Kuvaus</Form.Label>
-//           <Form.Control
-//             as="textarea"
-//             rows={7}
-//             maxLength={250}
-//             controlId="formGridPresentation"
-//             placeholder="Matkakohteen kuvaus"
-//             onChange={(e) => setCharacterCount(e.target.value.length)}
-//           ></Form.Control>
-//           <p className="counter-text"> {characterCount}/ 250</p>
-//         </Form.Group>
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div>
-//         <Form.Group>
-//           <Form.Label>Kuvaus</Form.Label>
-//           <Form.Control
-//             as="textarea"
-//             rows={7}
-//             maxLength={250}
-//             controlId="formGridPresentation"
-//             placeholder="Matkakohteen kuvaus"
-//             onChange={(e) => setCharacterCount(e.target.value.length)}
-//           ></Form.Control>
-//           <p className="counter-text-alert">
-//             {" "}
-//             {characterCount}/ 250 Merkkimäärä täynnä!
-//           </p>
-//         </Form.Group>
-//       </div>
-//     );
-//   }
-// };
 
 export default Matkakohde;
