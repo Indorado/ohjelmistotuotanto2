@@ -38,12 +38,28 @@ recordRoutes.route("/record/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     kohde: req.body.kohde,
-      paikka: req.body.paikka,
-      maa: req.body.maa,
-      kuvaus: req.body.kuvaus,
+    paikka: req.body.paikka,
+    maa: req.body.maa,
+    kuvaus: req.body.kuvaus,
   };
 
   db_connect.collection("tarinat").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
+});
+
+recordRoutes.route("/record/add/user").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    nimimerkki: req.body.nimimerkki,
+    etunimi: req.body.etunimi,
+    sukunimi: req.body.sukunimi,
+    sposti: req.body.sposti,
+    salasana: req.body.salasana,
+  };
+
+  db_connect.collection("user").insertOne(myobj, function (err, res) {
     if (err) throw err;
     response.json(res);
   });
