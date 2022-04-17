@@ -147,7 +147,7 @@ const LoginFormSignIn = ({ onSubmit }) => {
   };
 
   return (
-    <Form onSubmit={loginSubmit2}>
+    <Form onSubmit={loginSubmit2} action="/login">
 
            <Form.Group controlId="formBasic" className="formBasic">
         <Form.Control
@@ -260,7 +260,7 @@ const LoginFormSignUp = ({ onSubmit }) => {
 
   return (
     /*<Form onSubmit={onSubmit}*/
-    <Form onSubmit={loginSubmit}>
+    <Form onSubmit={loginSubmit} action="/register">
 
       <Form.Group controlId="formBasic" className="formBasic">
         <Form.Control
