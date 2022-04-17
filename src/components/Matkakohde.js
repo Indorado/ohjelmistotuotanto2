@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Create from "../components/create";
-import Pagination from 'react-bootstrap/Pagination'
 import RecordList from "../components/recordList";
 
 import SignedUser from "../modules/SignedUser";
@@ -126,6 +125,9 @@ const AddDestination = () => {
           <ModalBody>
             <Create/>
           </ModalBody>
+          <Modal.Footer>
+            <button className="btn btn-outline-secondary" onClick={handleCloseAdd}>Poistu</button>
+          </Modal.Footer>
         </Modal>
       </>
     </div>

@@ -12,6 +12,7 @@ export default function Create() {
     maa: "",
     kuvaus: "",
   });
+
   const navigate = useNavigate();
 
   // These methods will update the state properties.
@@ -23,7 +24,12 @@ export default function Create() {
 
   // This function will handle the submission.
   async function onSubmit(e) {
-    e.preventDefault();
+    //e.preventDefault();
+    const inputs = e.currentTarget;
+    if (inputs.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newStory = { ...form };
@@ -37,58 +43,72 @@ export default function Create() {
     }).catch((error) => {
       window.alert(error);
       return;
-    });
+    }); 
 
-    setForm({ kohde: "", paikka: "", maa: "", kuvaus: "" });
-    window.location.reload();
+    setValidated(true);
+    navigate(window.location);  
   }
 
   // Character counter
   const [characterCount, setCharacterCount] = useState(0);
 
-  // VALIDATION PUUTTUU
+  // VALIDATION
+  const [validated, setValidated] = useState(false);
 
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <Form onSubmit={onSubmit}>
+      <Form noValidate validated={validated} onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formGridDestination">
           <Form.Label>Kohdenimi</Form.Label>
           <Form.Control
+            required
             placeholder="Kohdenimi"
             maxLength={30}
             id="kohde"
             value={form.kohde}
             onChange={(e) => updateForm({ kohde: e.target.value })}
           />
+          <Form.Control.Feedback type="invalid">
+            Täytä puuttuva kenttä.
+          </Form.Control.Feedback>
         </Form.Group>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridLocation">
             <Form.Label>Paikkakunta</Form.Label>
             <Form.Control
+              required
               placeholder="Paikkakunta"
               maxLength={30}
               id="paikka"
               value={form.paikka}
               onChange={(e) => updateForm({ paikka: e.target.value })}
             />
+            <Form.Control.Feedback type="invalid">
+              Täytä puuttuva kenttä.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridLocation2">
             <Form.Label>Maa</Form.Label>
             <Form.Control
+              required
               placeholder="Maa"
               maxLength={30}
               id="maa"
               value={form.maa}
               onChange={(e) => updateForm({ maa: e.target.value })}
             />
+            <Form.Control.Feedback type="invalid">
+              Täytä puuttuva kenttä.
+            </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
         <Form.Group className="mb-3" controlId="formGridDescription">
           <Form.Label>Kuvaus</Form.Label>
           <Form.Control
+            required
             as="textarea"
             rows={7}
             maxLength={250}
@@ -98,10 +118,11 @@ export default function Create() {
             value={form.kuvaus}
             onChange={(e) => updateForm({ kuvaus: e.target.value }, setCharacterCount(e.target.value.length) )}
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Täytä puuttuvat kenttä.
+          </Form.Control.Feedback>
           <p className="counter-text">{characterCount} / 250</p>
         </Form.Group>
-
-        <p className="alert-text">Täytä kaikki kentät!</p>
         <Form.Group>
           <input
             type="submit"
