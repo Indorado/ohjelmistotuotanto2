@@ -54,6 +54,7 @@ export default function Create() {
 
   // VALIDATION
   const [validated, setValidated] = useState(false);
+  const error = "Täytä puuttuva kenttä!"
 
   // This following section will display the form that takes the input from the user.
   return (
@@ -70,7 +71,7 @@ export default function Create() {
             onChange={(e) => updateForm({ kohde: e.target.value })}
           />
           <Form.Control.Feedback type="invalid">
-            Täytä puuttuva kenttä.
+            {error}
           </Form.Control.Feedback>
         </Form.Group>
         <Row className="mb-3">
@@ -85,7 +86,7 @@ export default function Create() {
               onChange={(e) => updateForm({ paikka: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              Täytä puuttuva kenttä.
+              {error}
             </Form.Control.Feedback>
           </Form.Group>
 
@@ -100,7 +101,7 @@ export default function Create() {
               onChange={(e) => updateForm({ maa: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              Täytä puuttuva kenttä.
+              {error}
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
@@ -119,7 +120,7 @@ export default function Create() {
             onChange={(e) => updateForm({ kuvaus: e.target.value }, setCharacterCount(e.target.value.length) )}
           ></Form.Control>
           <Form.Control.Feedback type="invalid">
-            Täytä puuttuvat kenttä.
+            {error}
           </Form.Control.Feedback>
           <p className="counter-text">{characterCount} / 250</p>
         </Form.Group>

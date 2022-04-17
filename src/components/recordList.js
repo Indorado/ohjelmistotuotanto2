@@ -65,7 +65,7 @@ const Record = (props) => {
               {props.record.paikka}, {props.record.maa}
             </p>
             <div className="card-btns">
-            <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa</Link>
+            <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa matkakohdetta</Link>
               <button
                 type="button"
                 className="btn btn-outline-secondary"

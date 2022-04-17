@@ -1,13 +1,15 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import {
-    ButtonAsLink
-  } from './button.composition'
-import {button} from './Jasenet';
+// import {
+//     ButtonAsLink
+//   } from './button.composition'
+// import {button} from './Jasenet';
+
+// Menee testistä läpi vaikka ei testaa mitään
 
 describe("Yksikkötestaus", () => {
     test('Yksikkötestaus, käyttäjänimen paikka', async () => {
-
+        //await screen.findByText(/Hei!/i);
         //jotta testejä voi ajaa asenna ensin npm install --save-dev @testing-library/react
 
         // const username = screen.getByText("Koti");
