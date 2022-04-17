@@ -50,14 +50,13 @@ const Koti = () => {
           <Col xs={4}><img className="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
         </Row>
       </Container>
+      <hr></hr>
+      <AdSign/>
 
       <hr></hr>
       <div>
         <Mainos/>
       </div>
-      <hr></hr>
-      
-      <AdSign/>
       <hr></hr>
       <AdSaveTrip/>
       

@@ -30,8 +30,8 @@ const OmatMatkat = () => {
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
            
                 <Link to="/PorukanMatkat">
-                  <button type="button" className="btn btn-secondary">
-                    Selaakäyttäjien matkoja
+                  <button type="button" className="btn btn-secondary" style={{ marginRight: 5 }}>
+                    Selaa käyttäjien matkoja
                   </button>
               </Link>
            
@@ -258,15 +258,18 @@ const Cards = () => {
   const handleCloseCard = () => setShowCard(false);
   const showDestinationCard = () => setShowCard(!showCard);
 
+  const [showDelete, setShowDelete] = useState(false);
+  const handleCloseDelete = () => setShowDelete(false);
+  const showTripDelete = () => setShowDelete(!showDelete);
+
   return (
     <div>
       <div
         className="browse-destinations"
-        style={{ maxHeight: 1000 }}
       >
         <Card
           className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
+          style={{ cursor: "pointer", maxWidth: 319, height: 439 }}
           onClick={showDestinationCard}
         >
           <CardImg
@@ -284,7 +287,7 @@ const Cards = () => {
 
         <Card
           className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
+          style={{ cursor: "pointer", maxWidth: 319, height: 439 }}
           onClick={showDestinationCard}
         >
           <CardImg
@@ -302,7 +305,7 @@ const Cards = () => {
 
         <Card
           className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
+          style={{ cursor: "pointer", maxWidth: 319, height: 439 }}
           onClick={showDestinationCard}
         >
           <CardImg
@@ -331,9 +334,10 @@ const Cards = () => {
               <p></p>
               <p>Matkakohteen kuvaus</p>
               <p className="location">
-                <BsGeoAlt /> Paikkakunta, Maa
+                Paikkakunta, Maa
               </p>
-
+              <button type="button" className="btn btn-secondary" style={{ marginRight: 5 }}>Muokkaa matkaa</button>
+              <button type="button" className="btn btn-outline-secondary" onClick={showTripDelete}>Poista matka</button>
             </ModalBody>
             <Modal.Footer>
               <button
@@ -346,6 +350,35 @@ const Cards = () => {
             </Modal.Footer>
           </Modal>
         </>
+
+        <>
+        <Modal show={showDelete} onHide={handleCloseDelete}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h4>Poistetaanko matka?</h4>
+            </Modal.Title>
+          </Modal.Header>
+          <ModalBody>
+            <p>Oletko varma, että haluat poistaa matkan?</p>
+            <Row>
+              <div className="card-btns">
+                <button
+                  className="btn btn-secondary"
+                >
+                  Poista
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={handleCloseDelete}
+                >
+                  Peruuta
+                </button>
+              </div>
+            </Row>
+          </ModalBody>
+        </Modal>
+      </>
       </div>
     </div>
   )
