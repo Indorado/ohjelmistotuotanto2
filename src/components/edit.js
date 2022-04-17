@@ -95,7 +95,8 @@ export default function Edit() {
           <Form.Label>Kohdenimi</Form.Label>
           <Form.Control
             required
-            placeholder="Puijon torni"
+            maxLength={30}
+            placeholder="Kohdenimi"
             id="kohde"
             value={form.kohde}
             onChange={(e) => updateForm({ kohde: e.target.value })}
@@ -109,6 +110,7 @@ export default function Edit() {
             <Form.Label>Paikkakunta</Form.Label>
             <Form.Control
               required
+              maxLength={30}
               placeholder="Paikkakunta"
               id="paikka"
               value={form.paikka}
@@ -123,6 +125,7 @@ export default function Edit() {
             <Form.Label>Maa</Form.Label>
             <Form.Control
               required
+              maxLength={30}
               placeholder="Maa"
               id="maa"
               value={form.maa}
