@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from "react";
 
+import InputGroup from 'react-bootstrap/InputGroup'
 import {
   Modal,
-  Card,
+  Card, Table,
   CardImg,
   ModalBody, Image
 } from "react-bootstrap";
+
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -23,12 +25,12 @@ const Record = (props) => {
   
     return (
       <div style={{ display: "inline-block" }}>
-        <Container className="browse-users"
-          style={{ maxHeight: 1000 }}
+        <div className="browse-users"
+          style={{ marginBottom: 5, marginInline: 2.5 }}
         >
           <Card
             className="user-card"
-            style={{ cursor: "pointer", maxWidth: 200 }}
+            style={{ cursor: "pointer", maxWidth: 319, height: 439 }}
             onClick={showUserCard}
           >
             <CardImg
@@ -37,30 +39,22 @@ const Record = (props) => {
               src="https://p0.piqsels.com/preview/325/981/320/avatar-people-person-business.jpg"
             ></CardImg>
             <Card.Body>
-              <h4 className="card-title">{props.record.etunimi} {props.record.sukunimi}</h4>
-              <p className="location">
-                <BsGeoAlt /> {props.record.paikkakunta}, {props.record.maa}
-              </p>
+              <h4>{props.record.etunimi} {props.record.sukunimi}</h4>
+              <p className="location">{props.record.paikkakunta}, {props.record.maa}</p>
             </Card.Body>
           </Card>
   
-
-          
           <>
           <Modal show={showUser} onHide={handleCloseCard}>
             <Modal.Header closeButton>
               <Modal.Title>
-                <h4>{props.record.etunimi} {props.record.sukunimi}</h4>
+                <h4 className="user-title">{props.record.etunimi} {props.record.sukunimi}</h4>
               </Modal.Title>
             </Modal.Header>
             <ModalBody>
-              <div className="user-card-big">
-                <Image style={{maxWidth: 250, border: '1px solid black'}} src="https://p0.piqsels.com/preview/325/981/320/avatar-people-person-business.jpg"></Image>
-                <div className="user-card-info">
-                  <p>{props.record.etunimi} {props.record.sukunimi}</p>
-                  <p className="user-card-location"><BsGeoAlt /> {props.record.paikkakunta}, {props.record.maa}</p>
-                </div>
-              </div>
+              <Image style={{maxWidth: 465}} src="https://p0.piqsels.com/preview/325/981/320/avatar-people-person-business.jpg"></Image>
+              <h4 className="text">{props.record.nimimerkki}</h4>
+              <p className="location">{props.record.paikkakunta}, {props.record.maa}</p>
               <p className="user-pres">{props.record.bio}</p>
               
             </ModalBody>
@@ -75,7 +69,7 @@ const Record = (props) => {
             </Modal.Footer>
           </Modal>
           </>
-        </Container>
+        </div>
       </div>
     )
 };

@@ -13,6 +13,7 @@ import Row from 'react-bootstrap/Row'
 import { BsGeoAlt } from "react-icons/bs";
 
 import SignedUser from '../modules/SignedUser';
+import RecordList from "../components/userList";
 import './css/Jasenet.css';
 
 const Jasenet = () => {
@@ -31,7 +32,17 @@ const Jasenet = () => {
           </Container>
 
         <hr></hr>
-        <Users/>
+        
+        <Container>
+          <Row className="mb-3">
+            <Col xs={4}>
+              <h2>Selaa jäseniä</h2>
+              <p className="text">
+                Selaa sovellukseemme kirjautuneita käyttäjiä</p>
+            </Col>
+          </Row>
+          <RecordList/>
+          </Container>
   
         <div>
           <SignedUser/>

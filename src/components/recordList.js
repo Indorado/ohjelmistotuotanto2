@@ -40,9 +40,6 @@ const Record = (props) => {
             <p className="location">
               {props.record.paikka}, {props.record.maa}
             </p>
-            {/* <p className="location">
-              <BsGeoAlt /> {props.record.kuvaus}
-            </p> */}
           </Card.Body>
         </Card>
       </div>

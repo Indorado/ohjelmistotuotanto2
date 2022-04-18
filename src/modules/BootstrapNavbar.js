@@ -15,7 +15,7 @@ const Test = () => {
             <Container>
                 <Nav>
                     <Image className="nav-img img-fluid" src="https://i.imgur.com/0jRzKI9.png"></Image>
-                    <Nav className='user-info'>Hei, *insert käyttäjänimi*!</Nav>
+                    <Nav className='user-info'>Hei, ______!</Nav>
                 </Nav>
             
             <Nav className="navbar-end">

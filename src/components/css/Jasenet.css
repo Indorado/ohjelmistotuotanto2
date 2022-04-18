@@ -4,6 +4,14 @@
     gap: 10px;
 }
 
+.user-title {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.user-text {
+    margin-top: -50px;
+}
+
 /*Paikan sijainti*/
 .location {
   display: flex;
