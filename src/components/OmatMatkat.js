@@ -55,7 +55,7 @@ const OmatMatkat = () => {
         
         <div>
           <h2>Selaa omia matkoja</h2>
-          <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi!</p>
+          <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi! <br></br>Voit muokata jo lisättyä matkaasi valitsemalla matkan ja klikkaamalla muokkaa matkaa nappia.</p>
           <LuoUusiMatka />
           <br></br>
           <Row>
