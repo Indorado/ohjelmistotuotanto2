@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -21,7 +21,7 @@ const PorukanMatkat = () => {
         <Row>
           <Col xs={4} md={4}>
             <h1 className='header-text'>Porukan matkat</h1>
-            <p className='text'>Väritä omia matkakertomuksia kuvin ja tarinoin. Voit myös uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
+            <p className='text'>Voit uppoutua muiden käyttäjien matkakertomuksiin ja etsiä inspiraatioita seuraavalle matkallesi!</p>
             <Buttons />
           </Col>
           <Col></Col>
@@ -37,7 +37,7 @@ const PorukanMatkat = () => {
           <p className='text'>Selaa kirjautuneiden käyttäjien lisäämiä matkakertomuksia ja uppoudu kuvin ja tarinoin väritettyihin matkoihin!</p>
         </div>
         <Cards />
-      </Container>      
+      </Container>
       <div>
         <SignedUser />
       </div>
@@ -65,26 +65,6 @@ const Cards = () => {
           <CardImg
             className="matkakohdeKuva"
             variant="top"
-            src="https://i.imgur.com/G8F812v.jpeg"
-          ></CardImg>
-          <Card.Body>
-            <h4 className="destination">Renggloch</h4>
-            <p className="location">
-              <BsGeoAlt /> Luzern, Sveitsi
-            </p>
-          </Card.Body>
-        </Card>
-
-    
-
-        <Card
-          className="destination-card"
-          style={{ cursor: "pointer", maxWidth: 200 }}
-          onClick={showDestinationCard}
-        >
-          <CardImg
-            className="matkakohdeKuva"
-            variant="top"            
             src="https://i.imgur.com/HLe65jQ.jpeg"
           ></CardImg>
           <Card.Body>
@@ -120,7 +100,7 @@ const Cards = () => {
         >
           <CardImg
             className="matkakohdeKuva"
-            variant="top"            
+            variant="top"
             src="https://i.imgur.com/PxKqIxD.jpeg"
           ></CardImg>
           <Card.Body>
@@ -130,7 +110,7 @@ const Cards = () => {
             </p>
           </Card.Body>
         </Card>
-        
+
         <Card
           className="destination-card"
           style={{ cursor: "pointer", maxWidth: 200 }}
@@ -138,7 +118,7 @@ const Cards = () => {
         >
           <CardImg
             className="matkakohdeKuva"
-            variant="top"            
+            variant="top"
             src="https://i.imgur.com/s3XCmRk.jpeg"
           ></CardImg>
           <Card.Body>
@@ -149,38 +129,55 @@ const Cards = () => {
           </Card.Body>
         </Card>
 
-       
+        <Card
+          className="destination-card"
+          style={{ cursor: "pointer", maxWidth: 200 }}
+          onClick={showDestinationCard}
+        >
+          <CardImg
+            className="matkakohdeKuva"
+            variant="top"
+            src="https://i.imgur.com/G8F812v.jpeg"
+          ></CardImg>
+          <Card.Body>
+            <h4 className="destination">Renggloch</h4>
+            <p className="location">
+              <BsGeoAlt /> Luzern, Sveitsi
+            </p>
+          </Card.Body>
+        </Card>
+
       </div>
-      <>      
+      <>
 
-      {/*Modal aukeaa kun korttia klikataan*/}
-     <Modal show={showCard} onHide={handleCloseCard}>
-       <Modal.Header closeButton>
-         <Modal.Title>
-           <h4>Puijon torni</h4>
-         </Modal.Title>
-       </Modal.Header>
-       <ModalBody>
-          <Image style={{maxWidth: 465}} src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Puijo_tower.jpg" ></Image>
-          <p></p>
+        {/*Modal aukeaa kun korttia klikataan*/}
+        <Modal show={showCard} onHide={handleCloseCard}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h4>Puijon torni</h4>
+            </Modal.Title>
+          </Modal.Header>
+          <ModalBody>
+            <Image style={{ maxWidth: 465 }} src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Puijo_tower.jpg" ></Image>
+            <p></p>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisci elit,
-             sed eiusmod tempor incidunt ut labore et dolore magna 
-             aliqua. Ut enim ad minim veniam, quis nostrud 
-             exercitation ullamco laboris nisi ut aliquid ex ea 
-             commodi consequat. Quis aute iure reprehenderit in 
-             voluptate velit esse cillum dolore eu fugiat nulla 
-             pariatur. Excepteur sint obcaecat cupiditat non 
-             proident, sunt in culpa eserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisci elit,
+              sed eiusmod tempor incidunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquid ex ea
+              commodi consequat. Quis aute iure reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint obcaecat cupiditat non
+              proident, sunt in culpa eserunt mollit anim id est laborum.</p>
 
-          <p className="location">
-            <BsGeoAlt /> Kuopio, Suomi
-          </p>
-         <div className="card-btns">
-          
-         </div>
-       </ModalBody>
-       <Modal.Footer>
+            <p className="location">
+              <BsGeoAlt /> Kuopio, Suomi
+            </p>
+            <div className="card-btns">
+
+            </div>
+          </ModalBody>
+          <Modal.Footer>
             <button
               type="button"
               className="btn btn-outline-secondary"
@@ -189,8 +186,8 @@ const Cards = () => {
               Sulje
             </button>
           </Modal.Footer>
-     </Modal>
-     </>
+        </Modal>
+      </>
     </div>
   )
 
@@ -199,14 +196,19 @@ const Cards = () => {
 const Buttons = () => {
   return (
     <div className="buttons">
-      
+      <button type="btn btn-secondary" onClick={(e) => {
+        e.preventDefault();
+        window.location.href = 'http://localhost:3000/OmatMatkat';
+      }} className="btn btn-secondary" style={{ marginLeft: 2 }}>Omat matkat</button>
+
 
       <button type="button" onClick={(e) => {
         e.preventDefault();
         window.location.href = 'http://localhost:3000/Matkakohde';
-      }} className="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Siirry selaamaan matkakohteita</button>
+      }} className="btn btn-outline-secondary" style={{ marginLeft: 2 }}>Matkatkohteet</button>
     </div>
   )
 }
 
 export default PorukanMatkat;
+

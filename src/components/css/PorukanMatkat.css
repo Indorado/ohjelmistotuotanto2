@@ -16,3 +16,7 @@
     justify-content: start;
     gap: 5px;
 }
+
+.destination-card{
+    margin-right: 10px;
+}
