@@ -51,13 +51,21 @@ const Koti = () => {
           <Col xs={4}><img className="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
         </Row>
       </Container>
-      <hr></hr>
-      <AdSign/>
+
+      {/* <hr></hr>
+      <Container>
+        <Row>
+          <Col xs={4} md={4}>
+            <h2 className='header-text'>Lyhyesti meistä</h2>
+            <p className='text'>Tähän jotain täytteeksi?</p>
+          </Col>
+        </Row>
+      </Container> */}
 
       <hr></hr>
-      <div>
-        <Mainos/>
-      </div>
+      <AdSign/>
+      <hr></hr>
+      <Mainos/>
       <hr></hr>
       <AdSaveTrip/>
       
@@ -73,7 +81,7 @@ const Koti = () => {
            <CreateUser/>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="btn btn-outline-secondary" onClick={handleClose}>
               Sulje
             </Button>
           </Modal.Footer>
@@ -87,7 +95,7 @@ const Koti = () => {
           <LoginFormSignIn onSubmit={onLoginFormSubmit2} />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose2}>
+          <Button variant="btn btn-outline-secondary" onClick={handleClose2}>
             Sulje
           </Button>
         </Modal.Footer>
@@ -173,7 +181,7 @@ const LoginFormSignIn = ({ onSubmit }) => {
           {salasanaError}
         </small>
       </Form.Group>
-      <Button variant="primary" type="submit" block className="formBasic">
+      <Button variant="btn btn-secondary" type="submit" block className="formBasic">
         Kirjaudu
       </Button>
       </Form>
