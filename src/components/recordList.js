@@ -159,6 +159,7 @@ export default function RecordList() {
 
     return;
   }, [tarinat.length]);
+  
 
   // This method will delete a record
   async function deleteRecord(id) {

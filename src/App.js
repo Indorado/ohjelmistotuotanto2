@@ -19,6 +19,7 @@ import Create from "./components/create";
 import CreateUser from "./components/createUser";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
+import UserList from "./components/userList";
 
 // Tähän on lisätty Bootstrap
 /*<Navbar />*/
@@ -64,6 +65,7 @@ function App() {
 					<Route path="/create" element={<Create />} />
 					<Route path="/createUser" element={<CreateUser />} />
 					<Route path="/recordList" element={<RecordList />} />
+					<Route path="/userList" element={<UserList />} />
 					<Route path="/edit/:id" element={<Edit />} />
 				</Routes>
 			</Router>
