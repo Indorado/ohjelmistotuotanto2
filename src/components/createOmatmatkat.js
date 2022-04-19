@@ -60,21 +60,34 @@ export default function CreateOmatmatkat() {
   }*/
 
     // This following section will display the form that takes the input from the user.
+    // Character counter
+    const [characterCount, setCharacterCount] = useState(0);
+
+    // VALIDATION
+    const [validated, setValidated] = useState(false);
+    const error = "Täytä puuttuva kenttä!"
+  
     return (
         <div>
             <Form onSubmit={onSubmit}>
 
 
                 <p>Lisää matkan tiedot sekä matkakertomus.</p>
+
                 <Form.Group className="mb-3" controlId="formGridDestination">
-                    <Form.Label>Kohdenimi</Form.Label>
-                    <Form.Control
-                        placeholder="Puijon torni"
-                        id="kohde"
-                        value={form.kohde}
-                        onChange={(e) => updateForm({ kohde: e.target.value })}
-                    />
-                </Form.Group>
+          <Form.Label>Kohdenimi</Form.Label>
+          <Form.Control
+            required
+            placeholder="Kohdenimi"
+            maxLength={30}
+            id="kohde"
+            value={form.kohde}
+            onChange={(e) => updateForm({ kohde: e.target.value })}
+          />
+          <Form.Control.Feedback type="invalid">
+            {error}
+          </Form.Control.Feedback>
+        </Form.Group>
                 <p>Eikö matkakohdetta löydy?
                     Lisää uusi matkakohde: <button
                         type="button"
@@ -101,10 +114,25 @@ export default function CreateOmatmatkat() {
                 </>
 
 
-                <Form.Control as="textarea" rows={7}
-                    maxLength={300} placeholder="Matkakertomus"
-                    style={{ marginBottom: 5 }}>
-                </Form.Control>
+                <Form.Group className="mb-3" controlId="formGridDescription">
+          <Form.Label>Kuvaus</Form.Label>
+          <Form.Control
+            required
+            as="textarea"
+            rows={7}
+            maxLength={250}
+            controlId="formGridPresentation"
+            placeholder="Kerro tässä matkastasi"
+            id="kuvaus"
+            value={form.kuvaus}
+            onChange={(e) => updateForm({ kuvaus: e.target.value }, setCharacterCount(e.target.value.length) )}
+          ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            {error}
+          </Form.Control.Feedback>
+          <p className="counter-text">{characterCount} / 250</p>
+        </Form.Group>
+  
                 <br></br>
                 <p>Haluatko pitää matkasi julkisena vai yksityisenä?</p>
                 <FormCheck id="flexCheckDefault" label="Julkinen" />
