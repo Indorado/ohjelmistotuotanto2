@@ -4,12 +4,11 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
-
+import Mainos from '../modules/Mainos';
 import { Link } from "react-router-dom";
 import './css/OmatMatkat.css';
 import CreateOmatmatkat from "../components/createOmatmatkat";
-import Mainos from '../modules/Mainos';
-import AdSaveTrip from '../modules/parts/AdSaveTrip';
+
 import {
   Modal,
   Form,
@@ -19,7 +18,7 @@ import {
   FormCheck
 } from "react-bootstrap";
 import { BsGeoAlt } from "react-icons/bs";
-
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 //import Create from "../components/create"; TIETOKANTAAN LIITTYVÄ IMPORT
 
 const OmatMatkat = () => {
@@ -32,7 +31,7 @@ const OmatMatkat = () => {
             <p className='text'>Jaa matkakertomuksesi kuvin ja tarinoin väritettynä muille käyttäjille!  Määritä matkakertomuksesi yksityisyys ja nauti tuoreina pysyvistä matkamuistoista!</p>
            
                 <Link to="/PorukanMatkat">
-                  <button type="button" className="btn btn-secondary" style={{ marginRight: 5 }}>
+                  <button type="button" className="btn btn-secondary" style={{ marginTop: 5, marginRight: 5 }}>
                     Selaa käyttäjien matkoja
                   </button>
               </Link>
@@ -40,7 +39,7 @@ const OmatMatkat = () => {
               <Link to="/Matkakohde">
                 <button
                   type="button"
-                  className="btn btn-outline-secondary"                 
+                  className="btn btn-outline-secondary " style={{ marginTop: 5, marginRight: 5 }}                 
                 >
                   Matkakohteet
                 </button>
@@ -101,7 +100,7 @@ const LuoUusiMatka = () => {
       <button
         type="button"
         className="btn btn-outline-secondary"
-        onClick={showAddDestination}
+        onClick={showAddDestination} 
       >Lisää uusi matka
       </button>
 
@@ -264,6 +263,11 @@ const Cards = () => {
   const handleCloseDelete = () => setShowDelete(false);
   const showTripDelete = () => setShowDelete(!showDelete);
 
+  const [showEdit, setShowEditOmatmatkat] = useState(false);
+  const handleCloseEditOmatmatkat = () => setShowEditOmatmatkat(false);
+  const showEditOmatmatkatDestination = () => setShowEditOmatmatkat(!showEdit);
+
+
   return (
     <div>
       <div
@@ -338,8 +342,9 @@ const Cards = () => {
               <p className="location">
                 Paikkakunta, Maa
               </p>
-              <button type="button" className="btn btn-secondary" style={{ marginRight: 5 }}>Muokkaa matkaa</button>
-              <button type="button" className="btn btn-outline-secondary" onClick={showTripDelete}>Poista matka</button>
+                  
+              <Link className="btn btn-secondary" style={{ marginTop: 5, marginRight: 5 }} to={`/editOmatmatkat/`}>Muokkaa matkaa</Link>
+              <button type="button" className="btn btn-outline-secondary" onClick={showTripDelete} style={{ marginTop: 5, marginRight: 5 }}>Poista matka</button>
             </ModalBody>
             <Modal.Footer>
               <button
@@ -353,6 +358,7 @@ const Cards = () => {
           </Modal>
         </>
 
+      
         <>
         <Modal show={showDelete} onHide={handleCloseDelete}>
           <Modal.Header closeButton>

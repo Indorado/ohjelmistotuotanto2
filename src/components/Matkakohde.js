@@ -32,7 +32,7 @@ const Matkakohde = (props) => {
             </p>
             <div>
                 <Link to="/PorukanMatkat">
-                  <button type="button" className="btn btn-secondary">
+                  <button type="button" className="btn btn-secondary" style={{ marginTop: 5, marginRight: 5 }}>
                     Selaa käyttäjien matkoja
                   </button>
               </Link>
@@ -40,7 +40,7 @@ const Matkakohde = (props) => {
                 <button
                   type="button"
                   className="btn btn-outline-secondary"
-                  style={{ margin: 5 }}
+                  style={{ marginTop: 5, marginRight: 5 }}
                 >
                   Omat matkat
                 </button>

@@ -20,6 +20,8 @@ import CreateUser from "./components/createUser";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import UserList from "./components/userList";
+import EditOmatmatkat from "./components/editOmatmatkat";
+import CreateOmatmatkat from "./components/createOmatmatkat";
 
 // Tähän on lisätty Bootstrap
 /*<Navbar />*/
@@ -67,6 +69,7 @@ function App() {
 					<Route path="/recordList" element={<RecordList />} />
 					<Route path="/userList" element={<UserList />} />
 					<Route path="/edit/:id" element={<Edit />} />
+					<Route path="/editOmatmatkat" element={<EditOmatmatkat />} />
 				</Routes>
 			</Router>
 			<Footer />
