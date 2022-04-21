@@ -12,10 +12,10 @@ import { Form } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 //import { Card } from "react-bootstrap";
-
+import AdSign from '../modules/parts/AdSignedUser';
+import Mainos from '../modules/Mainos';
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 import { BsTrash } from "react-icons/bs";
-
-import SignedUser from '../modules/SignedUser';
 import './css/OmatTiedot.css';
 
 import SingleFileUploadComponent from './single-file-upload.component';
@@ -38,14 +38,15 @@ const OmatTiedot = () => {
           <Col xs={4}><img className="img-fluid" src="https://imgur.com/uHy4z87.png" alt=""></img></Col>
         </Row>
       </Container>
-
-
-      <hr></hr>
+      <hr></hr> 
       <Information/>
-
-          <div>
-            <SignedUser/>
-          </div>
+      <hr></hr>
+      <AdSign/>
+      <hr></hr>
+      <Mainos/>
+      <hr></hr>
+      <AdSaveTrip/>
+      <hr></hr>
         </div>
     )
 }

@@ -14,7 +14,6 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { BsGeoAlt } from "react-icons/bs";
 
-import SignedUser from '../modules/SignedUser';
 import './css/Jasenet.css';
 
 

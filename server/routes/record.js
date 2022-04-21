@@ -78,7 +78,10 @@ recordRoutes.route("/record/add/user").post(function (req, response) {
     etunimi: req.body.etunimi,
     sukunimi: req.body.sukunimi,
     sposti: req.body.sposti,
-    salasana: req.body.salasana,
+    paikkakunta: req.body.paikkakunta,
+    maa: req.body.maa,
+    bio: req.body.bio,
+    salasana: req.body.salasana
   };
 
   db_connect.collection("user").insertOne(myobj, function (err, res) {

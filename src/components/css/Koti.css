@@ -30,3 +30,10 @@ h1, h2, h3, h4 {
 .info {
 	color: rgb(80,80,80);
 }
+
+.sign-up {
+	display: block;
+	text-align: center;
+	justify-content: center;
+	color: grey;
+}

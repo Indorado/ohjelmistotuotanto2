@@ -4,10 +4,12 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
-import Mainos from '../modules/Mainos';
+
 import { Link } from "react-router-dom";
 import './css/OmatMatkat.css';
 import CreateOmatmatkat from "../components/createOmatmatkat";
+import Mainos from '../modules/Mainos';
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 import {
   Modal,
   Form,
@@ -17,7 +19,7 @@ import {
   FormCheck
 } from "react-bootstrap";
 import { BsGeoAlt } from "react-icons/bs";
-import AdSaveTrip from '../modules/parts/AdSaveTrip';
+
 //import Create from "../components/create"; TIETOKANTAAN LIITTYVÄ IMPORT
 
 const OmatMatkat = () => {

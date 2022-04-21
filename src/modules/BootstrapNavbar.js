@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 
+import GetUser from "../components/Koti"
 import { NavDropdown, NavItem } from 'react-bootstrap';
 
 const Test = () => {
@@ -14,8 +15,9 @@ const Test = () => {
         <Navbar bg="white" className="navbar-whole">
             <Container>
                 <Nav>
-                    <Image className="nav-img img-fluid" src="https://i.imgur.com/0jRzKI9.png"></Image>
-                    <Nav className='user-info'>Hei, ______!</Nav>
+                    <Link to="/">
+                        <Image className="nav-img img-fluid" src="https://i.imgur.com/0jRzKI9.png"></Image>
+                    </Link>
                 </Nav>
             
             <Nav className="navbar-end">
@@ -40,7 +42,7 @@ const Test = () => {
                     </NavItem>
                     <hr></hr>
                     <NavItem>
-                        <Link to="/OmatTiedot" className="nav-link">Kirjaudu ulos</Link>
+                        <Nav className="nav-link">Kirjaudu ulos</Nav>
                     </NavItem>
                 </NavDropdown>
                 

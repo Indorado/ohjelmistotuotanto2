@@ -12,7 +12,8 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { BsGeoAlt } from "react-icons/bs";
 
-import SignedUser from '../modules/SignedUser';
+import Mainos from '../modules/Mainos';
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 import RecordList from "../components/userList";
 import './css/Jasenet.css';
 
@@ -44,9 +45,10 @@ const Jasenet = () => {
           <RecordList/>
           </Container>
   
-        <div>
-          <SignedUser/>
-        </div>
+          <hr></hr>
+          <Mainos/>
+          <hr></hr>
+          <AdSaveTrip/> 
 
         
       </div>

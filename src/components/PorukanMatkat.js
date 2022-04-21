@@ -4,7 +4,8 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import './css/PorukanMatkat.css';
-import SignedUser from '../modules/SignedUser';
+import Mainos from '../modules/Mainos';
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 import {
   Modal,
   Card,
@@ -38,9 +39,10 @@ const PorukanMatkat = () => {
         </div>
         <Cards />
       </Container>
-      <div>
-        <SignedUser />
-      </div>
+      <hr></hr>
+          <Mainos/>
+          <hr></hr>
+          <AdSaveTrip/> 
     </div>
   )
 }

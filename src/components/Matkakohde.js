@@ -9,8 +9,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Create from "../components/create";
 import RecordList from "../components/recordList";
+import Mainos from '../modules/Mainos';
+import AdSaveTrip from '../modules/parts/AdSaveTrip';
 
-import SignedUser from "../modules/SignedUser";
 import "./css/Matkakohde.css";
 
 //import SingleFileUploadComponent from "../components/single-file-upload.component";
@@ -74,9 +75,10 @@ const Matkakohde = (props) => {
         </div>
       </Container>
 
-      <div>
-        <SignedUser />
-      </div>
+      <hr></hr>
+          <Mainos/>
+          <hr></hr>
+          <AdSaveTrip/> 
     </div>
   );
 };

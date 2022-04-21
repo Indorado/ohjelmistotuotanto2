@@ -6,11 +6,16 @@ import "./css/Matkakohde.css";
 import { useNavigate } from "react-router";
 
 export default function Createuser() {
+  const [isRegistered, setIsRegistered] = useState(false);
+
   const [form, setForm] = useState({
     nimimerkki: "",
     etunimi: "",
     sukunimi: "",
     sposti: "",
+    paikkakunta: "",
+    maa: "",
+    bio: "",
     salasana:""
   });
 
@@ -24,45 +29,75 @@ export default function Createuser() {
   }
 
   // This function will handle the submission.
-  async function onSubmit(e) {
-    //e.preventDefault();
-    const inputs = e.currentTarget;
-    if (inputs.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
+  async function onSubmit(e) { 
+    // Revitään käyttäjän tiedot
+    let k = form.nimimerkki;
+    let j = form.etunimi;
+    let s = form.sukunimi;
+    let email = form.sposti;
+    let a = form.paikkakunta;
+    let c = form.maa;
+    let b = form.bio;
+    let p = form.salasana;
+
+    const userToken = {
+      k,e, s, email, a, c, b, p
     }
 
-    // When a post request is sent to the create url, we'll add a new record to the database.
-    const newStory = { ...form };
+    // Validointi ei toimi...
+    if (!form.nimimerkki.match(/^[a-zA-Z]{4,16}$/)  && !form.etunimi.match(/^[a-zA-Z]{2,15}$/) &&
+        !form.sukunimi.match(/^[a-zA-Z]{2,16}$/) && !form.sposti.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/) 
+        && !form.salasana.match(/^[a-zA-Z]{8,22}$/)) {
+        e.preventDefault();
+        e.stopPropagation();
+        setValidated(true);
+        setIsRegistered(false);
+    } else {
+      // When a post request is sent to the create url, we'll add a new record to the database.
+      const newStory = { ...form };
+      form.maa = e.target.value;
+      await fetch("http://localhost:5000/record/add/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newStory),
+      }).catch((error) => {
+        window.alert(error);
+        return;
+      }); 
 
-    await fetch("http://localhost:5000/record/add/user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newStory),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    }); 
-
-    setValidated(true);
-    navigate(window.location);  
+      setIsRegistered(true);
+      setValidated(false);
+      navigate(window.location); 
+      localStorage.setItem("token", JSON.stringify(userToken));
+    }
   }
+
+
 
   // Character counter
   const [characterCount, setCharacterCount] = useState(0);
 
   // VALIDATION
   const [validated, setValidated] = useState(false);
-  const error = "Täytä puuttuva kenttä!"
+
+  // Virheviestit
+  let eNimimerkki = "Vain kirjaimet ovat sallittuja ja nimimerkin vähimmäispituus on 4 merkkiä ja maksimipituus on 16 merkkiä";
+  let eEtunimi = "Vain kirjaimet ovat sallittuja ja etunimen vähimmäispituus on 2 merkkiä ja maksimipituus on 16 merkkiä";
+  let eSukunimi = "Vain kirjaimet ovat sallittuja ja sukunimen vähimmäispituus on 2 merkkiä ja maksimipituus on 16 merkkiä";
+  let eSposti = "Sähköpostiosoite ei kelpaa";
+  let ePaikkakunta = "Vain kirjaimet ovat sallittuja ja paikkakunnan nimen maksimipituus on 30 merkkiä";
+  let eMaa = "Valitse maa"
+  let eBio = "Kirjoita itsestäsi esittely"
+  let eSalasana = "Vain kirjaimet ovat sallittuja ja salasanan vähimmäispituus on 8 merkkiä ja maksimipituus on 22 merkkiä";
 
   // This following section will display the form that takes the input from the user.
   return (
     <div>
       <Form noValidate validated={validated} onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formGridDestination">
-          <Form.Label>nimimerkki</Form.Label>
+          <Form.Label>Nimimerkki</Form.Label>
           <Form.Control
             required
             placeholder="Nimimerkki"
@@ -72,12 +107,12 @@ export default function Createuser() {
             onChange={(e) => updateForm({ nimimerkki: e.target.value })}
           />
           <Form.Control.Feedback type="invalid">
-            {error}
+            {eNimimerkki}
           </Form.Control.Feedback>
         </Form.Group>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridLocation">
-            <Form.Label>etunimi</Form.Label>
+            <Form.Label>Etunimi</Form.Label>
             <Form.Control
               required
               placeholder="Etunimi"
@@ -87,59 +122,112 @@ export default function Createuser() {
               onChange={(e) => updateForm({ etunimi: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              {error}
+              {eEtunimi}
             </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridLocation2">
-            <Form.Label>sukunimi</Form.Label>
+            <Form.Label>Sukunimi</Form.Label>
             <Form.Control
               required
-              placeholder="sukunimi"
+              placeholder="Sukunimi"
               maxLength={30}
               id="sukunimi"
               value={form.sukunimi}
               onChange={(e) => updateForm({ sukunimi: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              {error}
+              {eSukunimi}
             </Form.Control.Feedback>
           </Form.Group>
-</Row>
-<Row className="mb-3">
+        </Row>
+        <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridLocation2">
-            <Form.Label>sposti</Form.Label>
+            <Form.Label>Sähköpostiosoite</Form.Label>
             <Form.Control
               required
-              placeholder="sposti"
+              placeholder="Sähköpostiosoite"
               maxLength={30}
               id="sposti"
               value={form.sposti}
               onChange={(e) => updateForm({ sposti: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              {error}
+              {eSposti}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridLocation2">
+            <Form.Label>Paikkakunta</Form.Label>
+            <Form.Control
+              required
+              placeholder="Paikkakunta"
+              maxLength={30}
+              id="paikkakunta"
+              value={form.paikkakunta}
+              onChange={(e) => updateForm({ paikkakunta: e.target.value })}
+            />
+            <Form.Control.Feedback type="invalid">
+              {ePaikkakunta}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} controlId="formGridLocation2">
+            <Form.Label>Maa</Form.Label>
+            <Form.Select
+              required
+              id="maa" 
+              value={form.maa}
+              onChange={(e) => updateForm({ maa: e.target.value })}
+            >
+              <option>Valitse maa</option>
+              <option value="Suomi">Suomi</option>
+              <option value="Ulkomailla">Ulkomailla</option>
+            </Form.Select>
+            <Form.Control.Feedback type="invalid">
+              {eMaa}
             </Form.Control.Feedback>
           </Form.Group>
           </Row>
+          <Row>
+            <Form.Group>
+              <Form.Label>Esittely</Form.Label>
+              <Form.Control
+              required
+              as="textarea"
+              placeholder="Kirjoita esittely"
+              rows={7}
+              maxLength={250}
+              id="bio"
+              value={form.bio}
+              onChange={(e) => updateForm({ bio: e.target.value }, setCharacterCount(e.target.value.length))}
+              >
+              </Form.Control>
+              <Form.Control.Feedback type="invalid">
+                {eBio}
+              </Form.Control.Feedback>
+              <p className="counter-text">{characterCount} / 250</p>
+            </Form.Group>
+          </Row>
           <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridLocation2">
-            <Form.Label>salasana</Form.Label>
+            <Form.Label>Salasana</Form.Label>
             <Form.Control
               required
-              placeholder="salasana"
+              type="password"
+              placeholder="Salasana"
               maxLength={30}
               id="salasana"
               value={form.salasana}
               onChange={(e) => updateForm({ salasana: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              {error}
+              {eSalasana}
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridLocation2">
-            <Form.Label>salasana</Form.Label>
+          {/* <Form.Group as={Col} controlId="formGridLocation2">
+            <Form.Label>Salasanan vahvistus</Form.Label>
             <Form.Control
               required
               placeholder="Vahvista salasana"
@@ -149,9 +237,9 @@ export default function Createuser() {
               onChange={(e) => updateForm({ salasana: e.target.value })}
             />
             <Form.Control.Feedback type="invalid">
-              {error}
+              {eSalasana}
             </Form.Control.Feedback>
-          </Form.Group>
+          </Form.Group> */}
           
           </Row>
           <Form.Group>
@@ -165,6 +253,33 @@ export default function Createuser() {
     </div>
   );
 }
+
+const SetUser = () => {
+  let registered = localStorage.getItem("token");
+  let registeredUser = JSON.parse(registered);
+  let userdata = registeredUser.j;
+
+  return (
+    <>{userdata}</>
+  )
+} 
+
+// const GetUserData = () => {
+//   let getData = localStorage.getItem("token-info");
+//   let parseInfo = JSON.parse(getData);
+//   let uname = parseInfo.nimimerkki;
+//   let name = parseInfo.etunimi;
+//   let surname = parseInfo.sukunimi;
+//   let postal = parseInfo.paikkakunta;
+//   let country = parseInfo;
+
+//   return (
+//     <>{uname}, {name}, {surname}, {postal}, {country}
+//     </>
+//   )
+// }
+
+export { SetUser }
 
 //REKISTERÖIDY:
 const LoginFormSignUp = ({ onSubmit }) => {
