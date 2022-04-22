@@ -11,11 +11,8 @@ import SingleFileUploadComponent from './single-file-upload.component';
 
 export default function EditOmatmatkat() {
  const [form, setForm] = useState({
-    kohde: "",
-    paikka: "",
-    maa: "",
-    kuvaus: "",
-   records: [],
+    tarina: "",
+    yksityinen: ""
  });
  const params = useParams();
  const navigate = useNavigate();
@@ -62,24 +59,22 @@ export default function EditOmatmatkat() {
       e.stopPropagation();
     }
 
-   const editedTarina = {
-     kohde: form.kohde,
-     paikka: form.paikka,
-     maa: form.maa,
-     kuvaus: form.kuvaus,
+   const editedMatka= {
+     tarina: form.tarina,
+     yksityisyys: form.yksityisyys
    };
  
    // This will send a post request to update the data in the database.
    await fetch(`http://localhost:5000/update/${params.id}`, {
      method: "POST",
-     body: JSON.stringify(editedTarina),
+     body: JSON.stringify(editedMatka),
      headers: {
        'Content-Type': 'application/json'
      },
    });
  
    setValidated(true);
-   navigate("/Matkakohde");
+   navigate("/OmatMatkat");
  }
    // Merkkilaskuri
    const [characterCount, setCharacterCount] = useState(0);

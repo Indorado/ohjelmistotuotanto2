@@ -8,6 +8,7 @@ import Mainos from '../modules/Mainos';
 import { Link } from "react-router-dom";
 import './css/OmatMatkat.css';
 import CreateOmatmatkat from "../components/createOmatmatkat";
+import TripList from "../components/tripList";
 
 import {
   Modal,
@@ -56,12 +57,10 @@ const OmatMatkat = () => {
         
         <div>
           <h2>Selaa omia matkoja</h2>
-          <p className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi! <br></br>Voit muokata jo lisättyä matkaasi valitsemalla matkan ja klikkaamalla muokkaa matkaa nappia.</p>
+          <p  className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi! <br></br>Voit muokata jo lisättyä matkaasi valitsemalla matkan ja klikkaamalla muokkaa matkaa nappia.</p>
           <LuoUusiMatka />
           <br></br>
-          <Row>
-            <Cards />
-          </Row>
+          {/* <TripList/> */}
         </div>
       </Container>
       <hr></hr>

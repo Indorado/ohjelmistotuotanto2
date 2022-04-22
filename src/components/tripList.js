@@ -5,30 +5,30 @@ import "./css/Matkakohde.css";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 
-
 const Record = (props) => {
   const [showCard, setShowCard] = useState(false);
   const handleCloseCard = () => setShowCard(false);
-  const showDestinationCard = () => setShowCard(!showCard);
+  const showTripCard = () => setShowCard(!showCard);
 
   const [showEdit, setShowEdit] = useState(false);
   const handleCloseEdit = () => setShowEdit(false);
-  const showDestinationEdit = () => setShowEdit(!showEdit);
+  const showTripEdit = () => setShowEdit(!showEdit);
 
   const [showDelete, setShowDelete] = useState(false);
   const handleCloseDelete = () => setShowDelete(false);
-  const showDestinationDelete = () => setShowDelete(!showDelete);
+  const showTripDelete = () => setShowDelete(!showDelete);
+
 
   return (
     <div style={{ display: "inline-block" }}>
       <div
-        className="browse-destinations"
+        className="browse-Trips"
         style={{ marginBottom: 5, marginInline: 2.5 }}
       >
         <Card
           className="destination-card"
           style={{ cursor: "pointer", maxWidth: 300, height: 400 }}
-          onClick={showDestinationCard}
+          onClick={showTripCard}
         >
           <CardImg
             className="img-fluid destination-img"
@@ -36,10 +36,10 @@ const Record = (props) => {
             src="https://imgur.com/ARX301s.png"
           ></CardImg>
           <Card.Body>
-            <h4 className="destination">{props.record.kohde}</h4>
-            <p className="location">
-              {props.record.paikka}, {props.record.maa}
+            <h4 className="destination"></h4>
+            <p className="location">{props.record.tarina}
             </p>
+            <p>{props.record.yksityisyys}</p>
           </Card.Body>
         </Card>
       </div>
@@ -48,7 +48,7 @@ const Record = (props) => {
         <Modal show={showCard} onHide={handleCloseCard}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <h4>{props.record.kohde}</h4>
+              <h4></h4>
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
@@ -57,18 +57,17 @@ const Record = (props) => {
               src="https://i.imgur.com/M94aUj9.png"
             ></Image>
             <p></p>
-            <p>{props.record.kuvaus}</p>
+            <p>{props.record.tarina}</p>
             <p className="location">
-              {props.record.paikka}, {props.record.maa}
             </p>
             <div className="card-btns">
-            <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa matkakohdetta</Link>
+            <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa matkaa</Link>
               <button
                 type="button"
                 className="btn btn-outline-secondary"
-                onClick={showDestinationDelete}
+                onClick={showTripDelete}
               >
-                Poista matkakohde
+                Poista matka
               </button>
             </div>
           </ModalBody>
@@ -88,7 +87,7 @@ const Record = (props) => {
         <Modal show={showEdit} onHide={handleCloseEdit}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <h4>Muokkaa matkakohdetta</h4>
+              <h4>Muokkaa matkaa</h4>
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
@@ -103,11 +102,11 @@ const Record = (props) => {
         <Modal show={showDelete} onHide={handleCloseDelete}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <h4>Poistetaanko matkakohde?</h4>
+              <h4>Poistetaanko matka?</h4>
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
-            <p>Oletko varma, että haluat poistaa matkakohteen?</p>
+            <p>Oletko varma, että haluat poistaa matka?</p>
             <Row>
               <div className="card-btns">
                 <button
@@ -135,12 +134,12 @@ const Record = (props) => {
 };
 
 export default function RecordList() {
-  const [tarinat, settarinat] = useState([]);
+  const [omat, setomat] = useState([]);
 
-  // This method fetches the tarinat from the database.
+  // This method fetches the matkat from the database.
   useEffect(() => {
-    async function gettarinat() {
-      const response = await fetch(`http://localhost:5000/record/`);
+    async function getomat() {
+      const response = await fetch(`http://localhost:5000/record/omat`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -148,14 +147,14 @@ export default function RecordList() {
         return;
       }
 
-      const tarinat = await response.json();
-      settarinat(tarinat);
+      const omat = await response.json();
+      setomat(omat);
     }
 
-    gettarinat();
+    getomat();
 
     return;
-  }, [tarinat.length]);
+  }, [omat.length]);
   
 
   // This method will delete a record
@@ -164,13 +163,13 @@ export default function RecordList() {
       method: "DELETE",
     });
 
-    const newTarinat = tarinat.filter((el) => el._id !== id);
-    settarinat(newTarinat);
+    const newOmat = omat.filter((el) => el._id !== id);
+    setomat(newOmat);
   }
 
-  // This method will map out the tarinat on the table
+  // This method will map out the matkat on the table
   function recordList() {
-    return tarinat.map((record) => {
+    return omat.map((record) => {
       return (
         <Record
           record={record}
@@ -181,22 +180,22 @@ export default function RecordList() {
     });
   }
 
-  // This following section will display the table with the tarinat of individuals.
+  // This following section will display the table with the matkat of individuals.
   return <div>{recordList()}</div>;
 }
 
 // MATKAKOHTEEN MUOKKAUS
-const EditDestination = () => {
+const EditTrip = () => {
   const [showEdit, setShowEdit] = useState(false);
   const handleCloseEdit = () => setShowEdit(false);
-  const showEditDestination = () => setShowEdit(!showEdit);
+  const showEditTrip = () => setShowEdit(!showEdit);
 
   return (
     <div>
       <button
         type="button"
         className="btn btn-outline-secondary"
-        onClick={showEditDestination}
+        onClick={showEditTrip}
       >
         Muokkaa
       </button>

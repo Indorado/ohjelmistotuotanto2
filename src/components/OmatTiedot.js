@@ -94,7 +94,7 @@ const Information = () => {
             <Form>
               <Row >
                 <Form.Group as={Col}>
-                  <h2 className='header-text'>*Käyttäjän nimi*</h2>
+                  <h2 className='header-text'>Käyttäjän nimi</h2>
                   <Form.Group>
                     <Counter/> 
                   </Form.Group>
@@ -104,21 +104,16 @@ const Information = () => {
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>Etunimi</Form.Label>
-                        <Form.Control placeholder="*Etunimi*" />
+                        <Form.Control placeholder="Etunimi" />
                       </Form.Group>
 
                       <Form.Group as={Col} controlId="formGridLastName">
                         <Form.Label>Sukunimi</Form.Label>
-                        <Form.Control placeholder="*Sukunimi*" />
+                        <Form.Control placeholder="Sukunimi" />
                       </Form.Group>
                     </Row>
 
                     <Row className="mb-3">
-                      <Form.Group as={Col} xs={3} controlId="formGridZip">
-                        <Form.Label>Postinumero</Form.Label>
-                        <Form.Control />
-                      </Form.Group>
-
                       <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Postitoimipaikka</Form.Label>
                         <Form.Control />
