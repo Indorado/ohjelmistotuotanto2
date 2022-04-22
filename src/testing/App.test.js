@@ -7,6 +7,27 @@ import { render, screen } from '@testing-library/react'
 
 // Menee testistä läpi vaikka ei testaa mitään
 
+var testataan = document.getElementById("Rekisteröidy");
+
+describe('Onko nappi olemassa', function () {    
+   
+    // The 'it' function is next to call, where we can name our test and then
+    // execute the code we want to run for our test.
+    /*
+    it('Napin pitäisi olla olemassa', function () {
+        // Here is the code for our test that is triggered by Mocha
+        var result = true;
+        if (typeof (testataan) != 'undefined' && testataan != null) {
+            assert.equal(result, true); //testi läpi
+        } else {
+            alert('Nappia ei ole olemassa');
+        }
+        
+    });
+    */
+});
+
+
 describe("Yksikkötestaus", () => {
     test('Yksikkötestaus, käyttäjänimen paikka', async () => {
         //await screen.findByText(/Hei!/i);
