@@ -113,6 +113,9 @@ const LuoUusiMatka = () => {
           <ModalBody>
             <CreateOmatmatkat/>
           </ModalBody>
+          <Modal.Footer>
+            <button className='btn btn-outline-secondary' onClick={handleCloseAdd}>Peruuta</button>
+          </Modal.Footer>
         </Modal>
       </>
     </div>
