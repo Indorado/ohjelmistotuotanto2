@@ -18,6 +18,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function CreateOmatmatkat() {
     const [form, setForm] = useState({
+        matka: "",
         tarina: "",
         yksityisyys: ""
     });
@@ -37,24 +38,32 @@ export default function CreateOmatmatkat() {
 
     // This function will handle the submission.
     async function onSubmit(e) {
+        
+        const inputs = e.currentTarget;
+        if (inputs.checkValidity() === false) {
+            setValidated(true);
+            e.preventDefault();
+            e.stopPropagation();
+        } if (inputs.checkValidity() === true ) {
+            //e.preventDefault();
+            // When a post request is sent to the create url, we'll add a new record to the database.
+            const newStory = { ...form };
 
-        //e.preventDefault();
-        // When a post request is sent to the create url, we'll add a new record to the database.
-        const newStory = { ...form };
+            await fetch("http://localhost:5000/record/add/omat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newStory),
+            }).catch((error) => {
+                window.alert(error);
+                return;
+            }); 
 
-        await fetch("http://localhost:5000/record/add/omat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newStory),
-        }).catch((error) => {
-            window.alert(error);
-            return;
-        }); 
-
-        setValidated(true);
-        navigate(window.location);  
+            setValidated(false);
+            navigate(window.location);  
+        }
+        
     }
 
     // Character counter
@@ -70,14 +79,33 @@ export default function CreateOmatmatkat() {
             <Form noValidate validated={validated} onSubmit={onSubmit}>
                 <p>Lisää matkan tiedot sekä matkakertomus.</p>
                 <Form.Group className="mb-3" controlId="formGridDestination">
-                    <Form.Label>Kohdenimi</Form.Label>
+                    <Form.Label>Matkan nimi</Form.Label>
                     <Form.Control
+                        required
+                        placeholder="Matkan nimi"
+                        maxLength={30}
+                        id="kohde"
+                        value={form.matka}
+                        onChange={(e) => updateForm({ matka: e.target.value })}
+                    >
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        {error}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formGridDestination">
+                    <Form.Label>Kohdenimi</Form.Label>
+                    <Form.Select
+                        // required
+                        custom
                         placeholder="Kohdenimi"
                         maxLength={30}
                         id="kohde"
                         onChange={(e) => updateForm({ kohde: e.target.value })}
                     >
-                    </Form.Control>
+                        <option value={""}>Valitse matkakohde</option>
+                        <option>Tähän matkakohteet listattuna</option>
+                    </Form.Select>
                     <Form.Control.Feedback type="invalid">
                         {error}
                     </Form.Control.Feedback>
@@ -128,21 +156,23 @@ export default function CreateOmatmatkat() {
                 </Form.Group>
     
                 <br></br>
-                <Form.Group>
-                <Form.Group>
+                <Form.Group hasValidation>
                     <Form.Label>Valitse matkasi yksityisyysasetukset</Form.Label>
-                    <Form.Select
+                    <Form.Control
                         required
+                        as="select" 
+                        custom
                         id="yksityinen" 
                         value={form.yksityisyys}
                         onChange={(e) => updateForm({ yksityisyys: e.target.value })}
                         >
-                        <option>Valitse yksityisyysasetukset</option>
-                        <option value="Julkinen">Julkinen</option>
-                        <option value="Yksityinen">Yksityinen</option>
-                    </Form.Select>
+                        <option value={""}>Valitse yksityisyysasetukset</option>
+                        <option value="Julkinen" isValid>Julkinen</option>
+                        <option value="Yksityinen" isValid>Yksityinen</option>
+                    </Form.Control>
                 </Form.Group>
-                    <br></br>
+                <br></br>
+                <Form.Group>
                     <p>Lisää kuva matkaltasi</p>
                     <div className="card">
                         <div className="card-header">
@@ -153,6 +183,7 @@ export default function CreateOmatmatkat() {
                         </div>
                     </div> 
                 </Form.Group>
+                    
                 <br></br>
                 <Form.Group>
                     <input style={{ marginRight: '5px' }}

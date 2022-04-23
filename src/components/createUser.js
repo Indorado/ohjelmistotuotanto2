@@ -174,16 +174,18 @@ export default function Createuser() {
           </Form.Group>
           <Form.Group as={Col} controlId="formGridLocation2">
             <Form.Label>Maa</Form.Label>
-            <Form.Select
+            <Form.Control
+              as="select"
+              custom
               required
               id="maa" 
               value={form.maa}
               onChange={(e) => updateForm({ maa: e.target.value })}
             >
-              <option>Valitse maa</option>
+              <option value={""}>Valitse maa</option>
               <option value="Suomi">Suomi</option>
               <option value="Ulkomailla">Ulkomailla</option>
-            </Form.Select>
+            </Form.Control>
             <Form.Control.Feedback type="invalid">
               {eMaa}
             </Form.Control.Feedback>
