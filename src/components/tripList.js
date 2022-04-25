@@ -137,6 +137,7 @@ export default function RecordList() {
   const [omat, setomat] = useState([]);
 
   // This method fetches the matkat from the database.
+  // This method fetches the users from the database.
   useEffect(() => {
     async function getomat() {
       const response = await fetch(`http://localhost:5000/record/omat`);
@@ -157,23 +158,12 @@ export default function RecordList() {
   }, [omat.length]);
   
 
-  // This method will delete a record
-  async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
-      method: "DELETE",
-    });
-
-    const newOmat = omat.filter((el) => el._id !== id);
-    setomat(newOmat);
-  }
-
   // This method will map out the matkat on the table
   function recordList() {
     return omat.map((record) => {
       return (
         <Record
           record={record}
-          deleteRecord={() => deleteRecord(record._id)}
           key={record._id}
         />
       );
@@ -184,42 +174,3 @@ export default function RecordList() {
   return <div>{recordList()}</div>;
 }
 
-// MATKAKOHTEEN MUOKKAUS
-const EditTrip = () => {
-  const [showEdit, setShowEdit] = useState(false);
-  const handleCloseEdit = () => setShowEdit(false);
-  const showEditTrip = () => setShowEdit(!showEdit);
-
-  return (
-    <div>
-      <button
-        type="button"
-        className="btn btn-outline-secondary"
-        onClick={showEditTrip}
-      >
-        Muokkaa
-      </button>
-      <>
-        <Modal show={showEdit} onHide={handleCloseEdit}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              <h4>Muokkaa matkakohdetta</h4>
-            </Modal.Title>
-          </Modal.Header>
-          <p style={{ marginTop: 15, marginLeft: 10 }}>
-            Tähän toiminnallisuutta
-          </p>
-          <Modal.Footer>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={handleCloseEdit}
-            >
-              Tallenna muutokset
-            </button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    </div>
-  );
-};

@@ -60,7 +60,7 @@ const OmatMatkat = () => {
           <p  className='text'>Selaa itse lisäämiäsi matkakohteita ja uppoudu kuvin ja tarinoin väritettyihin matkakertomuksiisi! <br></br>Voit muokata jo lisättyä matkaasi valitsemalla matkan ja klikkaamalla muokkaa matkaa nappia.</p>
           <LuoUusiMatka />
           <br></br>
-          {/* <TripList/> */}
+          <TripList/> 
         </div>
       </Container>
       <hr></hr>
