@@ -54,7 +54,7 @@ const Record = (props) => {
           <ModalBody>
             <Image
               style={{ maxWidth: 465 }}
-              src="https://i.imgur.com/M94aUj9.png"
+              src="https://imgur.com/ARX301s.png"
             ></Image>
             <p></p>
             <p>{props.record.kuvaus}</p>
