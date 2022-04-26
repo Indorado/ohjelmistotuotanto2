@@ -61,7 +61,7 @@ const Record = (props) => {
             <p className="location">
             </p>
             <div className="card-btns">
-            <Link className="btn btn-secondary" to={`/edit/${props.record._id}`}>Muokkaa matkaa</Link>
+            <Link className="btn btn-secondary" to={`/editomatmatkat/${props.record._id}`}>Muokkaa matkaa</Link>
               <button
                 type="button"
                 className="btn btn-outline-secondary"
@@ -156,6 +156,16 @@ export default function RecordList() {
 
     return;
   }, [omat.length]);
+
+  // This method will delete a record
+  async function deleteRecord(id) {
+    await fetch(`http://localhost:5000/${id}`, {
+      method: "DELETE",
+    });
+
+    const newOmat = omat.filter((el) => el._id !== id);
+    setomat(newOmat);
+  }
   
 
   // This method will map out the matkat on the table
@@ -164,6 +174,7 @@ export default function RecordList() {
       return (
         <Record
           record={record}
+          deleteRecord={() => deleteRecord(record._id)}
           key={record._id}
         />
       );

@@ -70,7 +70,7 @@ function App() {
 					<Route path="/recordList" element={<RecordList />} />
 					<Route path="/userList" element={<UserList />} />
 					<Route path="/edit/:id" element={<Edit />} />
-					<Route path="/editOmatmatkat" element={<EditOmatmatkat />} />
+					<Route path="/editomatmatkat/:id" element={<EditOmatmatkat />} />
 					<Route path="/createOmatmatkat" element={<CreateOmatmatkat/>}/>
 					<Route path="/tripList" element={<TripList />} />
 
