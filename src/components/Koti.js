@@ -154,7 +154,7 @@ const Koti = () => {
           <Modal.Body>
             <Form noValidate validated={validated} onSubmit={onLogin}>
               <Form.Group>
-                <Form.Label>Sähköpostiosoite</Form.Label>
+                <Form.Label>Nimimerkki</Form.Label>
                 <Form.Control
                   required
                   value={sposti}

@@ -49,6 +49,7 @@ const Jasenet = () => {
           <Mainos/>
           <hr></hr>
           <AdSaveTrip/> 
+          <hr></hr>
 
         
       </div>

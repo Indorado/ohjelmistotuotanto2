@@ -41,8 +41,6 @@ const OmatTiedot = () => {
       <hr></hr> 
       <Information/>
       <hr></hr>
-      <AdSign/>
-      <hr></hr>
       <Mainos/>
       <hr></hr>
       <AdSaveTrip/>
