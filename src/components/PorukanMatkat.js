@@ -43,6 +43,7 @@ const PorukanMatkat = () => {
           <Mainos/>
           <hr></hr>
           <AdSaveTrip/> 
+          <hr></hr>
     </div>
   )
 }

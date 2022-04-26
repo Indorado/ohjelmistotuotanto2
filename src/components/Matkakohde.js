@@ -11,6 +11,7 @@ import Create from "../components/create";
 import RecordList from "../components/recordList";
 import Mainos from '../modules/Mainos';
 import AdSaveTrip from '../modules/parts/AdSaveTrip';
+import AdSign from '../modules/parts/AdSignedUser';
 
 import "./css/Matkakohde.css";
 
@@ -76,9 +77,13 @@ const Matkakohde = (props) => {
       </Container>
 
       <hr></hr>
+      <AdSign/>
+      <hr></hr>
           <Mainos/>
+          
           <hr></hr>
           <AdSaveTrip/> 
+          <hr></hr>
     </div>
   );
 };

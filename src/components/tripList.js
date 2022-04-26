@@ -33,13 +33,11 @@ const Record = (props) => {
           <CardImg
             className="img-fluid destination-img"
             variant="top"
-            src="https://imgur.com/ARX301s.png"
+            src="https://imgur.com/0j1r0KT.png"
           ></CardImg>
           <Card.Body>
-            <h4 className="destination"></h4>
-            <p className="location">{props.record.tarina}
-            </p>
-            <p>{props.record.yksityisyys}</p>
+            <h4 className="destination">{props.record.matka}</h4>
+            <p className="location">Sijainti</p>
           </Card.Body>
         </Card>
       </div>
@@ -48,18 +46,17 @@ const Record = (props) => {
         <Modal show={showCard} onHide={handleCloseCard}>
           <Modal.Header closeButton>
             <Modal.Title>
-              <h4></h4>
+              <h4>{props.record.matka}</h4>
             </Modal.Title>
           </Modal.Header>
           <ModalBody>
             <Image
               style={{ maxWidth: 465 }}
-              src="https://i.imgur.com/M94aUj9.png"
+              src="https://imgur.com/0j1r0KT.png"
             ></Image>
             <p></p>
             <p>{props.record.tarina}</p>
-            <p className="location">
-            </p>
+            <p className="location">Sijainti <br></br>{props.record.yksityisyys}</p>
             <div className="card-btns">
             <Link className="btn btn-secondary" to={`/editomatmatkat/${props.record._id}`}>Muokkaa matkaa</Link>
               <button
