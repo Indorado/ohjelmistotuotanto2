@@ -13,23 +13,28 @@ Sovelluksessa pitää pystyä rekisteröitymään (sign up). Rekisteröitymisess
 Kirjautuminen tapahtuu sähköpostiosoitteen ja salasanan avulla.
 
 Kirjautumaton käyttäjä:
-    saa selata matkakohteita
-    näkee rekisteröitymis- ja kirjautumislinkit
-    näkee muuten valikoissa vain Koti- ja Matkakohde-sivun
-    Koti-sivulla on sopiva kuva ja tervehdysteksti
+    saa selata matkakohteita, 
+    näkee rekisteröitymis- ja kirjautumislinkit, 
+    näkee muuten valikoissa vain Koti- ja Matkakohde-sivun, 
+    Koti-sivulla on sopiva kuva ja tervehdysteksti, 
 
 Kirjautunut käyttäjä:
-•    näkee valikossa oman nimmarinsa
-•    näkee Koti-, Matkakohde-, Porukan matkat-, Omat matkat-, Omat tiedot-, Jäsenet-sivut
-•    Matkakohde-sivulla
-o    voi lisätä, poistaa, päivittää ja selata matkakohteita. Sellaista matkakohdetta, johon liittyy joku matkakertomus, ei saa poistaa tai päivittää
-•    Porukan matkat-sivulla
-o    voi selata (ei-yksityisiä) porukan matkoja ja niihin liitettyjä tarinoita ja kuvia
-•    Omat matkat-sivulla
-o    voi lisätä, selata, päivittää ja poistaa omia matkoja ja niihin liitettyjä tarinoita ja kuvia
-o    voi merkitä matkan yksityiseksi, jolloin kukaan muu ei saa nähdä kyseistä matkaa, eikä siihen kuuluvia tarinoita tai kuvia
-o    navigointi tarinat- ja kuvat-sivuille voi tapahtuma päävalikon tai sivukohtaisen valikon kautta oman harkinnan mukaan
-o    HUOM! Porukan matkat- ja Omat matkat-sivut saisivat olla mahdollisimman yhdenmukaisia
-•    Omat tiedot-sivulla
-o    voi päivittää omia tietojaan (matkaaja-taulu). Sähköpostin ja salasanan muuttamista ei tarvitse sallia, mutta jos sen sallii, niin se pitää huomioida kirjautumisessa.
-•    Jäsenet-sivulla näkee kaikkien jäsenten muut tiedot paitsi salasanan ja sähköpostiosoitteen
+ näkee valikossa oman nimmarinsa,
+  näkee Koti-, Matkakohde-, Porukan matkat-, Omat matkat-, Omat tiedot-, Jäsenet-sivut.
+  
+ Matkakohde-sivulla:
+   voi lisätä, poistaa, päivittää ja selata matkakohteita. Sellaista matkakohdetta, johon liittyy joku matkakertomus, ei saa poistaa tai päivittää
+   Porukan matkat-sivulla, 
+   voi selata (ei-yksityisiä) porukan matkoja ja niihin liitettyjä tarinoita ja kuvia.
+   
+   
+   Omat matkat-sivulla:
+   voi lisätä, selata, päivittää ja poistaa omia matkoja ja niihin liitettyjä tarinoita ja kuvia,
+    voi merkitä matkan yksityiseksi, jolloin kukaan muu ei saa nähdä kyseistä matkaa, eikä siihen kuuluvia tarinoita tai kuvia, 
+   navigointi tarinat- ja kuvat-sivuille voi tapahtuma päävalikon tai sivukohtaisen valikon kautta oman harkinnan mukaan
+   
+    HUOM! Porukan matkat- ja Omat matkat-sivut saisivat olla mahdollisimman yhdenmukaisia
+    
+Omat tiedot-sivulla voi päivittää omia tietojaan (matkaaja-taulu). Sähköpostin ja salasanan muuttamista ei tarvitse sallia, mutta jos sen sallii, niin se pitää huomioida kirjautumisessa.
+    
+Jäsenet-sivulla näkee kaikkien jäsenten muut tiedot paitsi salasanan ja sähköpostiosoitteen
