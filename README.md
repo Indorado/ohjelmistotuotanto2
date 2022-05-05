@@ -13,10 +13,10 @@ Sovelluksessa pitää pystyä rekisteröitymään (sign up). Rekisteröitymisess
 Kirjautuminen tapahtuu sähköpostiosoitteen ja salasanan avulla.
 
 Kirjautumaton käyttäjä:
-•    saa selata matkakohteita
-•    näkee rekisteröitymis- ja kirjautumislinkit
-•    näkee muuten valikoissa vain Koti- ja Matkakohde-sivun
-•    Koti-sivulla on sopiva kuva ja tervehdysteksti
+    saa selata matkakohteita
+    näkee rekisteröitymis- ja kirjautumislinkit
+    näkee muuten valikoissa vain Koti- ja Matkakohde-sivun
+    Koti-sivulla on sopiva kuva ja tervehdysteksti
 
 Kirjautunut käyttäjä:
 •    näkee valikossa oman nimmarinsa
